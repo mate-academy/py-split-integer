@@ -2,8 +2,8 @@ from app.split_integer import split_integer
 
 
 def test_sum_or_the_parts_should_be_equal_to_value():
-    goals = split_integer(3, 3)
-    assert goals == [1, 1, 1]
+    goals = split_integer(10, 3)
+    assert sum(goals) == 10
 
 
 def test_should_split_a_number_into_equal_parts_when_value_is_divisible_by_number_of_parts():
