@@ -2,9 +2,7 @@ from app.split_integer import split_integer
 
 
 def test_sum_or_the_parts_should_be_equal_to_value():
-    goals = split_integer(6, 2)
-
-    assert sum(goals) == 6
+    assert sum(split_integer(6, 2)) == 6
 
 
 def test_should_split_a_number_into_equal_parts_when_value_is_divisible_by_number_of_parts():
