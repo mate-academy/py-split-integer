@@ -19,5 +19,5 @@ split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
 ```
 
 Notes:
-- Write tests in the `/tests/test_splite_integer.py` module
+- Write tests in the `/tests/test_split_integer.py` module
 - Their names indicate what exactly they should test
