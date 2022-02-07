@@ -17,7 +17,7 @@ def test_should_split_a_number_into_equal_parts_when_value_is_divisible_by_numbe
     assert all(splitted_number[0] == part for part in splitted_number)
 
 
-def test_should_return_a_part_equals_to_a_value_when_slitting_into_one_part():
+def test_should_return_a_part_equals_to_a_value_when_splitting_into_one_part():
     tested_value = 531
     splitted_number = split_integer(tested_value, 1)
     assert splitted_number[0] == tested_value
