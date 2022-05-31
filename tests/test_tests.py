@@ -10,7 +10,6 @@ def test_could_split_on_different_parts(monkeypatch):
     monkeypatch.setattr(split_integer, "split_integer", split_on_equal_part)
 
     test_result = pytest.main(["../app/test_split_integer.py"])
-    print(test_result)
     assert test_result.value == 1
 
 
