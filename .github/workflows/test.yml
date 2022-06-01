@@ -25,4 +25,4 @@ jobs:
       - name: Run student tests
         run: pytest app/
       - name: Run mentor tests
-        run: pytest tests/
+        run: pytest --numprocesses=auto tests/
