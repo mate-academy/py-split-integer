@@ -10,7 +10,7 @@ def test_sum_or_the_parts_should_be_equal_to_value():
     assert sum(result) == value
 
 
-def test_should_split_a_number_into_equal_parts_when_value_is_divisible_by_number_of_parts():
+def test_should_return_equal_parts_when_value_is_dile_by_number_of_parts():
     value = 20
     number_of_parts = 4
 
