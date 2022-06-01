@@ -2,8 +2,9 @@ from app.split_integer import split_integer
 
 
 def test_sum_or_the_parts_should_be_equal_to_value():
+    value = 32
     goals = split_integer(32, 6)
-    assert sum(goals) == 32
+    assert sum(goals) == value
 
 
 def test_should_split_a_number_into_equal_parts_when_value_is_divisible():
