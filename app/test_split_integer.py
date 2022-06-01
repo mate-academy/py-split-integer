@@ -5,11 +5,11 @@ def test_sum_or_the_parts_should_be_equal_to_value():
     assert sum(split_integer(6, 2)) == 6
 
 
-def test_should_split_a_number_into_equal_parts_when_value_is_divisible_by_number_of_parts():
+def test_should_split_a_number_into_equal_parts():
     assert split_integer(12, 4) == [3, 3, 3, 3]
 
 
-def test_should_return_a_part_equals_to_a_value_when_slitting_into_one_part():
+def test_should_return_value_when_slitting_into_one_part():
     assert split_integer(8, 1) == [8]
 
 
