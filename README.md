@@ -21,3 +21,8 @@ split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
 Notes:
 - Write tests in the `/app/test_split_integer.py` module
 - Their names indicate what exactly they should test
+
+Run `pytest app/` to check if function pass your tests.
+
+Run `pytest --numprocesses=auto tests/` to check if your tests cover all boundary conditions
+and pass task tests.
