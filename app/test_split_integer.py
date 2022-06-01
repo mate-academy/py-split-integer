@@ -19,7 +19,7 @@ def test_should_return_equal_parts_when_value_is_dile_by_number_of_parts():
     assert result.count(value / number_of_parts) == 4
 
 
-def test_should_return_a_part_equals_to_a_value_when_slitting_into_one_part():
+def test_should_return_part_equal_to_a_value_when_slitting_into_one_part():
     value = 20
     number_of_parts = 1
 
