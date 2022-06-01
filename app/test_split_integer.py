@@ -10,7 +10,7 @@ def test_sum_or_the_parts_should_be_equal_to_value():
     assert sum(result) == value
 
 
-def test_should_return_equal_parts_when_value_is_dile_by_number_of_parts():
+def test_equal_parts_when_value_is_dile_by_number_of_parts():
     value = 20
     number_of_parts = 4
 
@@ -19,7 +19,7 @@ def test_should_return_equal_parts_when_value_is_dile_by_number_of_parts():
     assert result.count(value / number_of_parts) == 4
 
 
-def test_should_return_part_equal_to_a_value_when_slitting_into_one_part():
+def test_part_equals_to_a_value_when_slitting_into_one_part():
     value = 20
     number_of_parts = 1
 
@@ -37,7 +37,7 @@ def test_parts_should_be_sorted_when_they_are_not_equal():
     assert result == [4, 4, 4, 5]
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts():
+def test_add_zeros_when_value_is_less_than_number_of_parts():
     value = 2
     number_of_parts = 4
 
