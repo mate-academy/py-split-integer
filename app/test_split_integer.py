@@ -2,10 +2,10 @@ from app.split_integer import split_integer
 
 
 def test_sum_or_the_parts_should_be_equal_to_value():
-    pass
+    assert split_integer(1, 1) == [1]
 
 
-def test_should_split_a_number_into_equal_parts_when_value_is_divisible_by_number_of_parts():
+def test_should_split_a_number_into_equal_parts_when_value():
     pass
 
 
