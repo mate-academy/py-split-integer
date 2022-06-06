@@ -16,7 +16,7 @@ def test_should_split_into_equal_parts_when_value_is_divisible_by_parts():
 
     result = split_integer(value, number_of_parts)
 
-    assert result.count(value / number_of_parts) == 4
+    assert len(set(result)) == 1
 
 
 def test_should_return_part_equals_to_a_value_when_slitting_into_one_part():
