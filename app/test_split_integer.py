@@ -6,8 +6,7 @@ def test_sum_or_the_parts_should_be_equal_to_value():
 
 
 def test_should_split_into_equal_parts_when_value_is_divisible_by_parts():
-    result = split_integer(6, 2)
-    assert abs(min(result) - max(result)) <= 1
+    assert split_integer(6, 2) == [3, 3]
 
 
 def test_should_return_a_part_equals_to_a_value_when_slitting_into_one_part():
