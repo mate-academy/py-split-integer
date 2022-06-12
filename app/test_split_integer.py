@@ -8,7 +8,7 @@ def test_sum_or_the_parts_should_be_equal_to_value():
     assert sum(func2) == 17
 
 
-def test_should_split_a_number_into_equal_parts_when_value_is_divisible_by_number_of_parts():
+def test_should_split_a_number_into_equal_parts():
     assert split_integer(15, 3) == [5, 5, 5]
 
 
