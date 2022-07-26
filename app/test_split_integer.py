@@ -23,4 +23,3 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts():
 
 def test_should_have_difference_between_max_and_min_number_in_array_equal():
     assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
-
