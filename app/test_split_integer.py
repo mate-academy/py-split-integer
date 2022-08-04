@@ -23,4 +23,4 @@ def test_parts_should_be_sorted_when_they_are_not_equal():
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts():
     actual = split_integer(3, 4)
-    assert actual == [0, 1, 1, 1, 1]
+    assert actual == [0, 1, 1, 1]
