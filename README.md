@@ -5,6 +5,8 @@ Write tests for `split_integer` function that takes 2 positive integers `value`
 and `number_of_parts` and returns an array containing exactly `number_of_parts` 
 integer elements.
 
+**Please note:** you have to use `pytest` for writing tests.
+
 - The difference between the max and min number in the array should be <= 1
 - The array should be sorted ascending (from lowest to highest)
 
