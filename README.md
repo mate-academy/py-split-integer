@@ -3,12 +3,12 @@
 
 Write tests for `split_integer` function that takes 2 positive integers `value`
 and `number_of_parts` and returns an array containing exactly `number_of_parts` 
-integer elements.
+integer elements:
+
+- the difference between the max and min number in the array should be <= 1;
+- the array should be sorted ascending (from lowest to highest).
 
 **Please note:** you have to use `pytest` for writing tests.
-
-- The difference between the max and min number in the array should be <= 1
-- The array should be sorted ascending (from lowest to highest)
 
 You don't need to validate arguments (they are always valid).
 
@@ -21,8 +21,8 @@ split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
 ```
 
 Notes:
-- Write tests in the `/app/test_split_integer.py` module
-- Their names indicate what exactly they should test
+- write tests in the `/app/test_split_integer.py` module;
+- their names indicate what exactly they should test.
 
 Run `pytest app/` to check if function pass your tests.
 
