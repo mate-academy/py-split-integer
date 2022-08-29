@@ -2,28 +2,21 @@ from app.split_integer import split_integer
 
 
 def test_sum_or_the_parts_should_be_equal_to_value():
-    result = split_integer(8, 1)
-    assert sum(result) == 8
+    assert sum(split_integer(8, 1)) == 8
 
-    result = split_integer(6, 2)
-    assert sum(result) == 6
+    assert sum(split_integer(6, 2)) == 6
 
-    result = split_integer(17, 4)
-    assert sum(result) == 17
+    assert sum(split_integer(17, 4)) == 17
 
-    result = split_integer(32, 6)
-    assert sum(result) == 32
+    assert sum(split_integer(32, 6)) == 32
 
 
 def test_should_split_into_equal_parts_when_value_is_divisible_by_parts():
-    result = split_integer(6, 2)
-    assert len(result) == 2
+    assert len(split_integer(6, 2)) == 2
 
-    result = split_integer(17, 4)
-    assert len(result) == 4
+    assert len(split_integer(17, 4)) == 4
 
-    result = split_integer(32, 6)
-    assert len(result) == 6
+    assert len(split_integer(32, 6)) == 6
 
 
 def test_should_return_part_equals_to_a_value_when_slitting_into_one_part():
