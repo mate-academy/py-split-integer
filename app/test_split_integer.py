@@ -19,6 +19,16 @@ def test_should_split_into_equal_parts_when_value_is_divisible_by_parts():
     assert len(split_integer(32, 6)) == 6
 
 
+def teat_split_integer():
+    assert split_integer(8, 1) == [8]
+
+    assert split_integer(6, 2) == [3, 3]
+
+    assert split_integer(17, 4) == [4, 4, 4, 5]
+
+    assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
+
+
 def test_should_return_part_equals_to_a_value_when_slitting_into_one_part():
     result = split_integer(8, 1)
     assert result[0] == 8
