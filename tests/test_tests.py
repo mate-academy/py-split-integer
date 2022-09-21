@@ -1,6 +1,15 @@
+import os
+
 import pytest
 
 from app import split_integer
+
+
+def path_to_main():
+    base_path = os.path.join("app", "test_split_integer.py")
+    return (
+        base_path if os.path.exists(base_path) else os.path.join(os.pardir, base_path)
+    )
 
 
 def test_could_split_on_different_parts(monkeypatch):
@@ -64,3 +73,12 @@ def test_split_on_different_parts(monkeypatch):
     assert (
         test_result.value == 1
     ), "Function 'split_on_different_parts' shouldn't pass all tests"
+
+
+def test_no_pass_in_code():
+    with open(path_to_main(), "r") as file:
+        tests_content = file.read()
+
+        assert (
+            "pass" not in tests_content
+        ), "You have to remove the 'pass' statement from your code if function is not empty"
