@@ -14,7 +14,7 @@ def test_should_return_part_equals_to_a_value_when_slitting_into_one_part():
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal():
-    assert split_integer(17, 4) == [2, 5, 5, 5]
+    assert split_integer(17, 4) == [4, 4, 4, 5]
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts():
