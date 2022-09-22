@@ -2,19 +2,19 @@
 
 ## Code Style
 
-1. Use descriptive and correct variable names.
+1. Don't create unnecessary variables for simple tests:
 
 Good example:
-
 ```python
-def get_full_name(first_name: str, last_name: str) -> str:
-    return f"{first_name} {last_name}"
+def test_():
+    assert some_function_to_test() == [10]
 ```
 
 Bad example:
 ```python
-def get_full_name(x: str, y: str) -> str:
-    return f"{x} {y}"
+def test_():
+    result_of_testing_function = some_function_to_test()
+    assert result_of_testing_function == [10]
 ```
 
 2. Make sure that you compare the result of function and expected result in `assert` statement.
