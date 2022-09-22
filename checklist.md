@@ -5,12 +5,14 @@
 1. Don't create unnecessary variables for simple tests:
 
 Good example:
+
 ```python
 def test_():
     assert some_function_to_test() == [10]
 ```
 
 Bad example:
+
 ```python
 def test_():
     result_of_testing_function = some_function_to_test()
