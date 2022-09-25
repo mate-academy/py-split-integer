@@ -26,7 +26,6 @@ def test_should_split_into_equal_parts_when_value_is_divisible_by_parts():
     assert check
 
 
-
 def test_should_return_part_equals_to_a_value_when_slitting_into_one_part():
     # split_integer(9, 1) == [9]
     value = 9
