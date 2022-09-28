@@ -2,7 +2,7 @@ from app.split_integer import split_integer
 
 
 def test_sum_or_the_parts_should_be_equal_to_value():
-    assert sum(split_integer(8, 1)) == 8
+    assert sum(split_integer(8, 3)) == 8
 
 
 def test_should_split_into_equal_parts_when_value_is_divisible_by_parts():
