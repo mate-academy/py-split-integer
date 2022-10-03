@@ -18,4 +18,4 @@ def test_parts_should_be_sorted():
 
 
 def test_should_add_zeros():
-    assert split_integer(10, 11) == [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    assert split_integer(10, 11) == [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
