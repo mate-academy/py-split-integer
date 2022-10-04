@@ -6,7 +6,7 @@ def test_sum_of_the_parts_should_be_equal_to_value():
 
 
 def test_should_split_into_equal_parts_when_value_is_divisible_by_parts():
-    result = split_integer(32, 6)
+    result = split_integer(40, 5)
     assert 0 == (result[-1] - result[0])
 
 
