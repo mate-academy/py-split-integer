@@ -29,4 +29,3 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts():
     value = 8
     number_of_parts = 9
     assert split_integer(value, number_of_parts) == [0, 1, 1, 1, 1, 1, 1, 1, 1]
-
