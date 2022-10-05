@@ -6,8 +6,7 @@ def test_sum_of_the_parts_should_be_equal_to_value():
 
 
 def test_should_split_into_equal_parts_when_value_is_divisible_by_parts():
-    result = split_integer(40, 5)
-    assert 0 == (result[-1] - result[0])
+    assert [8, 8, 8, 8, 8] == split_integer(40, 5)
 
 
 def test_should_return_part_equals_to_a_value_when_slitting_into_one_part():
@@ -15,10 +14,8 @@ def test_should_return_part_equals_to_a_value_when_slitting_into_one_part():
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal():
-    result = split_integer(32, 6)
-    assert result == sorted(result)
+    assert [5, 5, 5, 5, 6, 6] == sorted(split_integer(32, 6))
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts():
-    result = split_integer(4, 9)
-    assert 5 == result.count(0)
+    assert 5 == split_integer(4, 9).count(0)
