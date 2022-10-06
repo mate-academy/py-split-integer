@@ -14,8 +14,7 @@ def test_should_return_part_equals_to_a_value_when_slitting_into_one_part() -> N
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    parts_list = split_integer(32, 5)
-    assert parts_list == sorted(parts_list)
+    assert split_integer(32, 5) == [6, 6, 6, 7, 7]
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
