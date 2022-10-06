@@ -6,12 +6,12 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
     assert sum(split_integer(32, 6)) == 32
 
 
-def test_should_split_equal_parts_when_value_is_divisible_by_parts() -> None:
+def test_should_split_into_equal_parts_when_value_is_divisible_by_parts() -> None:
 
     assert split_integer(6, 2) == [3, 3]
 
 
-def test_should_return_equals_to_a_value_when_slitting_into_one_part() -> None:
+def test_should_return_part_equals_to_a_value_when_slitting_into_one_part() -> None:
 
     assert split_integer(8, 1) == 8
 
