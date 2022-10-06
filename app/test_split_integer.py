@@ -11,7 +11,7 @@ def test_should_split_into_equal_parts_when_value_is_divisible_by_parts():
     assert split_integer(6, 2) == [3, 3]
 
 
-def test_should_return_part_equals_to_a_value_when_slitting_into_one_part()
+def test_should_return_part_equals_to_a_value_when_slitting_into_one_part():
 
     assert split_integer(8, 1) == 8
 
