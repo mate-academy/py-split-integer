@@ -36,13 +36,6 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert 0 in expected
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    # assert split_integer(4, 5) == [0, 1, 1, 1, 1]
-    test_parameters = (4, 5)
-    expected = split_integer(*test_parameters)
-    assert 0 in expected
-
-
 def test_should_difference_between_numbers_le_than_one() -> None:
     # assert split_integer(13, 4) == [3, 3, 3, 4]
     test_parameters = (13, 4)
