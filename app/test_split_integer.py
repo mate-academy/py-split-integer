@@ -1,7 +1,7 @@
 from app.split_integer import split_integer
 
 
-def the_test_should_return_equal_parts_when_divided_by_the_same_as_the_sum() -> None:
+def the_test_should_return_equal_parts_when_divided_by_the_same() -> None:
     assert split_integer(4, 4) == [1, 1, 1, 1]
 
 
