@@ -124,4 +124,3 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts(
         expected_result: list
 ) -> None:
     assert split_integer(first_number, second_number) == expected_result
-    
