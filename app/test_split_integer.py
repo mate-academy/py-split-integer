@@ -23,16 +23,16 @@ def test_sum_of_the_parts_should_be_equal_to_value(
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     assert (
-        len(set(split_integer(4, 2))) == 1
+        split_integer(4, 2) == [2, 2]
     )
     assert (
-        len(set(split_integer(1, 1))) == 1
+        split_integer(1, 1) == [1]
     )
     assert (
-        len(set(split_integer(63, 7))) == 1
+        split_integer(63, 7) == [9, 9, 9, 9, 9, 9, 9]
     )
     assert (
-        len(set(split_integer(187, 17))) == 1
+        split_integer(186, 3) == [62, 62, 62]
     )
 
 
