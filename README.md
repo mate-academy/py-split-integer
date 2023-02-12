@@ -15,6 +15,7 @@ You don't need to validate arguments (they are always valid).
 
 Examples:
 ```
+3 9 == [0,0,0,0,0,0,1,1,1]
 split_integer(8, 1) == [8]
 split_integer(6, 2) == [3, 3]
 split_integer(17, 4) == [4, 4, 4, 5]
