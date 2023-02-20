@@ -28,4 +28,4 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     result = split_integer(3, 4)
 
-    assert result == [1, 1, 1, 0]
+    assert result == [0, 1, 1, 1]
