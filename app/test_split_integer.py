@@ -2,34 +2,25 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    target = 500
-    parts_number = 10
-    result = split_integer(target, parts_number)
-    assert sum(result) == target
+    assert split_integer(6, 2) == [3, 3]
+    assert split_integer(41, 8) == [5, 5, 5, 5, 5, 5, 5, 6]
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    target = 6
-    parts_number = 2
-    result = split_integer(target, parts_number)
-    assert result == [target // parts_number] * parts_number
+    assert split_integer(25, 5) == [5, 5, 5, 5, 5]
+    assert split_integer(16, 4) == [4, 4, 4, 4]
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    target = 7
-    result = split_integer(target, 1)
-    assert len(result) == 1 and result[0] == target
+    assert split_integer(7, 1) == [7]
+    assert split_integer(12, 1) == [12]
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    target = 32
-    parts_number = 6
-    result = split_integer(target, parts_number)
-    assert target % parts_number != 0 and result == sorted(result)
+    assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
+    assert split_integer(9, 4) == [2, 2, 2, 3]
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    target = 3
-    parts_number = 5
-    result = split_integer(target, parts_number)
-    assert target < parts_number and parts_number - target == result.count(0)
+    assert split_integer(3, 5) == [0, 0, 1, 1, 1]
+    assert split_integer(1, 4) == [0, 0, 0, 1]
