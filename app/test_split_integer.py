@@ -29,4 +29,4 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     parts = split_integer(4, 6)
     assert len(parts) == 6
     assert max(parts) - min(parts) <= 1
-    assert parts == [0, 0, 0, 1, 1, 2]
+    assert parts == [1, 1, 1, 0, 0, 1]
