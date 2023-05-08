@@ -3,13 +3,14 @@ from app.split_integer import split_integer
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
     parts = split_integer(25, 5)
-    assert sum(parts) == 25, "Sum of parts should be equal to value."
+    error_message = "Sum of parts should be equal to value."
+    assert sum(parts) == 25, error_message
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     parts = split_integer(10, 5)
-
-    assert parts == [2, 2, 2, 2, 2], "Value should be split into equal parts"
+    error_message = "Value should be split into equal parts"
+    assert parts == [2, 2, 2, 2, 2], error_message
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
