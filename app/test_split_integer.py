@@ -9,7 +9,7 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     assert (
-        len(split_integer(17, 4)) == 1
+        len(split_integer(17, 4)) == 4
     ), "Length of parts should be equal to number of parts"
 
 
