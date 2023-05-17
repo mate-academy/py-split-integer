@@ -26,7 +26,7 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
     elements = split_integer(value, number_of_parts)
     assert (
             len(elements) == 1 and value in elements
-    ), f"If number_of_parts is 1, should return part equals to value"
+    ), f"If number of parts is 1, should return part equals to value"
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
@@ -44,4 +44,4 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     elements = split_integer(value, number_of_parts)
     assert (
             0 in elements
-    ), f"Should add zeros when value is less than number_of_parts"
+    ), f"Should add zeros when value is less than number of parts"
