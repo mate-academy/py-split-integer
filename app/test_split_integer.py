@@ -45,7 +45,8 @@ def test_should_return_empty_list_when_value_is_zero() -> None:
     assert parts == []
 
 
-def test_should_return_single_part_with_value_zero_when_number_of_parts_is_zero() -> None:
+def test_return_single_part_with_value_zero_when_number_of_parts_is_zero() \
+        -> None:
     value = 10
     number_of_parts = 0
     parts = split_integer(value, number_of_parts)
