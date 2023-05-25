@@ -38,11 +38,12 @@ def test_sum_of_the_parts_should_be_equal_to_value(value: int,
          "value in expected_result",
          ]
 )
-def test_should_split_into_equal_parts_when_value_divisible_by_parts(value: int,
-                                                                     number_of_parts: int,
-                                                                     expected_result: list[int]
-                                                                     ) -> None:
-    assert set(split_integer(value, number_of_parts)).pop() == set(expected_result).pop()
+def test_split_into_equal_parts(value: int,
+                                number_of_parts: int,
+                                expected_result: list[int]
+                                ) -> None:
+    func_result_unique = set(split_integer(value, number_of_parts)).pop()
+    assert func_result_unique == set(expected_result).pop()
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
@@ -83,4 +84,5 @@ def test_difference_between_the_max_and_min_number(value: int,
                                                    expected_result: list[int]
                                                    ) -> None:
     result = split_integer(value, number_of_parts)
-    assert max(result) - min(expected_result) == 0 if len(set(result)) == 1 else 1
+    assert (max(result) - min(expected_result) == 0
+            if len(set(result)) == 1 else 1)
