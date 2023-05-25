@@ -61,10 +61,8 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     value, number_of_parts = 5, 10
-    result = set(split_integer(value, number_of_parts))
-    assert len(result) == 2
-    assert 0 in result
-    assert 1 in result
+    result = split_integer(value, number_of_parts)
+    assert result == [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]
 
 
 @pytest.mark.parametrize(
@@ -86,3 +84,5 @@ def test_difference_between_the_max_and_min_number(value: int,
     result = split_integer(value, number_of_parts)
     assert (max(result) - min(expected_result) == 0
             if len(set(result)) == 1 else 1)
+
+
