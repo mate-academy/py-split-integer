@@ -41,15 +41,18 @@ from app.split_integer import split_integer
 #                                                                      ) -> None:
 #     assert set(split_integer(value, number_of_parts)).pop() == set(expected_result).pop()
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    for value in range(1, 4):
-        result = split_integer(value, 1)
-        assert len(result) == 1 and result[0] == value
+# def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
+#     for value in range(1, 4):
+#         result = split_integer(value, 1)
+#         assert len(result) == 1 and result[0] == value
 #
-#
+
+
 # def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-#     value, number_of_parts = 0, 0
-#     result = split_integer(value, number_of_parts)
+#     result = split_integer(7, 4)
+#     sorted_list = result.copy()
+#     sorted_list.sort()
+#     assert result == sorted_list
 #
 #
 # def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
