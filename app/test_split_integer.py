@@ -84,5 +84,3 @@ def test_difference_between_the_max_and_min_number(value: int,
     result = split_integer(value, number_of_parts)
     assert (max(result) - min(expected_result) == 0
             if len(set(result)) == 1 else 1)
-
-
