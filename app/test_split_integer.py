@@ -34,7 +34,7 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     value = 8
-    number_of_parts = 10
+    number_of_parts = 19
     parts = split_integer(value, number_of_parts)
     assert len(parts) == number_of_parts
     assert parts.count(0) == number_of_parts - value
