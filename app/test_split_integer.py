@@ -8,13 +8,13 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    assert split_integer(4, 2)[0] == split_integer(4, 2)[1]
-    assert split_integer(8, 2)[0] == split_integer(8, 2)[1],\
+    assert split_integer(4, 2) == [2, 2]
+    assert split_integer(8, 2) == [4, 4],\
         "Parts should be equal when value divisible by parts"
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    assert split_integer(8, 1)[0] == 8, \
+    assert split_integer(8, 1) == [8], \
         "Parts should have one value equal to start when split into one"
 
 
@@ -24,5 +24,5 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    assert split_integer(4, 6)[0] == 0,\
+    assert split_integer(4, 6) == [0, 0, 1, 1, 1, 1],\
         "parts should starts with 0 if value less than number of parts"
