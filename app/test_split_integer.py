@@ -1,7 +1,7 @@
 from app.split_integer import split_integer
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
+def test_sum_of_the_parts_should_be_equal_to_value() -> list:
     sum_integer = 0
     for parts_integ in split_integer(85, 10):
         sum_integer = sum_integer + int(parts_integ)
@@ -9,7 +9,7 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    assert 80 % len(split_integer(80, 10)) == 0
+    assert 80 % len(split_integer(90, 10)) == 0
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
