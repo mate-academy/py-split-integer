@@ -4,6 +4,7 @@ import pytest
 
 from app import split_integer
 
+
 def path_to_main():
     base_path = os.path.join("app", "test_split_integer.py")
     return (
@@ -17,11 +18,9 @@ def test_could_split_on_different_parts(monkeypatch):
 
     monkeypatch.setattr(split_integer, "split_integer", split_on_equal_part)
 
-    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "app", "test_split_integer.py"))
-    test_result = pytest.main([base_path])
-
+    test_result = pytest.main(["app/test_split_integer.py"])
     assert (
-        test_result == 1
+        test_result.value == 1
     ), "Function 'split_on_equal_part' shouldn't pass all tests"
 
 
@@ -36,8 +35,7 @@ def test_only_last_number_is_incremented(monkeypatch):
         split_integer, "split_integer", split_and_increment_the_last_number
     )
 
-    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "app", "test_split_integer.py"))
-    test_result = pytest.main([base_path])
+    test_result = pytest.main(["app/test_split_integer.py"])
     assert (
         test_result.value == 1
     ), "Function 'split_and_increment_the_last_number' shouldn't pass all tests"
@@ -53,8 +51,7 @@ def test_split_on_incorrect_parts(monkeypatch):
 
     monkeypatch.setattr(split_integer, "split_integer", split_on_incorrect_parts)
 
-    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "app", "test_split_integer.py"))
-    test_result = pytest.main([base_path])
+    test_result = pytest.main(["app/test_split_integer.py"])
     assert (
         test_result.value == 1
     ), "Function 'split_on_incorrect_parts' shouldn't pass all tests"
@@ -72,11 +69,9 @@ def test_split_on_different_parts(monkeypatch):
 
     monkeypatch.setattr(split_integer, "split_integer", split_on_different_parts)
 
-    base_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "app", "test_split_integer.py"))
-    test_result = pytest.main([base_path])
-
+    test_result = pytest.main(["app/test_split_integer.py"])
     assert (
-        test_result.value == 0
+        test_result.value == 1
     ), "Function 'split_on_different_parts' shouldn't pass all tests"
 
 
