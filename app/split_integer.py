@@ -1,7 +1,12 @@
-from typing import List
+def split_integer(value: int, number_of_parts: int) -> list:
+    base_part = value // number_of_parts
+    remaining = value % number_of_parts
 
+    parts = [base_part] * number_of_parts
 
-def split_integer(value: int, number_of_parts: int) -> List[int]:
-    quotient, remainder = divmod(value, number_of_parts)
-    return [quotient + 1] * remainder + [quotient] *\
-        (number_of_parts - remainder)
+    for i in range(remaining):
+        parts[i] += 1
+
+    parts.sort()
+
+    return parts

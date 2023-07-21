@@ -1,31 +1,37 @@
-from .split_integer import split_integer
+from app.split_integer import split_integer
 
 
-def test_difference_between_max_and_min() -> None:
-    num_parts = 5
-    for value in [10, 15, 20, 25, 30]:
-        result = split_integer(value, num_parts)
-        assert max(result) - min(result) <= 1
+def test_sum_of_the_parts_should_be_equal_to_value() -> None:
+    value = 20
+    parts = 5
+    result = split_integer(value, parts)
+    assert sum(result) == value
 
 
-def test_array_sorted_ascending() -> None:
-    num_parts = 5
-    for value in [12, 18, 22, 29, 33]:
-        result = split_integer(value, num_parts)
-        assert result == sorted(result)
+def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
+    value = 15
+    parts = 5
+    result = split_integer(value, parts)
+    assert len(result) == parts
+    assert all(part == value // parts for part in result)
 
 
-def test_single_element_array() -> None:
-    assert split_integer(8, 1) == [8]
+def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
+    value = 10
+    parts = 1
+    result = split_integer(value, parts)
+    assert result == [value]
 
 
-def test_two_elements_array() -> None:
-    assert split_integer(6, 2) == [3, 3]
+def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
+    value = 19
+    parts = 5
+    result = split_integer(value, parts)
+    assert result == [3, 4, 4, 4, 4]
 
 
-def test_four_elements_array() -> None:
-    assert split_integer(17, 4) == [4, 4, 4, 5]
-
-
-def test_six_elements_array() -> None:
-    assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
+def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
+    value = 3
+    parts = 5
+    result = split_integer(value, parts)
+    assert result == sorted([1, 1, 1, 0, 0])
