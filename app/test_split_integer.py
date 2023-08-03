@@ -13,7 +13,7 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
 
 # тест должен возвращать часть, равную значению, при разделении на одну часть
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    assert  split_integer(8, 1) == [8]
+    assert split_integer(8, 1) == [8]
 
 
 # тестовые части должны быть отсортированы, если они не равны
