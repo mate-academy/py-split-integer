@@ -14,16 +14,8 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    value, number_of_parts = 16, 5
-
-    expected_res = split_integer(value, number_of_parts)
-
-    assert expected_res == sorted(expected_res)
+    assert split_integer(16, 5) == sorted(split_integer(16, 5))
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    value, number_of_parts = 3, 5
-
-    expected_res = split_integer(value, number_of_parts)
-
-    assert (len(expected_res) == 5) and (0 in expected_res)
+    assert split_integer(3, 5) == [0, 0, 1, 1, 1]
