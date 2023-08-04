@@ -10,8 +10,7 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     value = 25
     number_of_parts = 5
-    assert (all(x == split_integer(value, number_of_parts)[0]
-                for x in split_integer(value, number_of_parts)))
+    assert len(set(split_integer(value, number_of_parts))) == 1
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
