@@ -15,9 +15,7 @@ def test_sum_of_the_parts_should_be_equal_to_value(
         value: int,
         number_of_parts: int) -> None:
 
-    t_case = split_integer(value, number_of_parts)
-
-    assert sum(t_case) == value
+    assert sum(split_integer(value, number_of_parts)) == value
 
 
 @pytest.mark.parametrize(
@@ -34,9 +32,8 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts(
         number_of_parts: int,
         equal_part: int) -> None:
 
-    t_case = split_integer(value, number_of_parts)
-
-    assert all(num == equal_part for num in t_case)
+    assert all(num == equal_part
+               for num in split_integer(value, number_of_parts))
 
 
 @pytest.mark.parametrize(
@@ -50,9 +47,7 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts(
 def test_should_return_part_equals_to_value_when_split_into_one_part(
         value: int) -> None:
 
-    t_case = split_integer(value, 1)
-
-    assert sum(t_case) == value
+    assert sum(split_integer(value, 1)) == value
 
 
 @pytest.mark.parametrize(
@@ -67,9 +62,7 @@ def test_parts_should_be_sorted_when_they_are_not_equal(
         number_of_parts: int,
         expected: list) -> None:
 
-    t_case = split_integer(value, number_of_parts)
-
-    assert t_case == expected
+    assert split_integer(value, number_of_parts) == expected
 
 
 @pytest.mark.parametrize(
@@ -85,6 +78,4 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts(
         number_of_parts: int,
         expected: list) -> None:
 
-    t_case = split_integer(value, number_of_parts)
-
-    assert t_case == expected
+    assert split_integer(value, number_of_parts) == expected
