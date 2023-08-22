@@ -11,21 +11,21 @@ class TestSplitInteger:
                 6,
                 2,
                 [3, 3],
-                id="test should split into equal parts "
+                id="should split into equal parts "
                 "when value divisible by parts",
             ),
             pytest.param(
                 8,
                 1,
                 [8],
-                id="test should return part equals to value "
+                id="should return part equals to value "
                 "when split into one part",
             ),
             pytest.param(
                 4,
                 6,
                 [0, 0, 1, 1, 1, 1],
-                id="test should add zeros "
+                id="should add zeros "
                 "when value is less than number of parts",
             ),
         ],
