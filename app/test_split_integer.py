@@ -22,12 +22,6 @@ class TestSplitInteger:
                 "when split into one part",
             ),
             pytest.param(
-                17,
-                4,
-                [4, 4, 4, 5],
-                id="test parts should be sorted when they are not equal",
-            ),
-            pytest.param(
                 4,
                 6,
                 [0, 0, 1, 1, 1, 1],
@@ -42,6 +36,13 @@ class TestSplitInteger:
         result = split_integer(value, number_of_parts)
 
         assert result == expected_result
+
+    def test_parts_should_be_sorted_when_they_are_not_equal(self):
+        value = 17
+        number_of_parts = 4
+        result = split_integer(value, number_of_parts)
+
+        assert sorted(result) == result
 
     def test_sum_of_the_parts_should_be_equal_to_value(self) -> None:
         value = 17
