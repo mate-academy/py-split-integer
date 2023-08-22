@@ -37,7 +37,7 @@ class TestSplitInteger:
 
         assert result == expected_result
 
-    def test_parts_should_be_sorted_when_they_are_not_equal(self):
+    def test_parts_should_be_sorted_when_they_are_not_equal(self) -> None:
         value = 17
         number_of_parts = 4
         result = split_integer(value, number_of_parts)
