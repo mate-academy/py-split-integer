@@ -1,4 +1,4 @@
-
+import pytest
 from app.split_integer import split_integer
 
 
@@ -20,3 +20,17 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert split_integer(2, 4) == [0, 0, 1, 1]
+
+
+def test_should_raise_error_for_type_of_value() -> None:
+    with pytest.raises(TypeError):
+        split_integer("5", 2)
+        split_integer({3}, 1)
+        split_integer([2], 1)
+
+
+def test_should_raise_error_for_type_of_number_of_parts() -> None:
+    with pytest.raises(TypeError):
+        split_integer(10, "3")
+        split_integer(2, [3])
+        split_integer(9, {2})
