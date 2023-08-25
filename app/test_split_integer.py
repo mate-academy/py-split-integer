@@ -12,13 +12,15 @@ class TestSplitInteger:
                 16,
                 4,
                 [4, 4, 4, 4],
-                id="should split into equal parts when value divisible by parts"
+                id=("should split into equal parts"
+                    " when value divisible by parts")
             ),
             pytest.param(
                 4,
                 1,
                 [4],
-                id="should return part equals to value when split into one part"
+                id=("should return part equals"
+                    " to value when split into one part")
             ),
             pytest.param(
                 33,
@@ -40,4 +42,5 @@ class TestSplitInteger:
         parts_to_divide: int,
         expected_result: list[int]
     ) -> None:
-        assert split_integer(initial_number, parts_to_divide) == expected_result
+        split_integer_result = split_integer(initial_number, parts_to_divide)
+        assert split_integer_result == expected_result
