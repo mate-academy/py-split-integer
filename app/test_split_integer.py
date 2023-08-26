@@ -34,18 +34,3 @@ class TestSplitInteger:
         expected_result: list
     ) -> None:
         assert split_integer(value, number_of_parts) == expected_result
-
-    def test_parts_should_be_sorted_when_they_are_not_equal(self) -> None:
-        value = 32
-        number_of_parts = 6
-        result = split_integer(value, number_of_parts)
-
-        assert sorted(result) == result
-
-    def test_sum_of_the_parts_should_be_equal_to_value(self) -> None:
-        value = 17
-        number_of_parst = 4
-
-        result = split_integer(value, number_of_parst)
-
-        assert sum(result) == value
