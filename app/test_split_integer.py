@@ -32,9 +32,10 @@ import pytest
     ],
 )
 def test_modify_parts_correctly(
-    initial_parts: list, except_result: int
+    initial_parts: list,
+    except_result: int
 ) -> None:
-    assert split_integer(initial_parts[0], initial_parts[1]) == except_result
+    assert split_integer(*initial_parts) == except_result
 
 
 @pytest.mark.parametrize(
