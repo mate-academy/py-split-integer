@@ -1,21 +1,56 @@
 from app.split_integer import split_integer
 
-
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+import pytest
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+@pytest.mark.parametrize(
+    "initial_parts, except_result",
+    [
+        pytest.param(
+            [1, 1], [1], id="sum of the parts should be equal to value"
+        ),
+        pytest.param(
+            [6, 2],
+            [3, 3],
+            id="should split into equal parts when value divisible by parts",
+        ),
+        pytest.param(
+            [8, 0],
+            [],
+            id="should return part equals to value when split into one part",
+        ),
+        pytest.param(
+            [17, 4],
+            [4, 4, 4, 5],
+            id="parts should be sorted when they are not equal",
+        ),
+        pytest.param(
+            [2, 4],
+            [0, 0, 1, 1],
+            id="should add zeros when value is less than number of parts",
+        ),
+    ],
+)
+def test_modify_parts_correctly(
+    initial_parts: list,
+    except_result: int
+) -> None:
+    assert split_integer(*initial_parts) == except_result
 
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
-
-
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
-
-
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+@pytest.mark.parametrize(
+    "initial_parts, except_result",
+    [
+        pytest.param(
+            "abs", TypeError, id="should raise error when parts is not int"
+        ),
+        pytest.param(
+            [3.2, 1.1],
+            TypeError,
+            id="should raise error when parts is not int",
+        ),
+    ],
+)
+def test_should_raise_error(initial_parts: any, except_result: any) -> None:
+    with pytest.raises(except_result):
+        split_integer(initial_parts[0], initial_parts[1])
