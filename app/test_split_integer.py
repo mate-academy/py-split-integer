@@ -5,8 +5,9 @@ from app.split_integer import split_integer
 
 class TestSplitInteger:
     def test_sum_of_the_parts_should_be_equal_to_value(self) -> None:
-        assert sum(split_integer(20, 4)) == 20, ("sum of the parts should be "
-                                                 "equal to the original value")
+        assert sum(split_integer(20, 4)) == 20, (
+            "sum of the parts should be equal to the original value"
+        )
 
     @pytest.mark.parametrize(
         "value, number_of_parts, result",
