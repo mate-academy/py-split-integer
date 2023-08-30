@@ -23,7 +23,13 @@ class TestSplitInteger:
                 32,
                 6,
                 [5, 5, 5, 5, 6, 6],
-                id="should split correctly"
+                id="parts should be sorted when they are not equal"
+            ),
+            pytest.param(
+                2,
+                3,
+                [0, 1, 1],
+                id="should add zeros when value is less than number of parts"
             )
         ]
     )
@@ -34,3 +40,11 @@ class TestSplitInteger:
         expected_result: list
     ) -> None:
         assert split_integer(value, number_of_parts) == expected_result
+
+    def test_sum_of_the_parts_should_be_equal_to_value(self) -> None:
+        value = 17
+        number_of_parst = 4
+
+        result = split_integer(value, number_of_parst)
+
+        assert sum(result) == value
