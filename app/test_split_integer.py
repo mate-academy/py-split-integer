@@ -9,30 +9,30 @@ class TestSplitInteger:
             pytest.param(
                 8, 2,
                 [4, 4],
-                id="test_sum_of_the_parts_should_be_equal_to_value"
+                id="test sum of the parts should be equal to value"
             ),
             pytest.param(
                 9, 3,
                 [3, 3, 3],
-                id=("test_should_split_into_equal "
-                    "parts_when_value_divisible_by_parts")
+                id=("test should split into equal "
+                    "parts when value divisible by parts")
             ),
             pytest.param(
                 8, 1,
                 [8],
-                id=("test_should_return_part_equals_"
-                    "to_value_when_split_into_one_part")
+                id=("test should return part equals "
+                    "to value when split into one part")
             ),
             pytest.param(
                 30, 4,
                 [7, 7, 8, 8],
-                id="test_parts_should_be_sorted_when_they_are_not_equal"
+                id="test parts should be sorted when they are not equal"
             ),
             pytest.param(
                 1, 3,
                 [0, 0, 1],
-                id=("test_should_add_zeros_when_"
-                    "value_is_less_than_number_of_parts")
+                id=("test should add zeros when "
+                    "value is less than number of parts")
             )
         ]
     )
