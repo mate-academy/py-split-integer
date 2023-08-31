@@ -9,7 +9,7 @@ class TestSplitInteger:
             pytest.param(
                 10, 2,
                 [5, 5],
-                id="test sum of the parts should be equal to value"
+                id="test_sum_of_the parts should be equal to value"
             ),
             pytest.param(
                 9, 3,
