@@ -7,8 +7,8 @@ class TestSplitInteger:
         "value,number_of_parts,result",
         [
             pytest.param(
-                8, 2,
-                [4, 4],
+                10, 2,
+                [5, 5],
                 id="test sum of the parts should be equal to value"
             ),
             pytest.param(
