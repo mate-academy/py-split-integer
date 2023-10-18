@@ -22,7 +22,7 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     result_list = split_integer(13, 7)
-    sorted_result_list = split_integer(13, 7)
+    sorted_result_list = sorted(split_integer(13, 7))
     assert (
         result_list == sorted_result_list
     ), "Parts should be sorted when they are not equal!"
