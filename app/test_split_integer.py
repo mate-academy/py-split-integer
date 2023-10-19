@@ -2,8 +2,6 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    # total = split_integer(6, 2)
-    # assert sum(total) == 6
     assert sum(split_integer(6, 2)) == 6
 
 
