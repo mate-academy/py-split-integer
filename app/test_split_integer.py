@@ -84,10 +84,4 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
 
     result = split_integer(value, number_of_parts)
 
-    assert len(result) == number_of_parts
-
-    for i in range(value):
-        assert result[i] == 0
-
-    for i in range(value, number_of_parts):
-        assert result[i] != 0
+    assert result == [0, 0, 1, 1]
