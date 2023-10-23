@@ -28,7 +28,7 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     value, parts = 3, 5
     result = split_integer(value, parts)
-    assert result == [1, 1, 0, 0, 0]
+    assert result == [0, 0, 1, 1, 1]
 
 
 def test_difference_between_min_and_max_should_be_1() -> None:
