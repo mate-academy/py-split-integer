@@ -36,7 +36,8 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts(
     value: int,
     number_of_parts: int
 ) -> None:
-    assert split_integer(value, number_of_parts) == [value // number_of_parts] * number_of_parts
+    expected_result = [value // number_of_parts] * number_of_parts
+    assert split_integer(value, number_of_parts) == expected_result
 
 
 @pytest.mark.parametrize(
