@@ -82,3 +82,4 @@ def test_no_pass_in_code():
         assert (
             "pass" not in tests_content
         ), "You have to remove the 'pass' statement from your code if function is not empty"
+
