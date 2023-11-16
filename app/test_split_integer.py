@@ -25,7 +25,7 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
     number_of_parts = 1
     parts = split_integer(value, number_of_parts)
 
-    assert int(parts) / value == 1
+    assert parts[-number_of_parts] == value
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
@@ -41,4 +41,7 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     number_of_parts = 4
     parts = split_integer(value, number_of_parts)
 
-    assert parts[:-value] == (number_of_parts - value) * [0]
+    assert (
+        parts[:-value] == (number_of_parts - value) * [0]
+        and parts[-value:] == value * [1]
+    )
