@@ -1,16 +1,56 @@
+import pytest
+
 from app.split_integer import split_integer
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+@pytest.mark.parametrize(
+    "value,number_of_parts",
+    [
+        (7, 2),
+        (32, 6),
+        (0, 100),
+        (10, 10)
+    ]
+)
+def test_sum_of_the_parts_should_be_equal_to_value(value: int,
+                                                   number_of_parts: int) -> None:
+    assert(
+        sum(split_integer(value, number_of_parts)) == value
+    ), (f"Function split_integer({value}, {number_of_parts}) "
+        f"should return parts which sum will be equal to {value}")
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+@pytest.mark.parametrize(
+    "value, number_of_parts, parts",
+    [
+        (2, 2, [1, 1]),
+        (10, 2, [5, 5]),
+        (36, 6, [6, 6, 6, 6, 6, 6]),
+        (100, 4, [25, 25, 25, 25])
+    ]
+)
+def test_should_split_into_equal_parts_when_value_divisible_by_parts(value: int,
+                                                                     number_of_parts: int,
+                                                                     parts: list) -> None:
+    assert (
+        split_integer(value, number_of_parts) == parts
+    ), (f"Function split_integer({value}, {number_of_parts}) "
+        f"should return {parts}")
 
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+@pytest.mark.parametrize(
+    "value, number_of_parts",
+    [
+        (2, 1),
+        (3456, 1),
+        (0, 1)
+    ]
+)
+def test_should_return_part_equals_to_value_when_split_into_one_part(value: int,
+                                                                     number_of_parts: int) -> None:
+    assert (
+        split_integer(value, number_of_parts)[0] == value
+    )
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
