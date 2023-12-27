@@ -6,8 +6,7 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    for element in split_integer(12, 4):
-        assert element == 3
+    assert split_integer(12, 4) == [3, 3, 3, 3]
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
