@@ -7,16 +7,15 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    result = split_integer(100, 2)
-    assert result == [50, 50], \
-        f"The difference between the {max(result)} and " \
-        f"{min(result)} number in the array should be <= 1"
+    assert split_integer(100, 2) == [50, 50], \
+        f"The difference between the {max(split_integer(100, 2))} and " \
+        f"{min(split_integer(100, 2))} number in the array should be <= 1"
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    result = split_integer(100, 1)
-    assert result == [100], \
-        f"{result} should be equal to [100] if number of parts is 1"
+    assert split_integer(100, 1) == [100], \
+        f"{split_integer(100, 1)} should be equal to "\
+        f"[100] if number of parts is 1"
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
