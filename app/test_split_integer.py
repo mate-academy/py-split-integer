@@ -12,7 +12,7 @@ from app.split_integer import split_integer
                      id="should return list with value when parts equal one"),
         pytest.param(32, 6, [5, 5, 5, 5, 6, 6],
                      id="returned list should be sorted in ascending order"),
-        pytest.param(6, 7, [8, 8, 8, 9, 9, 9, 9],
+        pytest.param(6, 7, [0, 1, 1, 1, 1, 1, 1],
                      id="should add zeros to value when parts > value")
     ]
 )
