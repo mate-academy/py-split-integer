@@ -2,7 +2,8 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    assert (sum(split_integer(8, 2)) == 8
+    assert (
+        sum(split_integer(8, 2)) == 8
     ), "Sum of the parts should be equal to value"
 
 
@@ -12,7 +13,7 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    assert (split_integer(9,1) == [9]
+    assert (split_integer(9, 1) == [9]
             ), "Should return part equals to value when split into one part"
 
 
