@@ -31,18 +31,16 @@ class TestSplitInteger:
                          id="should return part equals to value"),
         ]
     )
-    def test_split_in(
+    def test_split_integer_behavior(
             self,
             value: int,
             number_of_parts: int,
             expected: int | list[int]
     ) -> None:
-        sum_of_parts = sum(split_integer(value, number_of_parts))
+        result = split_integer(value, number_of_parts)
         if isinstance(expected, int):
-            assert (sum_of_parts == expected)
-        elif value < number_of_parts:
-            assert (split_integer(value, number_of_parts) == expected)
-        elif number_of_parts == 1:
-            assert (split_integer(value, number_of_parts) == expected)
+            assert (sum(result) == expected)
+        elif value < number_of_parts or number_of_parts == 1:
+            assert (result == expected)
         else:
-            assert (split_integer(value, number_of_parts) == expected)
+            assert (result == expected)
