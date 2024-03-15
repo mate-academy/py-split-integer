@@ -21,7 +21,6 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     result = split_integer(value=29, number_of_parts=10)
-    # if sorted(result)[0] != sorted(result)[-1]:
 
     assert (
         split_integer(value=29, number_of_parts=10) == sorted(result)
@@ -29,9 +28,6 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    # result = split_integer(value=10, number_of_parts=10)
-    #   if sum(result) < len(result):
-
     assert (
         split_integer(value=1, number_of_parts=3) == [0, 0, 1]
     ), "Should add zeros when value is less than number of parts"
