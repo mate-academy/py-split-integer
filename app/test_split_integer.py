@@ -34,10 +34,3 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     number_of_parts = 5
     parts = split_integer(value, number_of_parts)
     assert len(parts) == number_of_parts and sum(parts) == value
-
-
-def test_fail_split_integer() -> None:
-    value = 7
-    number_of_parts = 2
-    parts = split_integer(value, number_of_parts)
-    assert sum(parts) != value
