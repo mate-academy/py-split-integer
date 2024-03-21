@@ -6,16 +6,19 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    quant_of_parts = random.randint(2, 5)
-    for value in range(5, 100, random.randint(1, 5)):
+    first_border = 1
+    up_border = 5
+    multiplayer = 100
+    quant_of_parts = random.randint(first_border, up_border)
+    for value in range(up_border, up_border * multiplayer,
+                       random.randint(first_border, up_border)):
         result = split_integer(value, quant_of_parts)
-        assert sum(result) == value, \
-            f"sum of {quant_of_parts} parts: {result} != value {value}"
+        assert sum(result) == value, (f"sum of {quant_of_parts} parts:"
+                                      f" {result} != value {value}")
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    result = split_integer(9, 3)
-    assert set(result) == {3}
+    assert split_integer(9, 3) == [3, 3, 3]
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
