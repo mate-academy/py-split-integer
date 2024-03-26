@@ -12,7 +12,6 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     value = 6
     number_of_parts = 2
     ls = split_integer(value, number_of_parts)
-    print(ls)
     assert all(ls[i] == ls[i + 1] for i in range(len(ls) - 1)) is True
 
 
