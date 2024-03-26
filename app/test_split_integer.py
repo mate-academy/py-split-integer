@@ -5,14 +5,15 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
     value = 6
     number_of_parts = 2
     ls = split_integer(value, number_of_parts)
-    assert value // number_of_parts in ls
+    assert sum(ls) == value
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    value = 17
-    number_of_parts = 4
+    value = 6
+    number_of_parts = 2
     ls = split_integer(value, number_of_parts)
-    assert max(ls) - min(ls) <= 1
+    print(ls)
+    assert all(ls[i] == ls[i + 1] for i in range(len(ls) - 1)) is True
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
