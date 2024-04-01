@@ -22,3 +22,17 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     result = split_integer(5, 8)
     assert len(result) == 8 and 0 in result
+
+
+def test_split_on_equal_part():
+    result = split_integer(20, 4)
+    assert len(result) == 4
+    assert sum(result) == 20
+    assert result != [5, 5, 5, 5]
+
+
+def test_split_and_increment_the_last_number():
+    result = split_integer(10, 5)
+    assert len(result) == 5
+    assert sum(result) == 10
+    assert result[-1] != 3
