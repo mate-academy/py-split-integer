@@ -20,7 +20,7 @@ class TestSplit:
             result: list
     ) -> None:
         assert split_integer(first_int, second_int) == (
-            result, f"Sum of the parts should be equal to value {first_int}")
+            result)
 
     def test_should_split_into_equal_parts_when_value_divisible_by_parts(
             self,
