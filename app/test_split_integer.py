@@ -1,4 +1,5 @@
 import pytest
+
 from app.split_integer import split_integer
 
 
@@ -11,7 +12,11 @@ class TestSplit:
             (6, 2, [3, 3]),
             (17, 4, [4, 4, 4, 5]),
             (32, 6, [5, 5, 5, 5, 6, 6])
-        ]
+        ],
+        ids=["First int is 8, second int is 1",
+             "First int is 6, second int is 2",
+             "First int is 17, second int is 4",
+             "First int is 32, second int is 6"]
     )
     def test_sum_of_the_parts_should_be_equal_to_value(
             self,
@@ -19,14 +24,14 @@ class TestSplit:
             second_int: int,
             result: list
     ) -> None:
-        assert split_integer(first_int, second_int) == (
-            result)
+        assert split_integer(first_int, second_int) == result
 
     @pytest.mark.parametrize(
         "first_int, second_int, expected_result",
         [
             (6, 2, [3, 3])
-        ]
+        ],
+        ids=["First int is 6, second int is 2"]
     )
     def test_should_split_into_equal_parts_when_value_divisible_by_parts(
             self,
@@ -56,7 +61,8 @@ class TestSplit:
         "first_int, second_int, expected_result",
         [
             (3, 5, [0, 0, 1, 1, 1])
-        ]
+        ],
+        ids=["First int is 3, second int is 5"]
     )
     def test_should_add_zeros_when_value_is_less_than_number_of_parts(
             self,
