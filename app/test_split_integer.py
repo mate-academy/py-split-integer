@@ -35,4 +35,4 @@ def test_split_and_increment_the_last_number():
     result = split_integer(10, 5)
     assert len(result) == 5
     assert sum(result) == 10
-    assert result[-1] != 3
+    assert result[-1] == 3
