@@ -22,12 +22,19 @@ class TestSplit:
         assert split_integer(first_int, second_int) == (
             result)
 
+    @pytest.mark.parametrize(
+        "first_int, second_int, expected_result",
+        [
+            (6, 2, [3, 3])
+        ]
+    )
     def test_should_split_into_equal_parts_when_value_divisible_by_parts(
             self,
             first_int: int,
-            second_int: int
+            second_int: int,
+            expected_result: list
     ) -> None:
-        assert (split_integer(first_int, second_int) == [3, 3]
+        assert (split_integer(first_int, second_int) == expected_result
                 ), "Test should split equal parts when value is divisible by"
 
     def test_should_return_part_equals_to_value_when_split_into_one_part(
@@ -45,10 +52,17 @@ class TestSplit:
         assert (split_integer(first_int, second_int) == sorted(result)
                 ), "Test parts should be sorted when they are not equal"
 
+    @pytest.mark.parametrize(
+        "first_int, second_int, expected_result",
+        [
+            (3, 5, [0, 0, 1, 1, 1])
+        ]
+    )
     def test_should_add_zeros_when_value_is_less_than_number_of_parts(
-            self
+            self,
+            first_int: int,
+            second_int: int,
+            expected_result: list
     ) -> None:
-        first_int = 3
-        second_int = 5
-        assert (split_integer(first_int, second_int) == [0, 0, 1, 1, 1]
+        assert (split_integer(first_int, second_int) == expected_result
                 ), "Test should add zeros"
