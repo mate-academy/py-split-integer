@@ -22,7 +22,7 @@ class TestSplit:
              "First int is 32, second int is 6",
              "First int is 6, second int is 2",
              "First int is 3, second int is 5"
-        ]
+             ]
     )
     def test_sum_of_the_parts_should_be_equal_to_value(
             self,
@@ -31,7 +31,6 @@ class TestSplit:
             result: list
     ) -> None:
         assert split_integer(first_int, second_int) == result
-
 
     def test_should_split_into_equal_parts_when_value_divisible_by_parts(
             self,
@@ -56,7 +55,6 @@ class TestSplit:
         result = [4, 4, 4, 5]
         assert (split_integer(first_int, second_int) == sorted(result)
                 ), "Test parts should be sorted when they are not equal"
-
 
     def test_should_add_zeros_when_value_is_less_than_number_of_parts(
             self,
