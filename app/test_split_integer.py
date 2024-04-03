@@ -32,6 +32,23 @@ class TestSplit:
     ) -> None:
         assert split_integer(first_int, second_int) == result
 
+    @pytest.mark.parametrize(
+        "first_int, second_int, expected_result",
+        [
+            (8, 1, [8]),
+            (6, 2, [3, 3]),
+            (17, 4, [4, 4, 4, 5]),
+            (32, 6, [5, 5, 5, 5, 6, 6]),
+            (6, 2, [3, 3]),
+            (3, 5, [0, 0, 1, 1, 1])
+        ],
+        ids=["First int is 8, second int is 1",
+             "First int is 6, second int is 2",
+             "First int is 17, second int is 4",
+             "First int is 32, second int is 6",
+             "First int is 6, second int is 2",
+             "First int is 3, second int is 5"]
+    )
     def test_should_split_into_equal_parts_when_value_divisible_by_parts(
             self,
             first_int: int,
@@ -56,6 +73,23 @@ class TestSplit:
         assert (split_integer(first_int, second_int) == sorted(result)
                 ), "Test parts should be sorted when they are not equal"
 
+    @pytest.mark.parametrize(
+        "first_int, second_int, expected_result",
+        [
+            (8, 1, [8]),
+            (6, 2, [3, 3]),
+            (17, 4, [4, 4, 4, 5]),
+            (32, 6, [5, 5, 5, 5, 6, 6]),
+            (6, 2, [3, 3]),
+            (3, 5, [0, 0, 1, 1, 1])
+        ],
+        ids=["First int is 8, second int is 1",
+             "First int is 6, second int is 2",
+             "First int is 17, second int is 4",
+             "First int is 32, second int is 6",
+             "First int is 6, second int is 2",
+             "First int is 3, second int is 5"]
+    )
     def test_should_add_zeros_when_value_is_less_than_number_of_parts(
             self,
             first_int: int,
