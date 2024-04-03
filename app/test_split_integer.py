@@ -8,7 +8,10 @@ import pytest
     (17, 4, [4, 4, 4, 5]),
     (32, 6, [5, 5, 5, 5, 6, 6])
 ])
-def test_sum_of_the_parts_should_be_equal_to_value(value, number_of_parts, expected_result) -> None:
+def test_sum_of_the_parts_should_be_equal_to_value(value: int,
+                                                   number_of_parts: int,
+                                                   expected_result: list
+                                                   ) -> None:
     assert value == sum(expected_result)
 
 
@@ -18,7 +21,10 @@ def test_sum_of_the_parts_should_be_equal_to_value(value, number_of_parts, expec
     (17, 4, [4, 4, 4, 5]),
     (32, 6, [5, 5, 5, 5, 6, 6])
 ])
-def test_should_split_into_equal_parts_when_value_divisible_by_parts(value, number_of_parts, expected_result) -> None:
+def test_should_split_into_equal_parts_when_value_divisible_by_parts(
+        value: int,
+        number_of_parts: int,
+        expected_result: list) -> None:
     assert len(split_integer(value, number_of_parts)) == number_of_parts
     assert max(expected_result) - min(expected_result) <= 1
 
@@ -29,7 +35,10 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts(value, numb
     (17, 4, [4, 4, 4, 5]),
     (32, 6, [5, 5, 5, 5, 6, 6])
 ])
-def test_should_return_part_equals_to_value_when_split_into_one_part(value, number_of_parts, expected_result) -> None:
+def test_should_return_part_equals_to_value_when_split_into_one_part(
+        value: int,
+        number_of_parts: int,
+        expected_result: list) -> None:
     assert (split_integer(value, number_of_parts)) == expected_result
 
 
@@ -39,8 +48,11 @@ def test_should_return_part_equals_to_value_when_split_into_one_part(value, numb
     (17, 4),
     (32, 6)
 ])
-def test_parts_should_be_sorted_when_they_are_not_equal(value, number_of_parts) -> None:
-    assert split_integer(value, number_of_parts) == sorted(split_integer(value, number_of_parts))
+def test_parts_should_be_sorted_when_they_are_not_equal(
+        value: int,
+        number_of_parts: int) -> None:
+    assert (split_integer(value, number_of_parts)
+            == sorted(split_integer(value, number_of_parts)))
 
 
 @pytest.mark.parametrize("value, number_of_parts", [
@@ -49,5 +61,7 @@ def test_parts_should_be_sorted_when_they_are_not_equal(value, number_of_parts) 
     (17, 4),
     (32, 6)
 ])
-def test_should_add_zeros_when_value_is_less_than_number_of_parts(value, number_of_parts) -> None:
+def test_should_add_zeros_when_value_is_less_than_number_of_parts(
+        value: int,
+        number_of_parts: int) -> None:
     assert not value < number_of_parts
