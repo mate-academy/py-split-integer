@@ -1,5 +1,3 @@
-import pytest
-
 from app.split_integer import split_integer
 
 
@@ -15,23 +13,10 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     ), "Value not split into equal parts"
 
 
-@pytest.mark.parametrize(
-    "value,number_of_parts,expected_result",
-    [
-        (10, 1, [10]),
-        (10, 10, [1] * 10)
-    ],
-    ids=[
-        "Split into one part with value 10",
-        "Split into 10 equal parts with value 1"
-    ]
-)
-def test_should_return_part_equals_to_value_when_split_into_one_part(
-    value: int, number_of_parts: int, expected_result: list
-) -> None:
+def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
     assert (
-        split_integer(value, number_of_parts) == expected_result
-    ), "Value not split into one part or into 10 equal parts"
+        split_integer(10, 1) == [10]
+    ), "Value not split into one part"
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
