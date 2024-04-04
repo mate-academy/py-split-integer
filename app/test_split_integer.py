@@ -25,8 +25,7 @@ def test_sum_of_the_parts_should_be_equal_to_value(value: int,
     [
         (8, 1),
         (10, 5),
-        (100, 4),
-        (100, 3)
+        (100, 4)
     ]
 )
 def test_should_split_into_equal_parts_when_value_divisible_by_parts(
@@ -48,8 +47,7 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts(
     "value",
     [
         (13),
-        (101),
-        ("a")
+        (101)
     ]
 )
 def test_should_return_part_equals_to_value_when_split_into_one_part(
