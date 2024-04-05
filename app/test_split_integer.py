@@ -5,19 +5,21 @@ from app.split_integer import split_integer
 
 
 @pytest.mark.parametrize(
-    "value,number_of_parts,result",
+    "value,number_of_parts",
     [
-        (2, 1, split_integer(2, 1)),
-        (8, 2, split_integer(8, 2))
+        (2, 1),
+        (8, 2),
+        (8, 3)
     ]
 )
 def test_sum_of_the_parts_should_be_equal_to_value(value: int,
-                                                   number_of_parts: int,
-                                                   result: list[int]) -> None:
+                                                   number_of_parts: int
+                                                   ) -> None:
     assert (
-        split_integer(value=value, number_of_parts=number_of_parts) == result
-    ), (f"Split_integer of value={value} and number",
-        f" of parts = {number_of_parts} should be equal to {result}")
+        sum(
+            split_integer(value=value, number_of_parts=number_of_parts)
+        ) == value
+    ), f"Sum of parts should be equal to original value = {value}"
 
 
 @pytest.mark.parametrize(
@@ -60,19 +62,25 @@ def test_should_return_part_equals_to_value_when_split_into_one_part(
 
 
 @pytest.mark.parametrize(
-    "value,number_of_parts,result",
+    "value,number_of_parts",
     [
-        (17, 4, split_integer(17, 4)),
-        (49, 8, split_integer(49, 8))
+        (17, 4),
+        (49, 8)
     ]
 )
 def test_parts_should_be_sorted_when_they_are_not_equal(value: int,
-                                                        number_of_parts: int,
-                                                        result: list[int]
+                                                        number_of_parts: int
                                                         ) -> None:
+
+    list_of_neg_diff = [next_elem - prev_elem
+                        for prev_elem, next_elem in zip(
+                            split_integer(value, number_of_parts)[:-1],
+                            split_integer(value, number_of_parts)[1:])
+                        if next_elem - prev_elem < 0]
+
     assert (
-        split_integer(value=value, number_of_parts=number_of_parts) == result
-    ), (f"Split integer from value = {value} and number"
+        not list_of_neg_diff
+    ), (f"Split_integer result from value = {value} and number"
         f" of parts = {number_of_parts} should be ordered")
 
 
