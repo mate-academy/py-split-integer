@@ -1,5 +1,4 @@
 from app.split_integer import split_integer
-import pytest
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
