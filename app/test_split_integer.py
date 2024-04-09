@@ -2,30 +2,64 @@ import unittest
 from app.split_integer import split_integer
 
 
-class TestSplitInteger(unittest.TestCase):
+class TestSplit(unittest.TestCase):
 
-    def test_split_integer(self) -> None:
+    def test_split_integer_zero_parts(self) -> None:
         """
-        Test for split_integer function.
+        Test for split_integer function with zero parts.
         """
-        test_cases = [
-            (8, 1, [8]),
-            (6, 2, [3, 3]),
-            (17, 4, [4, 4, 4, 5]),
-            (32, 6, [5, 5, 5, 5, 6, 6])
-        ]
+        value = 10
+        number_of_parts = 0
+        expected_result = []
+        self.assertEqual(
+            split_integer(value, number_of_parts),
+            expected_result
+        )
 
-        for value, number_of_parts, expected_result in test_cases:
-            with self.subTest(
-                    value=value,
-                    number_of_parts=number_of_parts,
-                    expected_result=expected_result
-            ):
-                self.assertEqual(split_integer(
-                    value, number_of_parts),
-                    expected_result
-                )
+    def test_split_integer_negative_value(self) -> None:
+        """
+        Test for split_integer function with a negative value.
+        """
+        value = -10
+        number_of_parts = 3
+        expected_result = [-4, -3, -3]
+        self.assertEqual(
+            split_integer(value, number_of_parts),
+            expected_result
+        )
 
+    def test_split_integer_large_value(self) -> None:
+        """
+        Test for split_integer function with a large value.
+        """
+        value = 1000
+        number_of_parts = 5
+        expected_result = [200, 200, 200, 200, 200]
+        self.assertEqual(
+            split_integer(value, number_of_parts),
+            expected_result
+        )
 
-if __name__ == "__main__":
-    unittest.main()
+    def test_split_integer_single_part(self) -> None:
+        """
+        Test for split_integer function with a single part.
+        """
+        value = 10
+        number_of_parts = 1
+        expected_result = [10]
+        self.assertEqual(
+            split_integer(value, number_of_parts),
+            expected_result
+        )
+
+    def test_split_integer_decimal_value(self) -> None:
+        """
+        Test for split_integer function with a decimal value.
+        """
+        value = 7
+        number_of_parts = 3
+        expected_result = [2, 2, 3]
+        self.assertEqual(
+            split_integer(value, number_of_parts),
+            expected_result
+        )
