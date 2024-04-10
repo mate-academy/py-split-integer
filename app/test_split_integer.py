@@ -8,58 +8,46 @@ class TestSplit(unittest.TestCase):
         """
         Test for split_integer function with zero parts.
         """
-        value = 10
-        number_of_parts = 0
-        expected_result = []
         self.assertEqual(
-            split_integer(value, number_of_parts),
-            expected_result
+            split_integer(10, 0), [],
+            "Value must be divided into an empty list"
+            " when the number of parts is zero."
         )
 
     def test_split_integer_negative_value(self) -> None:
         """
         Test for split_integer function with a negative value.
         """
-        value = -10
-        number_of_parts = 3
-        expected_result = [-4, -3, -3]
         self.assertEqual(
-            split_integer(value, number_of_parts),
-            expected_result
+            split_integer(-10, 3), [-4, -3, -3],
+            "Value must be divided into parts of approximately equal size,"
+            " even with negative values."
         )
 
     def test_split_integer_large_value(self) -> None:
         """
         Test for split_integer function with a large value.
         """
-        value = 1000
-        number_of_parts = 5
-        expected_result = [200, 200, 200, 200, 200]
         self.assertEqual(
-            split_integer(value, number_of_parts),
-            expected_result
+            split_integer(1000, 5), [200, 200, 200, 200, 200],
+            "Large value must be divided into equal parts."
         )
 
     def test_split_integer_single_part(self) -> None:
         """
         Test for split_integer function with a single part.
         """
-        value = 10
-        number_of_parts = 1
-        expected_result = [10]
         self.assertEqual(
-            split_integer(value, number_of_parts),
-            expected_result
+            split_integer(10, 1), [10],
+            "Value must be divided into a list"
+            " with a single element equal to the original value."
         )
 
     def test_split_integer_decimal_value(self) -> None:
         """
         Test for split_integer function with a decimal value.
         """
-        value = 7
-        number_of_parts = 3
-        expected_result = [2, 2, 3]
         self.assertEqual(
-            split_integer(value, number_of_parts),
-            expected_result
+            split_integer(7, 3), [2, 2, 3],
+            "Value must be divided into parts of approximately equal size."
         )
