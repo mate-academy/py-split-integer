@@ -5,7 +5,3 @@ def split_integer(value: int, number_of_parts: int) -> list:
         parts.append(value // parts_left)
         value -= next_number
     return parts
-
-
-if __name__ == "__main__":
-    print(f"{split_integer(2, 3)=}")
