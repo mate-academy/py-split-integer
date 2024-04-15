@@ -15,6 +15,7 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
     result = split_integer(8, 1)
     assert len(result) == 1
 
+
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     result = split_integer(8, 3)
     assert result == sorted(result)
