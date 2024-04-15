@@ -2,13 +2,13 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    result = split_integer(8, 1)
-    assert result == [8]
+    result = split_integer(22, 4)
+    assert sum(result) == 22
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     result = split_integer(8, 4)
-    assert len(result) % 2 == 0
+    assert 8 == result[0] * 4
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
