@@ -6,8 +6,7 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    func_result = split_integer(30, 3)
-    assert func_result[0] == func_result[1] == func_result[2]
+    assert split_integer(30, 3) == [10, 10, 10]
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
