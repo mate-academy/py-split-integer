@@ -31,4 +31,3 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert result == sorted(result)
     assert sum(result) == 2
     assert max(result) - min(result) <= 1
-
