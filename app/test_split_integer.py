@@ -9,7 +9,7 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     assert (
-        len(set(split_integer(36, 6))) <= 1
+        len(set(split_integer(36, 6))) == 1
     ), "Split parts should be equal when value divisible by parts"
 
 
