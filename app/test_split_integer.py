@@ -14,17 +14,14 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
     result = split_integer(3, 1)
-    assert result == [3], \
-        "Part should equal to value when split into one part"
+    assert result == [3]
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     result = split_integer(14, 3)
-    assert result == [4, 5, 5], \
-        "Parts should be sorted when they are not equal"
+    assert result == [4, 5, 5]
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     result = split_integer(1, 2)
-    assert result == [0, 1], \
-        "Add zeros when value is less than number of parts"
+    assert result == [0, 1]
