@@ -9,7 +9,7 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     assert (
-        max(split_integer(555, 555)) == 1
+        split_integer(5, 5) == [1, 1, 1, 1, 1]
     )
 
 
@@ -28,5 +28,6 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert (
-        min(split_integer(25, 60)) == 0
-    )
+        split_integer(5, 10)) == [
+        0, 0, 0, 0, 0, 1, 1, 1, 1, 1
+    ]
