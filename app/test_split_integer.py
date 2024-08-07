@@ -4,7 +4,8 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    assert len(split_integer(32, 6)) == 6
+    parts = split_integer(32, 6)
+    assert sum(parts) == 32
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
