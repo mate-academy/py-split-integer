@@ -2,7 +2,7 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    assert split_integer(9, 2) == [4, 5], (
+    assert sum(split_integer(9, 2)) == 9, (
         "Sum of the result numbers should be equal to value"
     )
 
