@@ -7,10 +7,10 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
     ), "sum of parts must be equal to value"
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
+def test_split_into_equal_parts_if_divisible_without_remainder() -> None:
     assert (
-        split_integer(5, 5) == [1, 1, 1, 1, 1]
-    ), "func should split into equal parts when both numbers are equal"
+        split_integer(10, 5) == [2, 2, 2, 2, 2]
+    ), "should split into equal parts when divisible has no remainder"
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
