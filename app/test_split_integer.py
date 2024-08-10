@@ -1,7 +1,7 @@
 from app.split_integer import split_integer
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
+def test_all_element_in_list_should_be_equal_to_value() -> None:
     assert (
         split_integer(15, 3) == [5, 5, 5]
     ), "Sum of numbers in list should be equal to value"
