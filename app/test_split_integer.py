@@ -3,9 +3,8 @@ from app.split_integer import split_integer
 
 def test_all_element_in_list_should_be_equal_to_value() -> None:
     result = split_integer(15, 3)
-    expected_sum = 15
     assert (
-        sum(result) == expected_sum
+        sum(result) == 15
     ), "Sum of numbers in list should be equal to value"
 
 
