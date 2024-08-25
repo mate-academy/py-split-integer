@@ -9,7 +9,8 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     assert split_integer(6, 2) == [3, 3], (
-        "Result list should be splitting into equal parts, when value divisible by parts"
+        "Result list should be splitting into equal parts,"
+        " when value divisible by parts"
     )
 
 
