@@ -33,4 +33,4 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     value = 2
     number_of_parts = 3
     parts = si(value, number_of_parts)
-    assert parts == [1, 1, 0]
+    assert parts == [0, 1, 1]
