@@ -47,9 +47,8 @@ def test_should_return_part_equals_to_value_when_split_into_one_part(
 def test_parts_should_be_sorted_when_they_are_not_equal(
     value: int, number_of_parts: int
 ) -> None:
-    assert (
-            split_integer(value, number_of_parts) ==
-            sorted(split_integer(value, number_of_parts))
+    assert split_integer(value, number_of_parts) == sorted(
+        split_integer(value, number_of_parts)
     )
 
 
