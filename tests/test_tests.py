@@ -5,6 +5,7 @@ import pytest
 from app import split_integer
 
 
+
 def path_to_main():
     base_path = os.path.join("app", "test_split_integer.py")
     return (
