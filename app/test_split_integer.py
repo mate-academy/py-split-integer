@@ -2,46 +2,36 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    value = 15
-    number_of_parts = 4
     assert (
-        sum(split_integer(value, number_of_parts))
-        == value
+        sum(split_integer(15, 4))
+        == 15
     )
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    value = 16
-    number_of_parts = 4
     assert (
         all(
-            part == split_integer(value, number_of_parts)[0]
-            for part in split_integer(value, number_of_parts)
+            part == split_integer(16, 4)[0]
+            for part in split_integer(16, 4)
         )
     )
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    value = 16
-    number_of_parts = 1
-    assert split_integer(value, number_of_parts)[0] == value
-    assert len(split_integer(value, number_of_parts)) == 1
+    assert split_integer(16, number_of_parts=1)[0] == 16
+    assert len(split_integer(16, 1)) == 1
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    value = 17
-    number_of_parts = 3
     assert (
-        split_integer(value, number_of_parts)
-        == sorted(split_integer(value, number_of_parts))
+        split_integer(17, 3)
+        == sorted(split_integer(17, 3))
     )
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    value = 5
-    number_of_parts = 8
-    assert len(split_integer(value, number_of_parts)) == number_of_parts
+def test_should_add_zeros_when_value_is_less_than_4() -> None:
+    assert len(split_integer(5, 8)) == 8
     assert (
-        split_integer(value, number_of_parts).count(0)
-        == number_of_parts - value
+        split_integer(5, 8).count(0)
+        == 8 - 5
     )
