@@ -37,7 +37,8 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert result == [0, 0, 0, 1, 1]
 
 
-def test_difference_between_max_and_min_should_be_less_or_equal_to_one() -> None:
+def test_difference_between_max_and_min_should_be_less_or_equal_to_one() -> \
+        None:
     value = 32
     number_of_parts = 6
     result = split_integer(value, number_of_parts)
