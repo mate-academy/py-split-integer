@@ -1,10 +1,6 @@
 from app.split_integer import split_integer
 
 
-value = 32
-number_of_parts = 5
-
-
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
     assert sum(split_integer(value, number_of_parts)) == value
 
