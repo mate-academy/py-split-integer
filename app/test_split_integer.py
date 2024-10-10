@@ -33,8 +33,8 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts(
         number_of_parts: int
 ) -> None:
     assert (
-        split_integer(value, number_of_parts) ==
-        [value // number_of_parts] * number_of_parts
+        split_integer(value, number_of_parts)
+        == [value // number_of_parts] * number_of_parts
     )
 
 @pytest.mark.parametrize(
@@ -82,6 +82,6 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts(
         number_of_parts: int
 ) -> None:
     assert (
-        split_integer(value, number_of_parts) ==
-        [0 if value < number_of_parts else value] * number_of_parts
+        split_integer(value, number_of_parts)
+        == [0 if value < number_of_parts else value] * number_of_parts
     )
