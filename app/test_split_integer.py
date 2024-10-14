@@ -29,7 +29,3 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert (
         split_integer(1, 5) == [0, 0, 0, 0, 1]
     ), "should add zeros when value is less than number of part"
-
-
-def test_fail_test() -> None:
-    assert False
