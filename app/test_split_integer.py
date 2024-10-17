@@ -2,7 +2,8 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    assert (sum(split_integer(6, 2)) == 6), "sum of parts must be equal to value"
+    assert (sum(split_integer(6, 2)) == 6), \
+        "sum of parts must be equal to value"
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
@@ -17,5 +18,6 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     assert (split_integer(17, 4) == [4, 4, 4, 5]), "list must be sorted"
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    assert (split_integer(2, 4) == [0, 0, 1, 1]), "add zeros when value is less than number of parts"
+def test_when_value_is_less_than_number_of_parts() -> None:
+    assert (split_integer(2, 4) == [0, 0, 1, 1]), \
+        "add zeros when value is less than number of parts"
