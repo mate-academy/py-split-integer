@@ -14,7 +14,9 @@ import pytest
     (7, 2, [3, 4]),
     (14, 3, [4, 5, 5])
 ])
-def test_split_integer(value: int,
-                       number_of_parts: int,
-                       expected: list) -> None:
+def test_split_integer(
+        value: int,
+        number_of_parts: int,
+        expected: list
+) -> None:
     assert split_integer(value, number_of_parts) == expected
