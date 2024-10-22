@@ -31,6 +31,7 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     value = 17
     number_of_parts = 4
     parts = split_integer(value, number_of_parts)
+
     assert parts == [4, 4, 4, 5], (
         "Part is not sorted!"
     )
@@ -39,7 +40,8 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     value = 3
     number_of_parts = 6
+    parts = split_integer(value, number_of_parts)
 
-    assert split_integer(value, number_of_parts) == [0, 0, 0, 1, 1, 1], (
+    assert parts == [0, 0, 0, 1, 1, 1], (
         "Zero is not added!"
     )
