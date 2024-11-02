@@ -50,13 +50,6 @@ def test_should_split_into_different_parts() -> None:
     assert parts in ([3, 3, 4], [4, 3, 3])
 
 
-def test_should_not_pass_if_only_last_number_incremented() -> None:
-    value = 9
-    number_of_parts = 3
-    parts = split_integer(value, number_of_parts)
-    assert parts != [3, 3, 3]
-
-
 def test_should_split_on_incorrect_parts() -> None:
     value = 5
     number_of_parts = 2
