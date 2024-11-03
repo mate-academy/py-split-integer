@@ -14,7 +14,7 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     number_of_parts = 2
     parts = split_integer(value, number_of_parts)
 
-    assert all(parts == value // number_of_parts for parts in parts),\
+    assert all(part == value // number_of_parts for part in parts),\
         f"All parts should be equal to {value // number_of_parts}"
 
 
