@@ -39,4 +39,5 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     number_of_parts = 5
     parts = split_integer(value, number_of_parts)
 
-    assert parts.count(0) == (number_of_parts - value), f"Expected {number_of_parts - value} zeros, got {parts}"
+    assert parts.count(0) == (number_of_parts - value),\
+        f"Expected {number_of_parts - value} zeros, got {parts}"
