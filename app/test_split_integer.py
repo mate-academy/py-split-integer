@@ -17,8 +17,7 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    goals = split_integer(17, 4)
-    assert goals[-1] > goals[0], \
+    assert (goals := split_integer(17, 4))[-1] > goals[0], \
         "Parts should be sorted when they are not equal"
 
 
