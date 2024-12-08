@@ -29,4 +29,3 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert split_integer(4, 5) == [0, 0, 1, 1, 2], (
         "Zeros should be added when value is less than number of parts"
     )
-
