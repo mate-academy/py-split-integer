@@ -12,7 +12,10 @@ def split_integer(value: int, number_of_parts: int) -> list:
     remainder = value % number_of_parts
 
     # Create the list with the base quotient and add +1 to the remainder items
-    result = [quotient] * (number_of_parts - remainder) + [quotient + 1] * remainder
+    result = [
+        quotient
+    ] * (number_of_parts - remainder) + [quotient + 1] * remainder
+
     result.sort()  # Ensure the result is sorted in ascending order
 
     return result
