@@ -14,11 +14,11 @@ def split_integer(value: int, number_of_parts: int) -> List[int]:
     # Base case: if only 1 part, return the value as a list
     if number_of_parts == 1:
         return [value]
-
-    # Calculate the quotient and remainder when dividing value by number_of_parts
     quotient, remainder = divmod(value, number_of_parts)
 
     # Create a list with `quotient` as the base value
-    result = [quotient] * (number_of_parts - remainder) + [quotient + 1] * remainder
+    result = ([quotient] *
+              (number_of_parts - remainder) +
+              [quotient + 1] * remainder)
 
     return result
