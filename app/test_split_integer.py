@@ -10,7 +10,7 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    assert split_integer(17, 4)[3] == 5
+    assert split_integer(17, 4) == [4, 4, 4, 5]
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
