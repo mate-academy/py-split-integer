@@ -1,6 +1,7 @@
-# app/split_integer.py
+from typing import List
 
-def split_integer(value: int, number_of_parts: int):
+
+def split_integer(value: int, number_of_parts: int) -> List[int]:
     """
     Splits the integer `value` into `number_of_parts` parts where:
     - The difference between the max and min number in the array is <= 1
