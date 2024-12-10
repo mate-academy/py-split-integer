@@ -1,24 +1,18 @@
-from typing import List
-
-
-def split_integer(value: int, number_of_parts: int) -> List[int]:
+def split_integer(value: int, number_of_parts: int) -> list:
     """
-    Splits the integer `value` into `number_of_parts` parts where:
-    - The difference between the max and min number in the array is <= 1
-    - The array is sorted in ascending order.
+    Splits the integer `value` into `number_of_parts` parts such that the difference
+    between the max and min value is at most 1. The result is sorted ascending.
 
-    :param value: The integer value to split
-    :param number_of_parts: The number of parts to split the value into
-    :return: A list of integers
+    :param value: The integer value to split.
+    :param number_of_parts: The number of parts to split the value into.
+    :return: A list of integers where the difference between max and min is <= 1.
     """
-    # Base case: if only 1 part, return the value as a list
-    if number_of_parts == 1:
-        return [value]
+    # Base division to ensure equal distribution
+    quotient = value // number_of_parts
+    remainder = value % number_of_parts
 
-    # Calculate the quotient and remainder when dividing value by number_of_parts
-    quotient, remainder = divmod(value, number_of_parts)
-
-    # Create a list with `quotient` as the base value
+    # Create the list with the base quotient and add +1 to the remainder items
     result = [quotient] * (number_of_parts - remainder) + [quotient + 1] * remainder
+    result.sort()  # Ensure the result is sorted in ascending order
 
     return result
