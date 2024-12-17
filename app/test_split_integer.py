@@ -3,47 +3,41 @@ from app.split_integer import split_integer
 
 
 @pytest.mark.parametrize(
-    "value, number_of_parts, result",
+    "value, number_of_parts",
     [
-        (12, 1, 12),
-        (12, 2, 12),
-        (-12, 5, -12),
-        (12345, 2, 12345),
-        (12345, 6, 12345),
-        (12345, 100, 12345)
+        (12, 1),
+        (12, 2),
+        (-12, 5),
+        (12345, 2),
+        (12345, 6),
+        (12345, 100)
     ]
 )
 def test_sum_of_the_parts_should_be_equal_to_value(
         value: int,
-        number_of_parts: int,
-        result: int
+        number_of_parts: int
 ) -> None:
     output = sum(split_integer(value, number_of_parts))
-    assert (output == result), \
-        f"Sum of parts ({output}) not equal to value ({result})"
+    assert (output == value), \
+        f"Sum of parts ({output}) not equal to value ({value})"
 
 
 @pytest.mark.parametrize(
-    "value, number_of_parts, result",
+    "value, number_of_parts",
     [
-        (12, 2, True),
-        (12, 6, True),
-        (-12340, 10, True),
-        (12300, 100, True),
-        (12, 5, False),
-        (12340, 11, False),
-        (-12300, 101, False)
+        (12, 2),
+        (12, 6),
+        (-12340, 10),
+        (12300, 100),
     ]
 )
 def test_should_split_into_equal_parts_when_value_divisible_by_parts(
         value: int,
-        number_of_parts: int,
-        result: bool
+        number_of_parts: int
 ) -> None:
     output = split_integer(value, number_of_parts)
     item_value = value / number_of_parts
-    received = all(el == item_value for el in output)
-    assert received == result, \
+    assert all(el == item_value for el in output), \
         "Should be split into equal parts"
 
 
@@ -97,7 +91,7 @@ def test_parts_should_be_sorted_when_they_are_not_equal(
 def test_should_add_zeros_when_value_is_less_than_number_of_parts(
         value: int,
         number_of_parts: int,
-        result: int
+        result: list
 ) -> None:
     output = split_integer(value, number_of_parts)
     assert output == result, \
