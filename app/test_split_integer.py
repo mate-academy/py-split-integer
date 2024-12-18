@@ -34,8 +34,6 @@ def test_max_and_min_difference_should_be_less_that_one(
         (100, 20)
     ]
 )
-
-
 def test_sum_of_the_parts_should_be_equal_to_value(
     value: int,
     number_of_parts: int
@@ -68,6 +66,8 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts(
         "Parts in result should be equal "
         "when value is divisible by number of parts"
     )
+
+
 @pytest.mark.parametrize(
     "value,number_of_parts",
     [
@@ -104,8 +104,11 @@ def test_should_return_part_equals_to_value_when_split_into_one_part(
     ) -> None:
         result = split_integer(value, number_of_parts)
         assert result == sorted(result), (
-            "Result list must be sorted in ascending order if parts are not equal"
+            f"Result list must be sorted in "
+            f"ascending order if parts are not equal"
         )
+
+
 @pytest.mark.parametrize(
     "value,number_of_parts",
     [
