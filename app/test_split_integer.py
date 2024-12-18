@@ -19,12 +19,12 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     result = split_integer(10, 3)
-    assert result == sorted(result, reverse=True), (f"Expected "
+    assert result == sorted(result, reverse=False), (f"Expected "
                                                     f"sorted parts, "
                                                     f"but got {result}")
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     result = split_integer(3, 5)
-    assert result == [1, 1, 1, 0, 0], (f"Expected "
-                                       f"[1, 1, 1, 0, 0], but got {result}")
+    assert result == [0, 0, 1, 1, 1], (f"Expected "
+                                       f"[0, 0, 1, 1, 1], but got {result}")
