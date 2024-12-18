@@ -14,11 +14,12 @@ from app.split_integer import split_integer
     ]
 )
 def test_max_and_min_difference_should_be_less_that_one(
-        value: int, number_of_parts: int
+    value: int,
+    number_of_parts: int
 ) -> None:
     result = split_integer(value, number_of_parts)
     assert max(result) - min(result) <= 1, (
-        "Difference the max and min number in the array should be <= 1"
+        "Difference of max and min number in the array should be <= 1"
     )
 
 
@@ -33,8 +34,8 @@ def test_max_and_min_difference_should_be_less_that_one(
     ]
 )
 def test_sum_of_the_parts_should_be_equal_to_value(
-        value: int,
-        number_of_parts: int
+    value: int,
+    number_of_parts: int
 ) -> None:
     result = split_integer(value, number_of_parts)
     assert sum(result) == value, "Sum of result list should be equal to value"
@@ -51,8 +52,8 @@ def test_sum_of_the_parts_should_be_equal_to_value(
     ]
 )
 def test_should_split_into_equal_parts_when_value_divisible_by_parts(
-        value: int,
-        number_of_parts: int
+    value: int,
+    number_of_parts: int
 ) -> None:
     result = split_integer(value, number_of_parts)
 
@@ -63,7 +64,7 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts(
 
     assert is_value_equal_to_all_parts, (
         "Parts in result should be equal "
-        "when value divisible by number of parts"
+        "when value is divisible by number of parts"
     )
 
 
@@ -78,8 +79,8 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts(
     ]
 )
 def test_should_return_part_equals_to_value_when_split_into_one_part(
-        value: int,
-        number_of_parts: int
+    value: int,
+    number_of_parts: int
 ) -> None:
     result = split_integer(value, number_of_parts)
     assert len(result) == 1 and result[0] == value, (
@@ -99,8 +100,8 @@ def test_should_return_part_equals_to_value_when_split_into_one_part(
     ]
 )
 def test_parts_should_be_sorted_when_they_are_not_equal(
-        value: int,
-        number_of_parts: int
+    value: int,
+    number_of_parts: int
 ) -> None:
     result = split_integer(value, number_of_parts)
     assert result == sorted(result), (
@@ -119,8 +120,8 @@ def test_parts_should_be_sorted_when_they_are_not_equal(
     ]
 )
 def test_should_add_zeros_when_value_is_less_than_number_of_parts(
-        value: int,
-        number_of_parts: int
+    value: int,
+    number_of_parts: int
 ) -> None:
     result = split_integer(value=value, number_of_parts=number_of_parts)
     assert (
