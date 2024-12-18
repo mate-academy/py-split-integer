@@ -14,7 +14,7 @@ class TestSplitIntegerFunction:
             pytest.param(
                 (32, 6),
                 [5, 5, 5, 5, 6, 6],
-                id="parts should be sorted when they are not equal"    
+                id="parts should be sorted when they are not equal"
             ),
             pytest.param(
                 (1, 2),
@@ -23,14 +23,18 @@ class TestSplitIntegerFunction:
             )
         ]
     )
-    def test_general_function_test(self, entered_numbers, expected_result) -> None:
+    def test_general_function_test(
+        self,
+        entered_numbers: tuple,
+        expected_result: list
+    ) -> None:
         result = split_integer(*entered_numbers)
         assert result == expected_result
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-        result = split_integer(17, 4)
-        assert sum(result) == 17
+    result = split_integer(17, 4)
+    assert sum(result) == 17
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
