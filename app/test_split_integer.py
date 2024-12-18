@@ -104,8 +104,7 @@ def test_should_return_part_equals_to_value_when_split_into_one_part(
     ) -> None:
         result = split_integer(value, number_of_parts)
         assert result == sorted(result), (
-            f"Result list must be sorted in "
-            f"ascending order if parts are not equal"
+            "Result list must be sorted in ascending order if parts not equal"
         )
 
 
