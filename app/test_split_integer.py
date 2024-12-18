@@ -3,7 +3,8 @@ from app.split_integer import split_integer
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
     result = split_integer(10, 3)
-    assert sum(result) == 10, f"Expected sum to be 10, but got {sum(result)}"
+    assert sum(result) == 10, (f"Expected sum "
+                               f"to be 10, but got {sum(result)}")
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
@@ -18,9 +19,12 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     result = split_integer(10, 3)
-    assert result == sorted(result, reverse=True), f"Expected sorted parts, but got {result}"
+    assert result == sorted(result, reverse=True), (f"Expected "
+                                                    f"sorted parts, "
+                                                    f"but got {result}")
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     result = split_integer(3, 5)
-    assert result == [1, 1, 1, 0, 0], f"Expected [1, 1, 1, 0, 0], but got {result}"
+    assert result == [1, 1, 1, 0, 0], (f"Expected "
+                                       f"[1, 1, 1, 0, 0], but got {result}")
