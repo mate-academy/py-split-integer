@@ -32,9 +32,11 @@ class TestSplitIntegerFunction:
         assert result == expected_result
 
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
+def test_should_return_valid_parts_when_split_into_multiple_parts() -> None:
     result = split_integer(17, 4)
+    assert len(result) == 4
     assert sum(result) == 17
+    assert max(result) - min(result) <= 1
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
