@@ -20,6 +20,11 @@ class TestSplitIntegerFunction:
                 (1, 2),
                 [0, 1],
                 id="should add zeros when value is less than number of parts"
+            ),
+            pytest.param(
+                (0, 5),
+                [0, 0, 0, 0, 0],
+                id="test should handle zero value"
             )
         ]
     )
@@ -42,3 +47,12 @@ def test_should_return_valid_parts_when_split_into_multiple_parts() -> None:
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     result = split_integer(6, 2)
     assert len(result) == 2 and sum(result) == 6
+
+
+def test_empty_input(self) -> None:
+    with pytest.raises(TypeError):
+        split_integer()
+    
+
+
+    
