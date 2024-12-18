@@ -49,10 +49,6 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     assert len(result) == 2 and sum(result) == 6
 
 
-def test_empty_input(self) -> None:
+def test_empty_input() -> None:
     with pytest.raises(TypeError):
         split_integer()
-    
-
-
-    
