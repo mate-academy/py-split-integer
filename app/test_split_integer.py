@@ -23,6 +23,7 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
     assert len(parts) == 1
     assert parts[0] == value
 
+
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     value = 32
     number_of_parts = 6
