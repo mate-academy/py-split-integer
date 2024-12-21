@@ -19,7 +19,10 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+    result: List[int] = split_integer(3, 5)
+    assert result == [0, 0, 1, 1, 1]
+    assert sum(result) == 3
+    assert len(result) == 5
 
 
 def test_single_part() -> None:
