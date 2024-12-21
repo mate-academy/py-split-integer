@@ -1,21 +1,49 @@
+import pytest
+
 from app.split_integer import split_integer
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+@pytest.mark.parametrize(
+    "value, number_of_parts, expected_sum", [(17, 4, 17), (8, 2, 8), (0, 3, 0)]
+)
+def test_sum_of_the_parts_should_be_equal_to_value(
+    value: int, number_of_parts: int, expected_sum: int
+) -> None:
+    assert sum(split_integer(value, number_of_parts)) == expected_sum
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+@pytest.mark.parametrize(
+    "value, number_of_parts, expected_result",
+    [(12, 4, [3, 3, 3, 3]), (20, 5, [4, 4, 4, 4, 4])],
+)
+def test_should_split_into_equal_parts_when_value_divisible_by_parts(
+    value: int, number_of_parts: int, expected_result: list[int]
+) -> None:
+    assert split_integer(value, number_of_parts) == expected_result
 
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+@pytest.mark.parametrize(
+    "value, number_of_parts, expected_result", [(8, 1, [8]), (50, 1, [50])]
+)
+def test_should_return_part_equals_to_value_when_split_into_one_part(
+    value: int, number_of_parts: int, expected_result: list[int]
+) -> None:
+    assert split_integer(value, number_of_parts) == expected_result
 
 
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
+@pytest.mark.parametrize("value, number_of_parts", [(17, 4), (23, 6), (19, 3)])
+def test_parts_should_be_sorted_when_they_are_not_equal(
+    value: int, number_of_parts: int
+) -> None:
+    parts = split_integer(value, number_of_parts)
+    assert parts == sorted(parts)
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+@pytest.mark.parametrize(
+    "value, number_of_parts, expected_result",
+    [(3, 5, [0, 0, 1, 1, 1]), (2, 4, [0, 0, 0, 2])],
+)
+def test_should_add_zeros_when_value_is_less_than_number_of_parts(
+    value: int, number_of_parts: int, expected_result: list[int]
+) -> None:
+    assert split_integer(value, number_of_parts) == expected_result
