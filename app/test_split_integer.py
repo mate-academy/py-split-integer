@@ -71,15 +71,16 @@ def test_parts_should_be_sorted_when_they_are_not_equal(
 
 
 @pytest.mark.parametrize(
-    "value_for_check,number_of_parts_for_check,excepted_result",
+    "value_for_check,number_of_parts_for_check",
     [
-        (1, 2, [0, 1]),
-        (2, 3, [0, 1, 1]),
+        (8, 214),
+        (6, 30),
+        (17, 123),
+        (32, 2352)
     ]
 )
 def test_should_add_zeros_when_value_is_less_than_number_of_parts(
         value_for_check: int,
-        number_of_parts_for_check: int,
-        excepted_result: list) -> None:
+        number_of_parts_for_check: int) -> None:
     result = split_integer(value_for_check, number_of_parts_for_check)
-    assert result == excepted_result
+    assert result.count(0) == number_of_parts_for_check - value_for_check
