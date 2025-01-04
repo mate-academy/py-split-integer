@@ -20,7 +20,6 @@ def test_sum_of_the_parts_should_be_equal_to_value(
     assert result == excepted_result
 
 
-
 @pytest.mark.parametrize(
     "value_for_check,number_of_parts_for_check,excepted_result",
     [
