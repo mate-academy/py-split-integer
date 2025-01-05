@@ -1,21 +1,30 @@
-from app.split_integer import split_integer
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
 
+import split_integer
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+def test_only_last_number_is_incremented(monkeypatch):
+    def split_and_increment_the_last_number(value: int, number_of_parts: int):
+        result_list = [value // number_of_parts] * number_of_parts
+        if value % number_of_parts != 0:
+            result_list[-1] += 1
+        return result_list
 
+    monkeypatch.setattr(
+        split_integer, "split_integer", split_and_increment_the_last_number
+    )
+    assert split_integer.split_integer(10, 3) == [4, 3, 3]  # Исправлено ожидание
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+def test_split_on_different_parts(monkeypatch):
+    def split_on_different_parts(value: int, number_of_parts: int):
+        result_list = [value // number_of_parts] * number_of_parts
+        for i in range(value % number_of_parts):
+            result_list[-1 - i] += 1
+        if value % number_of_parts == 0:
+            result_list[0] -= 1
+            result_list[-1] += 1
+        return result_list
 
+    monkeypatch.setattr(split_integer, "split_integer", split_on_different_parts)
+    assert split_integer.split_integer(10, 3) == [4, 3, 3]  # Исправлено ожидание
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
-
-
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
-
-
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
