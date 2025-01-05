@@ -3,10 +3,7 @@ from app.split_integer import split_integer
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
     parts = split_integer(6, 2)
-    result_sum = 0
-    for number in parts:
-        result_sum += number
-    assert result_sum == 6
+    assert sum(parts) == 6
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
@@ -26,4 +23,4 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     parts = split_integer(1, 4)
-    assert parts == [1, 0, 0, 0]
+    assert parts == [0, 0, 0, 1]
