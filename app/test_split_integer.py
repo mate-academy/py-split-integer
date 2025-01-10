@@ -1,6 +1,7 @@
 from app.split_integer import split_integer
 import pytest
 
+
 @pytest.mark.parametrize(
     "value, number_of_parts, result_list",
     [
@@ -44,7 +45,7 @@ def test_should_return_part_equals_to_value_when_split_into_one_part(
     number_of_parts: int,
     result_list: list
 ) -> None:
-    assert  split_integer(value, number_of_parts) == result_list
+    assert split_integer(value, number_of_parts) == result_list
 
 
 @pytest.mark.parametrize(
@@ -54,11 +55,12 @@ def test_should_return_part_equals_to_value_when_split_into_one_part(
     ]
 )
 def test_parts_should_be_sorted_when_they_are_not_equal(
-        value,
-        number_of_parts
+        value: int,
+        number_of_parts: int
 ) -> None:
     result = split_integer(value, number_of_parts)
     assert result[0] <= result[-1]
+
 
 @pytest.mark.parametrize(
     "value, number_of_parts, result_list",
