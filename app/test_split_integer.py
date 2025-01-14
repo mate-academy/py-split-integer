@@ -23,11 +23,11 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
 
 
 @pytest.mark.parametrize("value, number_of_parts, expected", [
-        (8, 1, [8]),
-        (6, 2,  [3, 3]),
-        (20, 5, [4, 4, 4, 4, 4]),
-        (32, 6, [5, 5, 5, 5, 6, 6]),
-        (6, 8, [0, 0, 1, 1, 1, 1, 1, 1]),
+    (8, 1, [8]),
+    (6, 2, [3, 3]),
+    (20, 5, [4, 4, 4, 4, 4]),
+    (32, 6, [5, 5, 5, 5, 6, 6]),
+    (6, 8, [0, 0, 1, 1, 1, 1, 1, 1]),
 ])
-def test_various_case(value, number_of_parts, expected):
+def test_various_case(value: int, number_of_parts: int, expected: int) -> None:
     assert split_integer(value, number_of_parts) == expected
