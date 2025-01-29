@@ -12,6 +12,8 @@ from app.split_integer import split_integer
         (4, 5, [0, 1, 1, 1, 1]),
     ],
 )
-def test_various_scenarios(value: int, number_of_parts: int, expected: list) -> None:
+def test_various_scenarios(value: int,
+                           number_of_parts: int,
+                           expected: list) -> None:
     parts = split_integer(value, number_of_parts)
     assert parts == expected
