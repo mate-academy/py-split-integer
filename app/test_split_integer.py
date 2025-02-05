@@ -24,6 +24,7 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert result.count(0) == parts - value
     assert sum(result) == value
 
+
 def test_difference_between_min_max_number_in_parts_no_more_one() -> None:
     result = split_integer(27, 4)
     assert max(result) - min(result) <= 1
