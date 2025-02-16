@@ -1,7 +1,11 @@
 def split_integer(value: int, number_of_parts: int) -> list:
-    parts = []
-    for parts_left in range(number_of_parts, 0, -1):
-        next_number = value // parts_left
-        parts.append(value // parts_left)
-        value -= next_number
-    return parts
+    base_value = value // number_of_parts  # Minimum value each part gets
+    remainder = value % number_of_parts  # Remaining value to be distributed
+
+    parts = [base_value] * number_of_parts  # Start with equal distribution
+
+    # Distribute the remainder, increasing the first 'remainder' elements
+    for i in range(remainder):
+        parts[i] += 1
+
+    return sorted(parts)  # Ensure ascending order
