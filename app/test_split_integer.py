@@ -48,7 +48,7 @@ class TestSplitInteger:
         if (value % parts) == 0:
             pytest.skip()
             return
-        result = split_integer(32, 6)
+        result = split_integer(value, parts)
         assert result == sorted(result)
 
     def test_should_add_zeros_when_value_is_less_than_number_of_parts(
