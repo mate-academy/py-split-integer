@@ -3,16 +3,14 @@ import pytest
 from app.split_integer import split_integer
 
 
-@pytest.mark.parametrize("value,parts",
-    [
-        (8, 1),
-        (6, 2),
-        (17, 4),
-        (32, 6),
-        (5, 8),
-        (1, 3)
-    ]
-)
+@pytest.mark.parametrize("value,parts", [
+    (8, 1),
+    (6, 2),
+    (17, 4),
+    (32, 6),
+    (5, 8),
+    (1, 3)
+])
 class TestSplitInteger:
     def test_sum_of_the_parts_should_be_equal_to_value(
             self,
