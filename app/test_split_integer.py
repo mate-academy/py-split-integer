@@ -25,7 +25,7 @@ class TestSplitInteger:
             value: int,
             parts: int) -> None:
         if value % parts != 0:
-            pytest.skip()
+            pytest.skip("Only when value divisible by parts")
             return
         result = split_integer(value, parts)
         assert result == [value // parts] * parts
@@ -35,7 +35,7 @@ class TestSplitInteger:
             value: int,
             parts: int) -> None:
         if parts != 1:
-            pytest.skip()
+            pytest.skip("Only when value split into one part")
             return
 
         result = split_integer(value, parts)
@@ -46,7 +46,7 @@ class TestSplitInteger:
             value: int,
             parts: int) -> None:
         if (value % parts) == 0:
-            pytest.skip()
+            pytest.skip("Only when parts are not equal")
             return
         result = split_integer(value, parts)
         assert result == sorted(result)
@@ -56,7 +56,7 @@ class TestSplitInteger:
             value: int,
             parts: int) -> None:
         if value >= parts:
-            pytest.skip()
+            pytest.skip("Only when value is less than number of parts")
             return
         result = split_integer(value, parts)
         assert result == ([0] * (parts - value)) + [1] * value
