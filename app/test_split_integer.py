@@ -4,7 +4,7 @@ from app.split_integer import split_integer
 
 
 @pytest.mark.parametrize(
-    'value, number_of_parts, expected_parts',
+    "value, number_of_parts, expected_parts",
     [
         pytest.param(
             18,
@@ -44,4 +44,3 @@ def test_function_split_integer_with_different_params(
         expected_parts: list[int],
 ) -> None:
     assert split_integer(value, number_of_parts) == expected_parts
-
