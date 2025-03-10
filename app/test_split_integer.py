@@ -1,4 +1,4 @@
-import pytest # noqa: F401
+import pytest  # noqa: F401
 from app.split_integer import split_integer
 
 
