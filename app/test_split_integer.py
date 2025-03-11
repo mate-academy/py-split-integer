@@ -2,20 +2,17 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    result = split_integer(6, 2)
-    assert sum(result) == 6,\
+    assert sum(split_integer(6, 2)) == 6,\
         "Sum of the parts should be equal to 6"
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    result = split_integer(6, 2)
-    assert result == [3, 4],\
+    assert split_integer(6, 2) == [3, 3],\
         "Parts should be equal when value divisible py parts"
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    result = split_integer(8, 1)
-    assert result == [8],\
+    assert split_integer(8, 1) == [8],\
         "Part should be equal to value when split into one part"
 
 
