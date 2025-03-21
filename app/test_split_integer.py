@@ -32,7 +32,9 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     value = 3
     number_of_parts = 5
     result = split_integer(value, number_of_parts)
+    assert result == sorted(result)
+    assert max(result) - min(result) <= 1, \
+        "The difference between max and min should be <= 1"
     assert result.count(0) == (number_of_parts - value), \
         f"Expected {number_of_parts - value} zeros"
     assert result.count(1) == value, f"Expected {value} ones"
-    assert result == sorted(result)
