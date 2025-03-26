@@ -8,12 +8,14 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     assert split_integer(12, 4) == [3, 3, 3, 3],\
-        "Does not split value into equal parts when divisible by number of parts"
+        ("Does not split value into equal"
+         "parts when divisible by number of parts")
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
     assert split_integer(8, 1) == [8],\
-        "Should return a single part equal to the value when number of parts is 1"
+        ("Should return a single part equal"
+         "to the value when number of parts is 1")
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
