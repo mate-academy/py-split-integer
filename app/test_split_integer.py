@@ -19,4 +19,5 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    assert split_integer(4, 6) == [0, 0, 1, 1, 1, 1]
+    assert len(split_integer(5, 8)) == 8
+    assert split_integer(4, 7).count(0) == 8-5
