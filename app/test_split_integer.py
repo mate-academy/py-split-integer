@@ -14,6 +14,7 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
+    #expected [1, 2, 2, 2] not [1, 1, 2, 3]
     assert split_integer(7, 4) == [1, 2, 2, 2]
 
 
