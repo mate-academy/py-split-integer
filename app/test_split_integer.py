@@ -7,6 +7,20 @@ def test_should_return_zeros_when_value_is_zero() -> None:
     assert result == [0, 0, 0]
 
 
+def test_should_handle_odd_values_splitting_even_parts() -> None:
+    result = split_integer(7, 2)
+    assert sum(result) == 7
+    assert len(result) == 2
+    assert result == [3, 4]
+
+
+def test_should_handle_single_part_split() -> None:
+    result = split_integer(10, 1)
+    assert sum(result) == 10
+    assert len(result) == 1
+    assert result == [10]
+
+
 def test_should_handle_large_numbers_correctly() -> None:
     result = split_integer(1000, 3)
     assert sum(result) == 1000
