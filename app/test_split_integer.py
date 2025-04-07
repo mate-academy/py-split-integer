@@ -43,7 +43,7 @@ def test_should_not_return_all_equal_parts_when_remainder_exists() -> None:
     assert result == [2, 3]
 
 
-def test_should_not_increment_only_one_part_when_remainder_greater_than_one() -> None:
+def test_should_not_increment_only_one_part() -> None:
     result = split_integer(8, 3)
     assert result != [2, 2, 4]
     assert result == [2, 3, 3]
