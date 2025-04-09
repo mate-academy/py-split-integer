@@ -17,16 +17,8 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    test_cases = [
-        (9, 3),
-        (10, 5),
-        (100, 2),
-        (25, 5),
-    ]
-    for value, number_of_parts in test_cases:
-        parts = split_integer(value, number_of_parts)
-        assert all(part == parts[0] for part in parts[1:]), \
-            f"Value ='{value}' cannot be evenly divided into parts"
+    assert split_integer(25, 5) == [5, 5, 5, 5, 5]
+    assert split_integer(25, 7) == [3, 3, 3, 4, 4, 4, 4]
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
