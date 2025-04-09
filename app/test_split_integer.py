@@ -43,6 +43,10 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     for value, number_of_parts in test_cases:
         parts = split_integer(value, number_of_parts)
         assert sorted(parts) == parts
+        assert all(
+            (parts[i + 1] - parts[i]) <= 1
+            for i in range(len(parts) - 1)
+        )
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
