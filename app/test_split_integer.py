@@ -23,16 +23,11 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     parts = split_integer(18, 4)
-    assert max(parts) - min(parts) <= 1
-    assert sum(parts) == 18
-    assert parts == sorted(parts), \
+    assert parts == [4, 4, 5, 5], \
         "If division with remaining digits must be sorted"
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     parts = split_integer(3, 5)
-    assert max(parts) - min(parts) <= 1
-    assert sum(parts) == 3
-    assert parts == sorted(parts)
-    assert len(parts) == 5, \
+    assert parts == [0, 0, 1, 1, 1], \
         "If value < num_of_parts, some parts may be zero"
