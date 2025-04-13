@@ -2,7 +2,7 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    assert (len(split_integer(6,2)) == 2), "With these arguments length of " \
+    assert split_integer(6,2) == [3, 3], "With these arguments length of " \
                                            "list should be equle to 2"
 
 
@@ -15,7 +15,7 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    assert split_integer(32, 6) == sorted(split_integer(32,6)), "Array is " \
+    assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6], "Array is " \
                                                                  "not sorted"
 
 
