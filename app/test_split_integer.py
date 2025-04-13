@@ -10,7 +10,6 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
         (10, 3),
         (5, 5)
     ]
-
     for value, number_of_parts in test_cases:
         result = split_integer(value, number_of_parts)
         assert sum(result) == value
@@ -49,7 +48,6 @@ def test_max_min_difference_should_be_at_most_one() -> None:
         (7, 2),
         (99, 10)
     ]
-
     for value, number_of_parts in test_cases:
         result = split_integer(value, number_of_parts)
         assert max(result) - min(result) <= 1
