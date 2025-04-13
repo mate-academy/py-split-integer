@@ -39,10 +39,6 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     assert result2 == [5, 5, 5, 5, 6, 6]
     assert result3 == [3, 3, 4]
 
-    # Check that each result is sorted
-    for result in [result1, result2, result3]:
-        assert result == sorted(result)
-
 
 def test_max_min_difference_should_be_at_most_one() -> None:
     test_cases = [
