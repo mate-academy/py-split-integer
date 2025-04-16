@@ -24,11 +24,11 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert split_integer(3, 5) == [0, 0, 1, 1, 1]
 
 
-def test_should_return_zeros_when_value_is_zero():
+def test_should_return_zeros_when_value_is_zero() -> None:
     result = split_integer(0, 5)
     assert result == [0, 0, 0, 0, 0]
 
 
-def test_should_raise_error_when_parts_is_zero():
+def test_should_raise_error_when_parts_is_zero() -> None:
     with pytest.raises(ValueError):
         split_integer(10, 0)
