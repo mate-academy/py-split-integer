@@ -1,15 +1,17 @@
-def split_integer(value: int, number_of_parts: int) -> list:
-    # Базове значення кожної частини
-    base_value = value // number_of_parts
-    # Залишок від ділення
-    remainder = value % number_of_parts
+# split_integer.py
 
-    # Створення списку з базовими значеннями
-    result = [base_value] * number_of_parts
+def split_integer(value: int, parts: int) -> list:
+    # Підрахунок базової частини і залишку
+    quotient, remainder = divmod(value, parts)
 
-    # Додаємо залишок до останніх частин
+    # Створення списку, де кожен елемент - це основний поділ
+    result = [quotient] * parts
+
+    # Розподіл залишку на перші елементи
     for i in range(remainder):
-        result[number_of_parts - 1 - i] += 1
+        result[i] += 1
 
-    # Повертаємо відсортований список
-    return sorted(result)
+    # Сортуємо результат у порядку зростання
+    result.sort()
+
+    return result
