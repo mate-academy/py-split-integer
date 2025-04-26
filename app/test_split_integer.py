@@ -10,8 +10,9 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     ls = split_integer(6, 2)
     assert all(x == ls[0] for x in ls)
 
+
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    ls = split_integer(8,1)
+    ls = split_integer(8, 1)
     assert ls[0] == 8
 
 
