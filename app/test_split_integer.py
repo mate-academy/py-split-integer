@@ -12,7 +12,7 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     value = 12
     number_of_parts = 3
     parts = split_integer(value, number_of_parts)
-    assert parts == [4,4,4]
+    assert parts == [4, 4, 4]
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
