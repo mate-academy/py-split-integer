@@ -10,17 +10,18 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 
 
 @pytest.mark.parametrize(
-    "value, parts, expected",
+    "value, number_of_parts, expected",
     [
+        (8, 1, [8]),
         (6, 2, [3, 3]),
-        (12, 4, [3, 3, 3, 3]),
-        (20, 5, [4, 4, 4, 4, 4])
+        (17, 4, [4, 4, 4, 5]),
+        (32, 6, [5, 5, 5, 5, 6, 6]),
     ]
 )
 def test_should_split_into_equal_parts_when_value_divisible_by_parts(
-        value: int, parts: int, expected: int
+        value: int, number_of_parts: int, expected: list[int]
 ) -> None:
-    assert split_integer(value, parts) == expected
+    assert split_integer(value, number_of_parts) == expected
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
