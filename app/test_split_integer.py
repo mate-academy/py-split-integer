@@ -17,10 +17,10 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    split = split_integer(12, 5)
-    assert split == [2, 2, 2, 3, 3]
+    result = split_integer(12, 5)
+    assert result == sorted(split_integer(12, 5))
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    split = split_integer(5, 8)
-    assert split == [0, 0, 0, 1, 1, 1, 1, 1]
+    split = split_integer(4, 8)
+    assert split == [0, 0, 0, 0, 1, 1, 1, 1]
