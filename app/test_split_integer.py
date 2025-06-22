@@ -13,6 +13,7 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     number_of_parts = 4
     assert split_integer(value, number_of_parts) == [3, 3, 3, 3]
 
+
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
     value = 15
     number_of_parts = 1
