@@ -1,5 +1,3 @@
-from itertools import pairwise
-
 from app.split_integer import split_integer
 
 
