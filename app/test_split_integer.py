@@ -33,5 +33,5 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
 
 def test_should_increment_only_last_number() -> None:
     assert (
-        split_integer(11, 3) == [3, 3, 4]
+        split_integer(11, 3) == [3, 4, 4]
     ), "only last number should be incremented"
