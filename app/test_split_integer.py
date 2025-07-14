@@ -1,4 +1,3 @@
-import pytest
 from app.split_integer import split_integer
 
 
@@ -30,3 +29,9 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert (
         split_integer(0, 5) == [0, 0, 0, 0, 0]
     ), "should return zeros when value less than number of parts"
+
+
+def test_should_increment_only_last_number() -> None:
+    assert (
+        split_integer(11, 3) == [3, 3, 4]
+    ), "only last number should be incremented"
