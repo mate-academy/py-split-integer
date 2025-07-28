@@ -35,4 +35,3 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert len(parts) == number_of_parts
     assert sum(parts) == value
     assert 0 in parts
-
