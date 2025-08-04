@@ -2,7 +2,10 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+    result = split_integer(17, 4)
+    assert sum(result) == 17, (f"Sum of result "
+                               f"({sum(result)}) "
+                               f"should be equal to value")
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
