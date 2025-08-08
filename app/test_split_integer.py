@@ -1,21 +1,62 @@
 from app.split_integer import split_integer
+import pytest
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+@pytest.mark.parametrize(
+    "value, number_of_parts",
+    [
+        (6, 2),
+        (36, 8),
+        (24, 6)
+    ]
+)
+def test_sum_of_the_parts_should_be_equal_to_value(value, number_of_parts) -> None:
+    assert sum(split_integer(value, number_of_parts)) == value, "Sum of all elements should be equal to value"
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+@pytest.mark.parametrize(
+    "value, number_of_parts",
+    [
+        (16, 4),
+        (15, 3)
+    ]
+)
+def test_should_split_into_equal_parts_when_value_divisible_by_parts(value, number_of_parts) -> None:
+    result_list = [value // number_of_parts] * number_of_parts
+    assert result_list == split_integer(value, number_of_parts), "All elements should be equal"
 
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+@pytest.mark.parametrize(
+    "value, number_of_parts, part",
+    [
+        (8, 1, 8),
+        (7, 1, 7)
+    ]
+)
+def test_should_return_part_equals_to_value_when_split_into_one_part(value, number_of_parts, part) -> None:
+    assert value == split_integer(value, number_of_parts)[0], \
+        "The only one element of list should be equal to value"
 
 
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
+@pytest.mark.parametrize(
+    "value, number_of_parts, result",
+    [
+        (17, 3, [5, 6, 6]),
+        (19, 5, [3, 4, 4, 4, 4])
+    ]
+)
+def test_parts_should_be_sorted_when_they_are_not_equal(value, number_of_parts, result) -> None:
+    assert result == sorted(split_integer(value, number_of_parts)), "List should be sorted"
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+@pytest.mark.parametrize(
+    "value, number_of_parts",
+    [
+        (2, 3),
+        (6, 8)
+    ]
+)
+def test_should_add_zeros_when_value_is_less_than_number_of_parts(value, number_of_parts) -> None:
+    zeros = split_integer(value, number_of_parts)[0:number_of_parts - value]
+    assert len(zeros) == number_of_parts - value, \
+        f"First {number_of_parts - value} elements should be zero"
