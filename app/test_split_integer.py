@@ -27,7 +27,7 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts(value, numb
 
 
 @pytest.mark.parametrize(
-    "value, number_of_parts, part",
+    "value, number_of_parts",
     [
         (8, 1),
         (7, 1)
