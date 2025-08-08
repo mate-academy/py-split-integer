@@ -34,7 +34,7 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts(value, numb
     ]
 )
 def test_should_return_part_equals_to_value_when_split_into_one_part(value, number_of_parts, part) -> None:
-    assert value == split_integer(value, number_of_parts)[0], \
+    assert [value] == split_integer(value, number_of_parts), \
         "The only one element of list should be equal to value"
 
 
@@ -46,17 +46,29 @@ def test_should_return_part_equals_to_value_when_split_into_one_part(value, numb
     ]
 )
 def test_parts_should_be_sorted_when_they_are_not_equal(value, number_of_parts, result) -> None:
-    assert result == sorted(split_integer(value, number_of_parts)), "List should be sorted"
+    assert split_integer(value, number_of_parts) == result, "List should be sorted"
+
+
+@pytest.mark.parametrize(
+    "value, number_of_parts, result",
+    [
+        (2, 3, [0, 1, 1]),
+        (6, 8, [0, 0, 1, 1, 1, 1, 1, 1])
+    ]
+)
+def test_should_add_zeros_when_value_is_less_than_number_of_parts(value, number_of_parts, result) -> None:
+    assert split_integer(value, number_of_parts) == result, \
+        f"First {number_of_parts - value} elements should be zero"
 
 
 @pytest.mark.parametrize(
     "value, number_of_parts",
     [
-        (2, 3),
-        (6, 8)
+        (17, 4),
+        (32, 6),
+        (20, 5)
     ]
 )
-def test_should_add_zeros_when_value_is_less_than_number_of_parts(value, number_of_parts) -> None:
-    zeros = split_integer(value, number_of_parts)[0:number_of_parts - value]
-    assert len(zeros) == number_of_parts - value, \
-        f"First {number_of_parts - value} elements should be zero"
+def test_difference_between_parts_is_at_most_one(value, number_of_parts):
+    result = split_integer(value, number_of_parts)
+    assert max(result) - min(result) <= 1
