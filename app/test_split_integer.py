@@ -22,18 +22,18 @@ def test_sum_of_the_parts_should_be_equal_to_value(value, number_of_parts) -> No
     ]
 )
 def test_should_split_into_equal_parts_when_value_divisible_by_parts(value, number_of_parts) -> None:
-    result_list = [value // number_of_parts] * number_of_parts
-    assert result_list == split_integer(value, number_of_parts), "All elements should be equal"
+    assert [value // number_of_parts] * number_of_parts == split_integer(value, number_of_parts), \
+        "All elements should be equal"
 
 
 @pytest.mark.parametrize(
     "value, number_of_parts, part",
     [
-        (8, 1, 8),
-        (7, 1, 7)
+        (8, 1),
+        (7, 1)
     ]
 )
-def test_should_return_part_equals_to_value_when_split_into_one_part(value, number_of_parts, part) -> None:
+def test_should_return_part_equals_to_value_when_split_into_one_part(value, number_of_parts) -> None:
     assert [value] == split_integer(value, number_of_parts), \
         "The only one element of list should be equal to value"
 
