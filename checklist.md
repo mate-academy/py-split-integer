@@ -9,7 +9,7 @@ Good example:
 ```python
 def test_():
     assert some_function_to_test() == [10]
-```
+``` 
 
 Bad example:
 
