@@ -5,5 +5,3 @@ def split_integer(value: int, number_of_parts: int) -> list:
         parts.append(next_number)
         value -= next_number
     return parts
-
-split_integer(2, 3)
