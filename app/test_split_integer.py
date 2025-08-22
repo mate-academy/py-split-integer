@@ -29,7 +29,8 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     value = 20
     number_of_parts = 3
     result = split_integer(value, number_of_parts)
-    assert sorted(result) == result, [6, 7, 7] and len(result) == number_of_parts
+    assert (sorted(result) == result
+            and len(result) == number_of_parts)
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
