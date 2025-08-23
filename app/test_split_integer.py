@@ -21,5 +21,22 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     assert result == sorted(result)
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    assert split_integer.split_integer(3, 5) == [0, 0, 1, 1, 1]
+def test_example_32_6_matches_spec() -> None:
+    assert split_integer.split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
+
+
+def test_result_contains_exactly_number_of_parts() -> None:
+    value, parts = 19, 5
+    result = split_integer.split_integer(value, parts)
+    assert len(result) == parts
+
+
+def test_all_elements_are_integers() -> None:
+    result = split_integer.split_integer(17, 4)
+    assert all(isinstance(x, int) for x in result)
+
+
+def test_range_difference_between_min_and_max_is_at_most_one() -> None:
+    for value, parts in [(17, 4), (32, 6)]:
+        result = split_integer.split_integer(value, parts)
+        assert max(result) - min(result) <= 1
