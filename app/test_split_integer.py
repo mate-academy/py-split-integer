@@ -18,7 +18,7 @@ def test_sum_of_the_parts_should_be_equal_to_value(
         number_of_parts: int,
         expected: list
 ) -> None:
-    assert sum(split_integer(value, number_of_parts)) == expected
+    assert split_integer(value, number_of_parts) == expected
 
 
 @pytest.mark.parametrize(
