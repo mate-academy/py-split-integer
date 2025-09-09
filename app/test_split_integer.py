@@ -62,12 +62,8 @@ def test_parts_should_be_sorted_when_they_are_not_equal(
         value: int,
         number_of_parts: int
 ) -> None:
-    assert split_integer(
-        value,
-        number_of_parts
-    ) == sorted(
-        split_integer(value, number_of_parts)
-    )
+    parts = split_integer(value, number_of_parts)
+    assert parts == sorted(parts)
 
 
 @pytest.mark.parametrize(
@@ -83,3 +79,36 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts(
         number_of_parts: int
 ) -> None:
     assert len(split_integer(value, number_of_parts)) == number_of_parts
+
+
+@pytest.mark.parametrize(
+    "value, number_of_parts",
+    [
+        (8, 3),
+        (10, 3),
+        (100, 10)
+    ]
+)
+def test_length_is_number_of_parts_for_value_ge_parts(
+        value: int,
+        number_of_parts: int
+) -> None:
+    assert len(split_integer(value, number_of_parts)) == number_of_parts
+
+
+@pytest.mark.parametrize(
+    "value, number_of_parts",
+    [
+        (8, 3),
+        (17, 4),
+        (32, 6),
+        (100, 9),
+        (7, 8),
+    ]
+)
+def test_difference_between_max_and_min_should_be_at_most_one(
+        value: int,
+        number_of_parts: int
+) -> None:
+    parts = split_integer(value, number_of_parts)
+    assert max(parts) - min(parts) <= 1
