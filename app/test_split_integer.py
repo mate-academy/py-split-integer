@@ -49,7 +49,6 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
     ],
 )
 def test_sorted_and_remainder_distribution(value: int, parts: int) -> None:
-    """Array is sorted, max-min <= 1, and remainder is distributed correctly."""
     result = split_integer(value, parts)
 
     # basic shape constraints
