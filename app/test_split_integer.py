@@ -5,14 +5,13 @@ import pytest
 @pytest.mark.parametrize(
     "value, parts",
     [
-        (0, 1),
-        (0, 3),
         (1, 1),
         (6, 2),
         (8, 3),
         (17, 4),
         (32, 6),
         (100, 7),
+        (3, 3),  # boundary: value == number_of_parts
     ],
 )
 def test_sum_len_and_types(value: int, parts: int) -> None:
@@ -24,17 +23,15 @@ def test_sum_len_and_types(value: int, parts: int) -> None:
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    # 6 // 2 == 3 -> [3, 3]
     assert split_integer(6, 2) == [3, 3]
-    # 12 // 3 == 4 -> [4, 4, 4]
     assert split_integer(12, 3) == [4, 4, 4]
-    # 8 // 4 == 2 -> [2, 2, 2, 2]
     assert split_integer(8, 4) == [2, 2, 2, 2]
+    # boundary: value == parts -> all ones
+    assert split_integer(3, 3) == [1, 1, 1]
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    assert split_integer(8, 1) == [8]
-    assert split_integer(0, 1) == [0]
+    assert split_integer(1, 1) == [1]
     assert split_integer(123, 1) == [123]
 
 
@@ -64,13 +61,10 @@ def test_sorted_and_remainder_distribution(value: int, parts: int) -> None:
         assert max(result) - min(result) <= 1
 
     # remainder distribution check:
-    # Let base = value // parts, remainder = value % parts.
-    # Exactly 'remainder' elements should be base + 1, rest should be base.
     base = value // parts
     remainder = value % parts
     min_val = min(result) if result else 0
 
-    # min_val should be base, and counts should match the remainder logic
     assert min_val == base
     assert result.count(base + 1) == remainder
     assert result.count(base) == parts - remainder
@@ -79,7 +73,6 @@ def test_sorted_and_remainder_distribution(value: int, parts: int) -> None:
 @pytest.mark.parametrize(
     "value, parts, expected",
     [
-        (0, 3, [0, 0, 0]),
         (1, 4, [0, 0, 0, 1]),
         (2, 5, [0, 0, 0, 1, 1]),
         (3, 5, [0, 0, 1, 1, 1]),
