@@ -1,6 +1,7 @@
 import pytest
 from app.split_integer import split_integer
 
+
 test_cases = [
     (8, 1),
     (6, 2),
@@ -9,6 +10,7 @@ test_cases = [
     (12, 4),
     (10, 3),
     (3, 5),
+    (5, 5),
 ]
 
 
@@ -18,9 +20,15 @@ def test_sum_of_the_parts_should_be_equal_to_value(value, number_of_parts) -> No
 
 
 @pytest.mark.parametrize("value, number_of_parts", test_cases)
+def test_should_return_integers_only(value, number_of_parts) -> None:
+    assert all(isinstance(x, int) for x in split_integer(value, number_of_parts))
+
+
+@pytest.mark.parametrize("value, number_of_parts", test_cases)
 def test_should_split_into_equal_parts_when_value_divisible_by_parts(value, number_of_parts) -> None:
-    result = split_integer(value, number_of_parts)
-    assert len(result) == number_of_parts
+    if value % number_of_parts == 0:
+        expected = [value // number_of_parts] * number_of_parts
+        assert split_integer(value, number_of_parts) == expected
 
 
 @pytest.mark.parametrize("value, number_of_parts", test_cases)
