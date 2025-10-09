@@ -39,7 +39,9 @@ def test_should_return_part_equals_to_value_when_split_into_one_part(value, numb
 
 @pytest.mark.parametrize("value, number_of_parts", test_cases)
 def test_parts_should_be_sorted_when_they_are_not_equal(value, number_of_parts) -> None:
-    assert split_integer(value, number_of_parts) == sorted(split_integer(value, number_of_parts))
+    assert split_integer(value, number_of_parts) == sorted(
+        split_integer(value, number_of_parts)
+    )
 
 
 @pytest.mark.parametrize("value, number_of_parts", test_cases)
