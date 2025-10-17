@@ -58,6 +58,10 @@ def test_result_is_sorted_ascending() -> None:
         (9, 4, [2, 2, 2, 3]),
     ],
 )
-def test_parametrized_cases(value: int, number_of_parts: int, expected: list[int]) -> None:
+def test_parametrized_cases(
+    value: int,
+    number_of_parts: int,
+    expected: list[int],
+) -> None:
     """Test multiple parameterized input-output pairs."""
     assert split_integer(value, number_of_parts) == expected
