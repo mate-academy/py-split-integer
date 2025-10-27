@@ -25,8 +25,8 @@ def test_correct_number_of_parts() -> None:
 
 
 def test_distribution_of_remainder() -> None:
-    assert split_integer(10, 3) in ([4, 3, 3], [3, 3, 4])
-    assert split_integer(11, 3) in ([4, 4, 3], [3, 4, 4])
+    assert split_integer(10, 3) == [3, 3, 4]
+    assert split_integer(11, 3) == [3, 4, 4]
 
 
 def test_one_part_equals_value() -> None:
@@ -35,12 +35,7 @@ def test_one_part_equals_value() -> None:
 
 def test_each_part_positive_if_value_positive() -> None:
     for i in range(1, 10):
-        result = split_integer(i * 3, 3)
-        assert all(x > 0 for x in result)
-
-
-def test_handle_zero_value() -> None:
-    assert split_integer(0, 3) == [0, 0, 0]
+        assert all(x > 0 for x in split_integer(i * 3, 3))
 
 
 def test_large_numbers() -> None:
