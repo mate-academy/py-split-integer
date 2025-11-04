@@ -5,7 +5,6 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
     value = 17
     number_of_parts = 4
     subject = split_integer(value, number_of_parts)
-    expected = [4, 4, 4, 5]
 
     assert sum(subject) == value
     assert max(subject) - min(subject) <= 1
@@ -26,7 +25,6 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
     value = 8
     number_of_parts = 1
     subject = split_integer(value, number_of_parts)
-    expected = [8]
 
     assert len(subject) == number_of_parts
     assert subject == value
@@ -45,8 +43,5 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     value = 1
     number_of_parts = 3
     subject = split_integer(value, number_of_parts)
-    expected = [0, 0, 1]
 
     assert len(subject) == number_of_parts
-
-
