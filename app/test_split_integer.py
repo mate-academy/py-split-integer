@@ -2,61 +2,29 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_parts_equals_original_value() -> None:
-    value = 17
-    number_of_parts = 4
-    parts = split_integer(value, number_of_parts)
-    assert sum(parts) == value
-
-    value = 32
-    number_of_parts = 6
-    parts = split_integer(value, number_of_parts)
-    assert sum(parts) == value
-
-    value = 0
-    number_of_parts = 3
-    parts = split_integer(value, number_of_parts)
-    assert sum(parts) == value
+    assert sum(split_integer(17, 4)) == 17
+    assert sum(split_integer(32, 6)) == 32
+    assert sum(split_integer(0, 3)) == 0
 
 
 def test_equal_parts_when_value_divisible() -> None:
-    value = 12
-    number_of_parts = 4
-    expected = [3, 3, 3, 3]
-    result = split_integer(value, number_of_parts)
-    assert result == expected
+    assert split_integer(6, 2) == [3, 3]
+    assert split_integer(12, 4) == [3, 3, 3, 3]
+    assert split_integer(100, 10) == [10] * 10
 
 
 def test_single_part_equals_value() -> None:
-    value = 8
-    number_of_parts = 1
-    expected = [8]
-    result = split_integer(value, number_of_parts)
-    assert result == expected
+    assert split_integer(8, 1) == [8]
+    assert split_integer(0, 1) == [0]
+    assert split_integer(999, 1) == [999]
 
 
 def test_parts_are_sorted_and_difference_is_at_most_one() -> None:
-    value = 17
-    number_of_parts = 4
-    parts = split_integer(value, number_of_parts)
-    assert parts == sorted(parts)
-    assert max(parts) - min(parts) <= 1
-
-    value = 32
-    number_of_parts = 6
-    parts = split_integer(value, number_of_parts)
-    assert parts == sorted(parts)
-    assert max(parts) - min(parts) <= 1
+    assert split_integer(17, 4) == [4, 4, 4, 5]
+    assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
 
 
 def test_zeros_are_added_when_value_is_less_than_parts() -> None:
-    value = 3
-    number_of_parts = 5
-    expected = [0, 0, 1, 1, 1]
-    result = split_integer(value, number_of_parts)
-    assert result == expected
-
-    value = 0
-    number_of_parts = 4
-    expected = [0, 0, 0, 0]
-    result = split_integer(value, number_of_parts)
-    assert result == expected
+    assert split_integer(3, 5) == [0, 0, 1, 1, 1]
+    assert split_integer(0, 4) == [0, 0, 0, 0]
+    assert split_integer(2, 6) == [0, 0, 0, 0, 1, 1]
