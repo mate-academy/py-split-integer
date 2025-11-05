@@ -1,21 +1,62 @@
 from app.split_integer import split_integer
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+def test_sum_of_parts_equals_original_value() -> None:
+    value = 17
+    number_of_parts = 4
+    parts = split_integer(value, number_of_parts)
+    assert sum(parts) == value
+
+    value = 32
+    number_of_parts = 6
+    parts = split_integer(value, number_of_parts)
+    assert sum(parts) == value
+
+    value = 0
+    number_of_parts = 3
+    parts = split_integer(value, number_of_parts)
+    assert sum(parts) == value
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+def test_equal_parts_when_value_divisible() -> None:
+    value = 12
+    number_of_parts = 4
+    expected = [3, 3, 3, 3]
+    result = split_integer(value, number_of_parts)
+    assert result == expected
 
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+def test_single_part_equals_value() -> None:
+    value = 8
+    number_of_parts = 1
+    expected = [8]
+    result = split_integer(value, number_of_parts)
+    assert result == expected
 
 
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
+def test_parts_are_sorted_and_difference_is_at_most_one() -> None:
+    value = 17
+    number_of_parts = 4
+    parts = split_integer(value, number_of_parts)
+    assert parts == sorted(parts)
+    assert max(parts) - min(parts) <= 1
+
+    value = 32
+    number_of_parts = 6
+    parts = split_integer(value, number_of_parts)
+    assert parts == sorted(parts)
+    assert max(parts) - min(parts) <= 1
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+def test_zeros_are_added_when_value_is_less_than_parts() -> None:
+    value = 3
+    number_of_parts = 5
+    expected = [0, 0, 1, 1, 1]
+    result = split_integer(value, number_of_parts)
+    assert result == expected
+
+    value = 0
+    number_of_parts = 4
+    expected = [0, 0, 0, 0]
+    result = split_integer(value, number_of_parts)
+    assert result == expected
