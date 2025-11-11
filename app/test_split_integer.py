@@ -13,6 +13,10 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
     assert split_integer(17, 1) == [17]
 
 
+def test_should_return_such_list_with_exactly_17_and_4() -> None:
+    assert split_integer(17, 4) == [4, 4, 4, 5]
+
+
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
 
