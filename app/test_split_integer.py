@@ -22,3 +22,9 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert len(parts) == 50
     assert sum(parts) == 20
     assert min(parts) == 0
+    assert max(parts) == 1
+
+
+def test_the_difference_between_the_maximum_and_minimum() -> None:
+    diff = max(split_integer(17, 4)) - min(split_integer(17, 4))
+    assert diff == 0 or diff == 1
