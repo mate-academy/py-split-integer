@@ -16,7 +16,7 @@ jobs:
       - name: Set Up Python 3.14
         uses: actions/setup-python@v2
         with:
-          python-version: "3.14"
+          python-version: "3.12"
 
       - name: Install pytest and flake8
         run: |
