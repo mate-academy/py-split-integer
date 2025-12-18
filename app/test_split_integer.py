@@ -26,5 +26,5 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
 def test_differ_between_large_and_small_part_should_be_no_more_than_one(
 
 ) -> None:
-    result = split_integer(17, 4)
-    assert max(result) - min(result) <= 1
+    assert (max(split_integer(17, 4))
+            - min(split_integer(17, 4)) <= 1)
