@@ -11,7 +11,7 @@ def test_():
     assert some_function_to_test() == [10]
 ```
 
-Bad example:
+Bad example:с
 
 ```python
 def test_():
