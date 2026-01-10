@@ -4,13 +4,9 @@ from app.split_integer import split_integer
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
     parts = split_integer(32, 5)
 
-    # 1. Сума
     assert sum(parts) == 32
-    # 2. Кількість елементів
     assert len(parts) == 5
-    # 3. Різниця мін/макс <= 1
     assert max(parts) - min(parts) <= 1
-    # 4. Сортування
     assert parts == sorted(parts)
 
 
