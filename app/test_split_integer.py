@@ -3,15 +3,15 @@ from app.split_integer import split_integer
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
     assert (
-        split_integer(10, 2) == [5, 5]
-    ), "Sum of 2 parts should be equal to value 10!"
+        split_integer(6, 2) == [3, 3]
+    ), "Sum of 2 parts should be equal to value 6!"
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     assert (
-        split_integer(15, 3) == [5, 5, 5]
-    ), ("The value 15 must be divisible "
-        "into equal parts after dividing by 3 -> [5, 5, 5]!")
+        split_integer(17, 4) == [4, 4, 4, 5]
+    ), ("The value 17 must be divisible "
+        "into equal parts after dividing by 4 -> [4, 4, 4, 5]!")
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
