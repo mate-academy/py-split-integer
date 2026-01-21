@@ -26,25 +26,22 @@ def test_split_integer_examples(
 
 
 def test_split_integer_with_equal_parts() -> None:
-    # Removida a variável 'result' para seguir o checklist #1
     assert split_integer(10, 2) == [5, 5]
 
 
 def test_split_integer_parts_should_be_sorted_ascending() -> None:
-    # Chamada direta da função no assert
     assert split_integer(11, 3) == [3, 4, 4]
 
 
 def test_split_integer_difference_is_at_most_one() -> None:
-    # Realiza as operações diretamente no retorno da função
-    assert max(split_integer(100, 9)) - min(split_integer(100, 9)) <= 1
+    # Aqui a variável é necessária para evitar duplicar o processamento
+    result = split_integer(100, 9)
+    assert max(result) - min(result) <= 1
 
 
 def test_split_integer_total_sum_is_correct() -> None:
-    # Verifica a soma sem armazenar a lista em uma variável
     assert sum(split_integer(35, 8)) == 35
 
 
 def test_split_integer_number_of_parts_is_correct() -> None:
-    # Verifica o comprimento diretamente
     assert len(split_integer(20, 5)) == 5
