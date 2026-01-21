@@ -20,7 +20,4 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    assert len(split_integer(2, 5)) == 5
-    assert sum(split_integer(2, 5)) == 2
-    assert max(split_integer(2, 5)) - min(split_integer(2, 5)) <= 1
-    assert split_integer(2, 5) == sorted(split_integer(2, 5))
+    assert split_integer(2, 5) == [0, 0, 0, 1, 1]
