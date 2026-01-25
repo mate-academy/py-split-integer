@@ -5,6 +5,46 @@ from app import split_integer
 @pytest.mark.parametrize(
     "num1,num2",
     [
+        (8, 2),
+        (6, 4),
+        (17, 4),
+        (32, 6),
+    ],
+)
+def test_diff_between_max_and_min_number_should_be_equal_or_minus_than_one(
+    num1: int,
+    num2: int,
+) -> None:
+    assert (
+        max(split_integer.split_integer(num1, num2))
+        - min(split_integer.split_integer(num1, num2))
+        <= 1
+    ), "the difference between the max and min"
+    " number in the array should be <= 1;"
+
+
+@pytest.mark.parametrize(
+    "num1,num2",
+    [
+        (8, 2),
+        (6, 4),
+        (17, 4),
+        (32, 6),
+    ],
+)
+def the_array_should_be_sorted_ascending(
+    num1: int,
+    num2: int,
+) -> None:
+    assert split_integer.split_integer(num1, num2) == sorted(
+        split_integer.split_integer(num1, num2)
+    ), "the difference between the max and min"
+    " number in the array should be <= 1;"
+
+
+@pytest.mark.parametrize(
+    "num1,num2",
+    [
         (8, 1),
         (6, 2),
         (17, 4),
