@@ -34,8 +34,7 @@ def test_examples_and_edge_cases(
     ],
 )
 def test_sum_of_parts_equals_value(value: int, parts: int) -> None:
-    result = split_integer.split_integer(value, parts)
-    assert sum(result) == value
+    assert sum(split_integer.split_integer(value, parts)) == value
 
 
 @pytest.mark.parametrize(
@@ -49,13 +48,25 @@ def test_sum_of_parts_equals_value(value: int, parts: int) -> None:
         (100, 9),
     ],
 )
-def test_result_has_required_length_and_is_sorted(
-    value: int,
-    parts: int,
-) -> None:
-    result = split_integer.split_integer(value, parts)
-    assert len(result) == parts
-    assert result == sorted(result)
+def test_result_has_required_length(value: int, parts: int) -> None:
+    assert len(split_integer.split_integer(value, parts)) == parts
+
+
+@pytest.mark.parametrize(
+    "value, parts",
+    [
+        (1, 1),
+        (3, 5),
+        (8, 3),
+        (17, 4),
+        (32, 6),
+        (100, 9),
+    ],
+)
+def test_result_is_sorted_in_ascending_order(value: int, parts: int) -> None:
+    assert split_integer.split_integer(value, parts) == sorted(
+        split_integer.split_integer(value, parts),
+    )
 
 
 @pytest.mark.parametrize(
@@ -70,8 +81,11 @@ def test_result_has_required_length_and_is_sorted(
     ],
 )
 def test_max_minus_min_is_at_most_one(value: int, parts: int) -> None:
-    result = split_integer.split_integer(value, parts)
-    assert max(result) - min(result) <= 1
+    assert (
+        max(split_integer.split_integer(value, parts))
+        - min(split_integer.split_integer(value, parts))
+        <= 1
+    )
 
 
 @pytest.mark.parametrize(
@@ -87,11 +101,13 @@ def test_distribution_matches_floor_and_ceil_counts(
     value: int,
     parts: int,
 ) -> None:
-    result = split_integer.split_integer(value, parts)
-
     floor_value = value // parts
     remainder = value % parts
     ceil_value = floor_value + (1 if remainder else 0)
 
-    assert result.count(floor_value) == parts - remainder
-    assert result.count(ceil_value) == remainder
+    assert (
+        split_integer.split_integer(value, parts).count(floor_value)
+        == parts - remainder
+    )
+    assert split_integer.split_integer(value,
+                                       parts).count(ceil_value) == remainder
