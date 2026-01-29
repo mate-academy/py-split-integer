@@ -72,27 +72,27 @@ def test_parts_should_be_sorted_when_they_are_not_equal(
     value: int,
     number_of_parts: int
 ) -> None:
+    result = split_integer(value, number_of_parts)
     assert (
-        split_integer(value, number_of_parts)
-        == sorted(split_integer(value, number_of_parts))
+        result == sorted(result)
     ), (f"Parts not sorted for value {value} and "
         f"number of parts {number_of_parts}")
 
 
 @pytest.mark.parametrize(
-    "value,number_of_parts",
+    "value,number_of_parts,result",
     [
-        (8, 10),
-        (6, 7),
-        (3, 21),
-        (13, 333)
+        (5, 10, [0, 0, 0, 0, 0, 1, 1, 1, 1, 1]),
+        (6, 7, [0, 1, 1, 1, 1, 1, 1]),
+        (1, 7, [0, 0, 0, 0, 0, 0, 1])
     ]
 )
 def test_should_add_zeros_when_value_is_less_than_number_of_parts(
     value: int,
-    number_of_parts: int
+    number_of_parts: int,
+    result: list[int]
 ) -> None:
     assert (
-        (0 in split_integer(value, number_of_parts))
+        split_integer(value, number_of_parts) == result
     ), (f"No zeros found in test with value {value} and "
         f"number of parts {number_of_parts}")
