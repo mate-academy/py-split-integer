@@ -1,21 +1,33 @@
-from app.split_integer import split_integer
+import pytest
+from app.split_integer import split_integer  # Импортируем функцию
 
+# Тест: проверка случая с одним элементом
+def test_split_integer_single_part():
+    assert split_integer(8, 1) == [8]
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+# Тест: проверка равного деления на 2 части
+def test_split_integer_two_parts_equal():
+    assert split_integer(6, 2) == [3, 3]
 
+# Тест: проверка, когда результат нужно распределить с разницей 1
+def test_split_integer_multiple_parts_with_remainder():
+    assert split_integer(17, 4) == [4, 4, 4, 5]
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+# Тест: проверка сортировки и равномерного распределения
+def test_split_integer_larger_number():
+    assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
 
+# Тест: проверка минимальной разницы между max и min
+def test_split_integer_max_min_difference():
+    result = split_integer(10, 3)
+    assert max(result) - min(result) <= 1
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+# Тест: проверка сортировки (возрастание)
+def test_split_integer_sorted():
+    result = split_integer(20, 6)
+    assert result == sorted(result)
 
-
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
-
-
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+# Тест: проверка на случай, когда число делится идеально
+def test_split_integer_exact_division():
+    result = split_integer(12, 4)
+    assert result == [3, 3, 3, 3]
