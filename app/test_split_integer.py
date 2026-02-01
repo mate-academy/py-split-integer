@@ -2,9 +2,9 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    expected = [3, 3]
-    actual = split_integer(6, 2)
-    assert sum(expected) == sum(actual)
+    expected = sum([3, 3])
+    actual = sum(split_integer(6, 2))
+    assert expected == actual
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
