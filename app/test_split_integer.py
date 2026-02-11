@@ -10,7 +10,7 @@ from app.split_integer import split_integer
         pytest.param(
             8,
             1,
-        id="one_divisible"
+            id="one_divisible"
         ),
         pytest.param(
             6,
@@ -38,7 +38,7 @@ def test_sum_of_the_parts_should_be_equal_to_value(
         pytest.param(
             8,
             1,
-        id="one_divisible"
+            id="one_divisible"
         ),
         pytest.param(
             6,
@@ -54,13 +54,14 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts(
     result = split_integer(value, number_of_parts)
     assert max(result) == min(result)
 
+
 @pytest.mark.parametrize(
     "value, number_of_parts",
     [
         pytest.param(
             8,
             1,
-        id="equal"
+            id="equal"
         ),
         pytest.param(
             6,
@@ -81,6 +82,7 @@ def test_should_return_part_equals_to_value_when_split_into_one_part(
     result = split_integer(value, number_of_parts)
     assert len(result) == 1
     assert result[0] == value
+
 
 @pytest.mark.parametrize(
     "value, number_of_parts",
@@ -105,6 +107,7 @@ def test_parts_should_be_sorted_when_they_are_not_equal(
     assert result == sorted(result)
     assert max(result) - min(result) <= 1
     assert sum(result) == value
+
 
 @pytest.mark.parametrize(
     "value, number_of_parts",
