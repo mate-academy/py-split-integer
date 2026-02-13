@@ -1,21 +1,47 @@
+import pytest
 from app.split_integer import split_integer
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+def test_split_integer_one_part() -> None:
+    assert split_integer(8, 1) == [8]
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+def test_split_integer_equal_parts() -> None:
+    assert split_integer(6, 2) == [3, 3]
 
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+def test_split_integer_uneven_parts() -> None:
+    assert split_integer(17, 4) == [4, 4, 4, 5]
 
 
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
+def test_split_integer_more_parts() -> None:
+    assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+def test_explicit_remainder_cases() -> None:
+
+    assert split_integer(5, 3) == [1, 2, 2]
+    assert split_integer(7, 4) == [1, 2, 2, 2]
+
+    assert split_integer(9, 4) == [2, 2, 2, 3]
+
+    assert split_integer(6, 3) == [2, 2, 2]
+
+    assert split_integer(6, 5) == [1, 1, 1, 1, 2]
+    assert split_integer(3, 2) == [1, 2]
+
+
+@pytest.mark.parametrize("value, parts", [
+    (1, 1), (2, 2), (10, 3), (10, 4), (100, 7), (17, 4), (32, 6)
+])
+def test_properties_and_pattern(value: int, parts: int) -> None:
+    result = split_integer(value, parts)
+    assert isinstance(result, list)
+    assert len(result) == parts
+    assert sum(result) == value
+    assert result == sorted(result)
+    assert max(result) - min(result) <= 1
+    base = value // parts
+    rem = value % parts
+    expected = [base] * (parts - rem) + [base + 1] * rem
+    assert result == expected
