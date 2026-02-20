@@ -30,6 +30,7 @@ def test_split_into_one_part() -> None:
 def test_equal_distribution_when_divisible() -> None:
     assert split_integer.split_integer(6, 2) == [3, 3]
     assert split_integer.split_integer(20, 5) == [4, 4, 4, 4, 4]
+    assert split_integer.split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
 
 
 def test_correct_distribution_of_remainder() -> None:
