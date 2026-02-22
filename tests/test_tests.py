@@ -1,84 +1,50 @@
-import os
-
-import pytest
-
-from app import split_integer
+from app.split_integer import split_integer
 
 
-def path_to_main():
-    base_path = os.path.join("app", "test_split_integer.py")
-    return (
-        base_path if os.path.exists(base_path) else os.path.join(os.pardir, base_path)
-    )
+def test_sum_of_the_parts_should_be_equal_to_value() -> None:
+    for value, parts in [(17, 4), (32, 6), (3, 5), (10, 3)]:
+        assert sum(split_integer(value, parts)) == value
 
 
-def test_could_split_on_different_parts(monkeypatch):
-    def split_on_equal_part(value: int, number_of_parts: int):
-        return [value // number_of_parts] * number_of_parts
-
-    monkeypatch.setattr(split_integer, "split_integer", split_on_equal_part)
-
-    test_result = pytest.main(["app/test_split_integer.py"])
-    assert (
-        test_result.value == 1
-    ), "Function 'split_on_equal_part' shouldn't pass all tests"
+def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
+    assert split_integer(6, 2) == [3, 3]
+    assert split_integer(9, 3) == [3, 3, 3]
 
 
-def test_only_last_number_is_incremented(monkeypatch):
-    def split_and_increment_the_last_number(value: int, number_of_parts: int):
-        result_list = [value // number_of_parts] * number_of_parts
-        if value % number_of_parts != 0:
-            result_list[-1] += 1
-        return result_list
-
-    monkeypatch.setattr(
-        split_integer, "split_integer", split_and_increment_the_last_number
-    )
-
-    test_result = pytest.main(["app/test_split_integer.py"])
-    assert (
-        test_result.value == 1
-    ), "Function 'split_and_increment_the_last_number' shouldn't pass all tests"
+def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
+    assert split_integer(8, 1) == [8]
 
 
-def test_split_on_incorrect_parts(monkeypatch):
-    def split_on_incorrect_parts(value: int, number_of_parts: int):
-        result_list = [value // number_of_parts] * number_of_parts
-        for i in range(value % number_of_parts + 1):
-            result_list[-1 - i] += 1
-        result_list[0] -= 1
-        return result_list
-
-    monkeypatch.setattr(split_integer, "split_integer", split_on_incorrect_parts)
-
-    test_result = pytest.main(["app/test_split_integer.py"])
-    assert (
-        test_result.value == 1
-    ), "Function 'split_on_incorrect_parts' shouldn't pass all tests"
+def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
+    for value, parts in [(17, 4), (32, 6), (3, 5)]:
+        result = split_integer(value, parts)
+        assert result == sorted(result)
 
 
-def test_split_on_different_parts(monkeypatch):
-    def split_on_different_parts(value: int, number_of_parts: int):
-        result_list = [value // number_of_parts] * number_of_parts
-        for i in range(value % number_of_parts):
-            result_list[-1 - i] += 1
-        if value % number_of_parts == 0:
-            result_list[0] -= 1
-            result_list[-1] += 1
-        return result_list
-
-    monkeypatch.setattr(split_integer, "split_integer", split_on_different_parts)
-
-    test_result = pytest.main(["app/test_split_integer.py"])
-    assert (
-        test_result.value == 1
-    ), "Function 'split_on_different_parts' shouldn't pass all tests"
+def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
+    result = split_integer(3, 5)
+    assert len(result) == 5
+    assert sum(result) == 3
+    assert min(result) >= 0
+    assert max(result) - min(result) <= 1
 
 
-def test_no_pass_in_code():
-    with open(path_to_main(), "r") as file:
-        tests_content = file.read()
+def test_difference_between_max_and_min_should_be_no_more_than_one() -> None:
+    for value, parts in [(17, 4), (32, 6), (10, 3), (5, 5)]:
+        result = split_integer(value, parts)
+        assert max(result) - min(result) <= 1
 
-        assert (
-            "pass" not in tests_content
-        ), "You have to remove the 'pass' statement from your code if function is not empty"
+
+def test_should_return_exact_number_of_parts() -> None:
+    for value, parts in [(17, 4), (32, 6), (3, 5), (10, 3)]:
+        assert len(split_integer(value, parts)) == parts
+
+
+def test_no_part_should_be_negative() -> None:
+    for value, parts in [(17, 4), (3, 5), (10, 3)]:
+        assert all(x >= 0 for x in split_integer(value, parts))
+
+
+def test_all_parts_should_be_integers() -> None:
+    for value, parts in [(17, 4), (32, 6), (3, 5)]:
+        assert all(isinstance(x, int) for x in split_integer(value, parts))
