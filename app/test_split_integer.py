@@ -2,7 +2,7 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    result = split_integer(17,4)
+    result = split_integer(17, 4)
     assert sum(result) == 17
 
 
