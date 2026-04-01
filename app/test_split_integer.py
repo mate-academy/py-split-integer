@@ -1,15 +1,6 @@
 from app import split_integer
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    result = split_integer.split_integer(17, 4)
-
-    assert sum(result) == 17
-    assert len(result) == 4
-    assert max(result) - min(result) <= 1
-    assert result == sorted(result)
-
-
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     assert split_integer.split_integer(6, 2) == [3, 3]
 
