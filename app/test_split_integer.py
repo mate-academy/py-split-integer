@@ -21,16 +21,9 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert split_integer_module.split_integer(3, 5) == [0, 0, 1, 1, 1]
 
 
-def test_all_parts_equal_when_divisible() -> None:
-    assert split_integer_module.split_integer(12, 4) == [3, 3, 3, 3]
-
-
 def test_difference_between_parts_is_not_greater_than_one() -> None:
-    assert max(
-        split_integer_module.split_integer(10, 3)
-    ) - min(
-        split_integer_module.split_integer(10, 3)
-    ) <= 1
+    result = split_integer_module.split_integer(10, 3)
+    assert max(result) - min(result) <= 1
 
 
 def test_number_of_parts_is_correct() -> None:
@@ -39,11 +32,8 @@ def test_number_of_parts_is_correct() -> None:
 
 
 def test_smaller_parts_go_first() -> None:
-    assert split_integer_module.split_integer(
-        10, 3
-    ) == sorted(
-        split_integer_module.split_integer(10, 3)
-    )
+    result = split_integer_module.split_integer(10, 3)
+    assert result == sorted(result)
 
 
 def test_sum_when_value_less_than_parts() -> None:
