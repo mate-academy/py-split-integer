@@ -2,7 +2,7 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    received_list = split_integer(32,6)
+    received_list = split_integer(32, 6)
     assert sum(received_list) == 32
 
 
