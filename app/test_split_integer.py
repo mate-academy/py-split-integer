@@ -2,12 +2,19 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    assert sum(split_integer(10, 2)) == 10
-    assert sum(split_integer(17, 4)) == 17
-    assert sum(split_integer(32, 6)) == 32
+    parts = split_integer(90, 3)
+    assert len(parts) == 3
+    assert sum(parts) == 90
+    assert max(parts) - min(parts) <= 1
+    equal_parts = split_integer(32, 6)
+    assert len(equal_parts) == 6
+    assert sum(equal_parts) == 32
+    assert max(equal_parts) - min(equal_parts) <= 1
+
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     assert split_integer(60, 4) == [15, 15, 15, 15]
+
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
     assert split_integer(8, 1) == [8]
