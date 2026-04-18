@@ -20,6 +20,7 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     result = split_integer(17, 4)
     assert result == sorted(result)
 
+
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     result = split_integer(3, 5)
     assert result == [0, 0, 1, 1, 1]
