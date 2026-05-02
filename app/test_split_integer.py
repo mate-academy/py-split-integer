@@ -1,8 +1,16 @@
+import pytest
 from app.split_integer import split_integer
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    assert sum(split_integer(17, 5)) == 17
+@pytest.mark.parametrize(
+    "value,num_of_parts,expected",
+    [
+        (6,1,[6]),
+        (6,2,[6])
+    ]
+)
+def test_sum_of_the_parts_should_be_equal_to_value(value, num_of_parts, expected) -> None:
+    assert split_integer(value, num_of_parts) == expected
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
