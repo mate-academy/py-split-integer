@@ -14,7 +14,9 @@ from app import split_integer as si
         (25, 7),
     ],
 )
-def test_sum_of_the_parts_should_be_equal_to_value(value, num_of_parts) -> None:
+def test_sum_of_the_parts_should_be_equal_to_value(
+    value: int, num_of_parts: int
+) -> None:
     assert sum(si.split_integer(value, num_of_parts)) == value
 
 
