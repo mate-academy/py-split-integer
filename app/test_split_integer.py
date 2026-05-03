@@ -14,9 +14,17 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    parts = split_integer(32, 6)
-    assert parts == sorted(parts)
+    assert split_integer(32, 6) == sorted(split_integer(32, 6))
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert split_integer(7, 9) == [0, 0, 1, 1, 1, 1, 1, 1, 1]
+
+
+def test_difference_between_max_and_min_parts_should_be_less_or_equal_to_1(
+) -> None:
+    assert max(split_integer(32, 6)) - min(split_integer(32, 6)) <= 1
+
+
+def test_number_of_parts_should_be_equal_to_given_number_of_parts() -> None:
+    assert len(split_integer(32, 6)) == 6
