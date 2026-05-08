@@ -38,3 +38,9 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert (
         split_integer.split_integer(6, 8) == [0, 0, 1, 1, 1, 1, 1, 1]
     ), "When value is less than number of parts result should should add zeros"
+
+
+def test_should_split_correctly_when_value_not_divisible_by_parts() -> None:
+    assert (
+        split_integer.split_integer(17, 4) == [4, 4, 4, 5]
+    ), "Parts should be distributed correctly"
