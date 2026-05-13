@@ -17,5 +17,10 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     assert split_integer(10, 3) == [3, 3, 4]
 
 
+def test_parts_should_be_no_more_than_one_apart() -> None:
+    assert split_integer(17, 4) == [4, 4, 4, 5]
+    assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
+
+
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert split_integer(2, 5) == [0, 0, 0, 1, 1]
