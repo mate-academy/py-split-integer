@@ -5,6 +5,10 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
     assert sum(split_integer(15, 3)) == 15
 
 
+def test_check_if_the_number_of_elements_is_equal_to_number_of_parts() -> None:
+    assert len(split_integer(15, 3)) == 3
+
+
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     assert split_integer(6, 2) == [3, 3]
 
@@ -15,6 +19,11 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     assert sorted(split_integer(17, 4)) == split_integer(17, 4)
+
+
+def test_checking_the_difference_between_maximum_and_minimum_numbers() -> None:
+    result = split_integer(17, 4)
+    assert (max(result) - min(result) <= 1)
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
