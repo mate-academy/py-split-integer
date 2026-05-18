@@ -22,8 +22,7 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 
 
 def test_checking_the_difference_between_maximum_and_minimum_numbers() -> None:
-    result = split_integer(17, 4)
-    assert (max(result) - min(result) <= 1)
+    assert (max(split_integer(17, 4)) - min(split_integer(17, 4)) <= 1)
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
