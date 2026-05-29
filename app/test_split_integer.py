@@ -83,3 +83,39 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts(
     result: list
 ) -> None:
     assert split_integer(value_arg, number_of_parts_arg) == result
+
+
+@pytest.mark.parametrize(
+    "value_arg, number_of_parts_arg",
+    [
+        (6, 4),
+        (12, 5),
+        (32, 3)
+    ]
+)
+def test_should_test_parts_should_be_sorted_in_ascending_order(
+    value_arg: int,
+    number_of_parts_arg: int,
+) -> None:
+    actual = split_integer(value_arg, number_of_parts_arg)
+    assert actual == sorted(actual)
+
+
+@pytest.mark.parametrize(
+    "value_arg, number_of_parts_arg",
+    [
+        (8, 1),
+        (6, 2),
+        (12, 3),
+        (32, 4),
+        (6, 4),
+        (12, 5),
+        (32, 3)
+    ]
+)
+def test_difference_between_min_and_max_should_be_not_exceed_1(
+    value_arg: int,
+    number_of_parts_arg: int
+) -> None:
+    actual = split_integer(value_arg, number_of_parts_arg)
+    assert max(actual) - min(actual) <= 1
