@@ -28,11 +28,11 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
 
 def test_length_of_result_should_equal_number_of_parts() -> None:
     assert len(split_integer(10, 5)) == 5
+    assert len(split_integer(3, 5)) == 5
     assert len(split_integer(17, 4)) == 4
 
 
 def test_difference_between_max_and_min_should_not_be_greater_than_1() -> None:
-    result = split_integer(3, 5)
-    assert max(result) - min(result) <= 1
-    result = split_integer(5, 5)
-    assert max(result) - min(result) <= 1
+    assert max(split_integer(3, 5)) - min(split_integer(3, 5)) <= 1
+    assert max(split_integer(5, 5)) - min(split_integer(5, 5)) <= 1
+    assert max(split_integer(17, 4)) - min(split_integer(17, 4)) <= 1
