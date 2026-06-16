@@ -41,7 +41,7 @@ def test_parts_should_be_sorted_when_they_are_not_equal(
 
 
 @pytest.mark.parametrize("value, number_of_parts", [(1, 2)])
-def test_should_add_zeros_when_value_is_less_than_number_of_parts(
+def test_parts_meet_constraints_when_value_is_less_than_number_of_parts(
         value: int,
         number_of_parts: int
 ) -> None:
