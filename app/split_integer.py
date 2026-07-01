@@ -7,4 +7,4 @@ def split_integer(value: int, number_of_parts: int) -> list:
     return parts
 
 
-print(split_integer(6, 1))
+

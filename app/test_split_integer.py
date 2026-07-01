@@ -14,8 +14,7 @@ from app.split_integer import split_integer
 def test_sum_of_the_parts_should_be_equal_to_value(
     value: int, number_of_parts: int
 ) -> None:
-    result = split_integer(value, number_of_parts)
-    assert value == sum(result)
+    assert value == sum(split_integer(value, number_of_parts))
 
 
 @pytest.mark.parametrize(
@@ -37,8 +36,7 @@ def test_should_split_into_equal_parts_when_value_divisible_by_parts(
 def test_should_return_part_equals_to_value_when_split_into_one_part(
     value: int, number_of_parts: int
 ) -> None:
-    result = split_integer(value, number_of_parts)
-    assert result == [value]
+    assert split_integer(value, number_of_parts) == [value]
 
 
 @pytest.mark.parametrize(
@@ -48,8 +46,8 @@ def test_should_return_part_equals_to_value_when_split_into_one_part(
 def test_parts_should_be_sorted_when_they_are_not_equal(
     value: int, number_of_parts: int
 ) -> None:
-    result = split_integer(value, number_of_parts)
-    assert result == sorted(result)
+    res = split_integer(value, number_of_parts)
+    assert res == sorted(res)
 
 
 @pytest.mark.parametrize(
@@ -59,5 +57,4 @@ def test_parts_should_be_sorted_when_they_are_not_equal(
 def test_should_add_zeros_when_value_is_less_than_number_of_parts(
     value: int, number_of_parts: int
 ) -> None:
-    result = split_integer(value, number_of_parts)
-    assert result[0] == 0
+    assert split_integer(value, number_of_parts)[0] == 0
