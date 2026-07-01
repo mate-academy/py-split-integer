@@ -24,9 +24,9 @@ def test_sum_of_the_parts_should_be_equal_to_value(
 def test_should_split_into_equal_parts_when_value_divisible_by_parts(
     value: int, number_of_parts: int
 ) -> None:
-    result = split_integer(value, number_of_parts)
-    assert len(set(result)) == 1
-    assert result[0] == value // number_of_parts
+    assert split_integer(value, number_of_parts) == (
+        [value // number_of_parts] * number_of_parts
+    )
 
 
 @pytest.mark.parametrize(
