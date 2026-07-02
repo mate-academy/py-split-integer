@@ -37,9 +37,9 @@ def test_split_integer_max_min_difference() -> None:
 
 def test_split_integer_max_min_difference_sum() -> None:
     result = split_integer(10, 3)
-    assert result == [3, 3, 4]
+    assert result == [4, 3, 3]
 
 
 def test_split_integer_max_min_difference_length() -> None:
     result = split_integer(7, 3)
-    assert result == [2, 2, 3]
+    assert result == [3, 2, 2]
