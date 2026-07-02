@@ -35,7 +35,7 @@ def test_split_integer_max_min_difference() -> None:
     assert max(result) - min(result) <= 1
 
 
-def test_split_integer_max_min_difference_sum() -> None:
+def test_sum_of_the_parts_should_be_equal_to_value() -> None:
     result = split_integer(10, 3)
     assert result == [4, 3, 3]
 
