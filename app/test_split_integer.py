@@ -38,3 +38,11 @@ def test_split_integer_distributes_remainder_evenly() -> None:
     """Test that remainder is distributed across
      multiple parts, not just added to last."""
     assert split_integer(5, 3) == [1, 2, 2]
+
+
+def test_split_integer_one_part() -> None:
+    assert split_integer(8, 1) == [8]
+
+
+def test_split_integer_value_less_than_parts() -> None:
+    assert split_integer(3, 5) == [0, 0, 1, 1, 1]
