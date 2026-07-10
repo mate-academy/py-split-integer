@@ -6,6 +6,10 @@ def test_basic_case() -> None:
     assert split_integer.split_integer(8, 1) == [8]
 
 
+def test_split_integer_6_2() -> None:
+    assert split_integer.split_integer(6, 2) == [3, 3]
+
+
 def test_split_on_equal_part() -> None:
     assert split_integer.split_integer(17, 4) == [4, 4, 4, 5]
 
@@ -45,10 +49,15 @@ def test_split_integer_exact(
 
 
 def test_sorted_ascending() -> None:
-    result = split_integer.split_integer(17, 4)
-    assert sorted(result) == result
+    assert (
+        sorted(split_integer.split_integer(17, 4))
+        == split_integer.split_integer(17, 4)
+    )
 
 
 def test_max_min_difference() -> None:
-    result = split_integer.split_integer(32, 6)
-    assert max(result) - min(result) <= 1
+    assert (
+        max(split_integer.split_integer(32, 6))
+        - min(split_integer.split_integer(32, 6))
+        <= 1
+    )
