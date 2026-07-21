@@ -1,29 +1,36 @@
-import app.split_integer
+from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    assert sum(app.split_integer.split_integer(17, 4)) == 17
-    assert sum(app.split_integer.split_integer(32, 6)) == 32
-    assert sum(app.split_integer.split_integer(11, 4)) == 11
-    assert sum(app.split_integer.split_integer(3, 5)) == 3
+    assert sum(split_integer(17, 4)) == 17
+    assert sum(split_integer(32, 6)) == 32
+    assert sum(split_integer(11, 4)) == 11
+    assert sum(split_integer(3, 5)) == 3
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    assert app.split_integer.split_integer(6, 2) == [3, 3]
-    assert app.split_integer.split_integer(9, 3) == [3, 3, 3]
-    assert app.split_integer.split_integer(12, 4) == [3, 3, 3, 3]
+    assert split_integer(6, 2) == [3, 3]
+    assert split_integer(9, 3) == [3, 3, 3]
+    assert split_integer(12, 4) == [3, 3, 3, 3]
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    assert app.split_integer.split_integer(8, 1) == [8]
+    assert split_integer(8, 1) == [8]
 
 
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    assert app.split_integer.split_integer(17, 4) == [4, 4, 4, 5]
-    assert app.split_integer.split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
-    assert app.split_integer.split_integer(11, 4) == [2, 3, 3, 3]
+def test_parts_should_be_sorted_asc() -> None:
+    assert split_integer(17, 4) == [4, 4, 4, 5]
+    assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    assert app.split_integer.split_integer(3, 5) == [0, 0, 1, 1, 1]
-    assert app.split_integer.split_integer(1, 4) == [0, 0, 0, 1]
+    assert split_integer(3, 5) == [0, 0, 1, 1, 1]
+
+
+def test_difference_between_max_and_min_should_be_less_than_or_equal_to_one()\
+        -> None:
+    res1 = split_integer(17, 4)
+    assert max(res1) - min(res1) <= 1
+
+    res2 = split_integer(32, 6)
+    assert max(res2) - min(res2) <= 1
