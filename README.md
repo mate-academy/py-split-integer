@@ -22,7 +22,7 @@ split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
 ```
 
 Notes:
-- write tests in the `/app/test_split_integer.py` module;
+- write tests in the `/app/test_split_integer.py` module;   
 - their names indicate what exactly they should test.
 
 Run `pytest app/` to check if function pass your tests.
