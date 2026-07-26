@@ -1,21 +1,44 @@
 from app.split_integer import split_integer
+import pytest
+
+VARS: str = "first_value,second_value,result"
+TESTES_VALUES: list = [
+    (8, 1, [8]),
+    (6, 2, [3, 3]),
+    (17, 4, [4, 4, 4, 5]),
+    (32, 6, [5, 5, 5, 5, 6, 6])
+]
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+@pytest.mark.parametrize(VARS, TESTES_VALUES)
+def test_sum_of_the_parts_should_be_equal_to_value(
+    first_value: int,
+    second_value: int,
+    result: list
+) -> None:
+    assert split_integer(first_value, second_value) == result
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+    assert len(split_integer(5, 8)) == 8
+    assert len(split_integer(5, 5)) == 5
+    assert len(split_integer(5, 1)) == 1
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+    assert split_integer(8, 1) == [8]
+    assert split_integer(10, 1) == [10]
+    assert split_integer(101, 1) == [101]
 
 
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
+@pytest.mark.parametrize(VARS, TESTES_VALUES)
+def test_parts_should_be_sorted_when_they_are_not_equal(
+    first_value: int,
+    second_value: int,
+    result: list
+) -> None:
+    assert split_integer(first_value, second_value) == result
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+    assert split_integer(1, 3) == [0, 0, 1]
