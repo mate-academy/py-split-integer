@@ -1,21 +1,61 @@
+import pytest
 from app.split_integer import split_integer
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+# --- Конкретні, детерміновані тести для читабельності ---
+
+def test_split_into_single_part() -> None:
+    """Перевіряє випадок з однією частиною."""
+    assert split_integer(8, 1) == [8]
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+def test_split_evenly_when_divisible() -> None:
+    """Перевіряє випадок рівного поділу."""
+    assert split_integer(6, 2) == [3, 3]
 
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+def test_split_unevenly() -> None:
+    """Перевіряє загальний випадок нерівного поділу."""
+    assert split_integer(17, 4) == [4, 4, 4, 5]
 
 
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
+def test_value_equals_number_of_parts() -> None:
+    """Перевіряє властивість, що при n/n результат - це n одиниць."""
+    # ВИПРАВЛЕНО: 'n' замінено на 'parts_count'
+    parts_count = 5
+    result = split_integer(parts_count, parts_count)
+    assert len(result) == parts_count
+    assert all(part == 1 for part in result)
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+def test_value_less_than_parts_produces_zeros() -> None:
+    """Перевіряє, що для 3/5 результат містить нулі: [0, 0, 1, 1, 1]."""
+    assert split_integer(3, 5) == [0, 0, 1, 1, 1]
+
+
+# --- Властивісний тест для перевірки загальних правил ---
+
+@pytest.mark.parametrize(
+    "value, number_of_parts",
+    [
+        (32, 6),
+        (100, 10),
+        (0, 3),
+        (25, 4),
+    ]
+)
+def test_split_integer_properties(value: int, number_of_parts: int) -> None:
+    """
+    Перевіряє ключові властивості результату
+    для різних вхідних даних.
+    """
+    result = split_integer(value, number_of_parts)
+
+    assert len(result) == number_of_parts
+    assert sum(result) == value
+
+    if len(result) > 1:
+        assert max(result) - min(result) <= 1
+
+    assert result == sorted(result)
+    assert all(isinstance(x, int) and x >= 0 for x in result)
