@@ -1,21 +1,34 @@
 from app.split_integer import split_integer
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+def test_example_from_description() -> None:
+    assert split_integer(8, 1) == [8]
+    assert split_integer(6, 2) == [3, 3]
+    assert split_integer(17, 4) == [4, 4, 4, 5]
+    assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+def test_correct_number_of_elements() -> None:
+    assert len(split_integer(10, 3)) == 3
+    assert len(split_integer(100, 10)) == 10
+    assert len(split_integer(2, 2)) == 2
+    assert len(split_integer(11, 4)) == 4
 
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+def test_sorted_ascending() -> None:
+    assert split_integer(17, 4) == sorted(split_integer(17, 4))
+    assert split_integer(32, 6) == sorted(split_integer(32, 6))
+    assert split_integer(11, 4) == sorted(split_integer(11, 4))
 
 
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
+def test_max_min_difference() -> None:
+    cases = [(17, 4), (32, 6), (11, 4), (6, 2), (8, 3)]
+    for value, parts in cases:
+        result = split_integer(value, parts)
+        assert max(result) - min(result) <= 1
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+def test_sum_equals_value() -> None:
+    cases = [(17, 4), (32, 6), (11, 4), (6, 2), (8, 3), (100, 9)]
+    for value, parts in cases:
+        assert sum(split_integer(value, parts)) == value
