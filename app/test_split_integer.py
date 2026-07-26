@@ -1,21 +1,53 @@
-from app.split_integer import split_integer
+import pytest
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+from app import split_integer  # <--- KLUCZOWE: import modułu, nie funkcji!
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+class TestSplitInteger:
 
+    @pytest.mark.parametrize(
+        "value, number_of_parts",
+        [
+            (17, 4),
+            (21, 4),
+            (6, 2),
+            (12, 3),
+            (100, 5),
+            (30, 6),
+        ]
+    )
+    def test_sum_and_distribution(
+            self,
+            value: int,
+            number_of_parts: int
+    ) -> None:
+        result = split_integer.split_integer(value, number_of_parts)
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+        assert sum(result) == value
+        assert len(result) == number_of_parts
+        assert result == sorted(result)
+        assert max(result) - min(result) <= 1
 
+        if value % number_of_parts == 0:
+            assert all(x == result[0] for x in result)
 
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
+    @pytest.mark.parametrize(
+        "value, number_of_parts",
+        [
+            (0, 5),
+            (2, 5),
+            (3, 5),
+        ]
+    )
+    def test_small_values_with_zeros(
+            self,
+            value: int,
+            number_of_parts: int
+    ) -> None:
+        result = split_integer.split_integer(value, number_of_parts)
 
-
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+        assert sum(result) == value
+        assert len(result) == number_of_parts
+        assert result == sorted(result)
+        assert all(x in (0, 1) for x in result)
