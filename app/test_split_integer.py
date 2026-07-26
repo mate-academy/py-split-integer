@@ -1,21 +1,61 @@
-from app.split_integer import split_integer
+import importlib
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+split_module = importlib.import_module("app.split_integer")
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+def is_ascending(arr: list[int]) -> bool:
+    return all(a <= b for a, b in zip(arr, arr[1:]))
 
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+def test_sum_equals_value_and_length_is_parts() -> None:
+    cases = [
+        (8, 1),
+        (6, 2),
+        (17, 4),
+        (32, 6),
+        (5, 5),
+        (11, 5),
+        (13, 5),
+        (100, 3),
+    ]
+    for value, parts in cases:
+        res = split_module.split_integer(value, parts)
+        assert len(res) == parts
+        assert sum(res) == value
 
 
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
+def test_ascending_and_balanced_diff_le_1() -> None:
+    cases = [(6, 4), (11, 5), (13, 5), (32, 6), (21, 7)]
+    for value, parts in cases:
+        res = split_module.split_integer(value, parts)
+        assert is_ascending(res), "array must be sorted ascending"
+        assert max(res) - min(res) <= 1, "max-min must be <= 1"
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+def test_when_divisible_all_parts_equal() -> None:
+
+    value, parts = 12, 4
+    res = split_module.split_integer(value, parts)
+    assert len(set(res)) == 1, "all parts must be equal when value%parts==0"
+    assert res == [3, 3, 3, 3]
+
+
+def test_number_of_bigger_elements_equals_remainder() -> None:
+
+    for value, parts in [(14, 5), (17, 4), (32, 6), (23, 7)]:
+        base = value // parts
+        rem = value % parts
+        res = split_module.split_integer(value, parts)
+        bigger = [x for x in res if x == base + 1]
+        smaller = [x for x in res if x == base]
+        assert len(bigger) == rem, "exactly 'rem' elements must be base+1"
+        assert len(smaller) == parts - rem, \
+            "rest must be exactly 'base' values"
+
+
+def test_readme_examples_exact() -> None:
+    assert split_module.split_integer(8, 1) == [8]
+    assert split_module.split_integer(6, 2) == [3, 3]
+    assert split_module.split_integer(17, 4) == [4, 4, 4, 5]
+    assert split_module.split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
