@@ -2,20 +2,37 @@ from app.split_integer import split_integer
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+    assert sum(split_integer(10, 3)) == 10
+    assert sum(split_integer(9, 3)) == 9
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+    assert split_integer(10, 2) == [5, 5]
+    assert split_integer(8, 2) == [4, 4]
 
 
 def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+    assert split_integer(10, 1) == [10]
+    assert split_integer(9, 1) == [9]
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
+    assert split_integer(10, 3) == [3, 3, 4]
+    assert split_integer(7, 3) == [2, 2, 3]
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+    assert split_integer(2, 5) == [0, 0, 0, 1, 1]
+    assert split_integer(3, 5) == [0, 0, 1, 1, 1]
+
+
+def test_length_of_result_should_equal_number_of_parts() -> None:
+    assert len(split_integer(10, 5)) == 5
+    assert len(split_integer(3, 5)) == 5
+    assert len(split_integer(17, 4)) == 4
+
+
+def test_difference_between_max_and_min_should_not_be_greater_than_1() -> None:
+    assert max(split_integer(3, 5)) - min(split_integer(3, 5)) <= 1
+    assert max(split_integer(5, 5)) - min(split_integer(5, 5)) <= 1
+    assert max(split_integer(17, 4)) - min(split_integer(17, 4)) <= 1
