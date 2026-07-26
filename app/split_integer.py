@@ -1,7 +1,9 @@
 def split_integer(value: int, number_of_parts: int) -> list:
-    parts = []
-    for parts_left in range(number_of_parts, 0, -1):
-        next_number = value // parts_left
-        parts.append(value // parts_left)
-        value -= next_number
-    return parts
+    base = value // number_of_parts
+    remainder = value % number_of_parts
+
+    parts = [base] * number_of_parts
+    for i in range(remainder):
+        parts[i] += 1
+
+    return sorted(parts)
