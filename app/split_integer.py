@@ -1,7 +1,13 @@
-def split_integer(value: int, number_of_parts: int) -> list:
-    parts = []
-    for parts_left in range(number_of_parts, 0, -1):
-        next_number = value // parts_left
-        parts.append(value // parts_left)
-        value -= next_number
-    return parts
+def split_integer(value: int, number_of_parts: int) -> list[int]:
+    base = value // number_of_parts
+    remainder = value % number_of_parts
+
+    # start with equal base parts
+    parts = [base] * number_of_parts
+
+    # distribute remainder: add +1 to the first `remainder` parts
+    for i in range(remainder):
+        parts[i] += 1
+
+    # return sorted list (smallest to largest)
+    return sorted(parts)
