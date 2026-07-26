@@ -6,3 +6,8 @@
 venv/
 .pytest_cache/
 **__pycache__/
+# gemini-cli settings
+.gemini/
+
+# GitHub App credentials
+gha-creds-*.json
