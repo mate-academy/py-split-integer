@@ -1,21 +1,23 @@
 from app.split_integer import split_integer
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+def test_split_integer_even_parts() -> None:
+    assert split_integer(value=8, number_of_parts=4) == [2, 2, 2, 2]
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+def test_split_integer_length() -> None:
+    assert len(split_integer(value=9, number_of_parts=3)) == 3
 
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+def test_split_integer_sum_preserved() -> None:
+    assert sum(split_integer(value=20, number_of_parts=6)) == 20
 
 
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
+def test_split_integer_single_part() -> None:
+    assert split_integer(value=7, number_of_parts=1) == [7]
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+def test_split_integer_more_parts_than_value() -> None:
+    result = split_integer(value=3, number_of_parts=5)
+    assert len(result) == 5
+    assert sum(result) == 3
