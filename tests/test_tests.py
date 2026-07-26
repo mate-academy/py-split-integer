@@ -1,7 +1,5 @@
 import os
-
 import pytest
-
 from app import split_integer
 
 
@@ -12,13 +10,23 @@ def path_to_main():
     )
 
 
+def get_test_file_path():
+    """Повертає правильний шлях до файлу тестів"""
+    if os.path.exists("app/test_split_integer.py"):
+        return "app/test_split_integer.py"
+    elif os.path.exists("../app/test_split_integer.py"):
+        return "../app/test_split_integer.py"
+    else:
+        return "app/test_split_integer.py"
+
+
 def test_could_split_on_different_parts(monkeypatch):
     def split_on_equal_part(value: int, number_of_parts: int):
         return [value // number_of_parts] * number_of_parts
 
     monkeypatch.setattr(split_integer, "split_integer", split_on_equal_part)
 
-    test_result = pytest.main(["app/test_split_integer.py"])
+    test_result = pytest.main([get_test_file_path()])
     assert (
         test_result.value == 1
     ), "Function 'split_on_equal_part' shouldn't pass all tests"
@@ -35,7 +43,7 @@ def test_only_last_number_is_incremented(monkeypatch):
         split_integer, "split_integer", split_and_increment_the_last_number
     )
 
-    test_result = pytest.main(["app/test_split_integer.py"])
+    test_result = pytest.main([get_test_file_path()])
     assert (
         test_result.value == 1
     ), "Function 'split_and_increment_the_last_number' shouldn't pass all tests"
@@ -51,7 +59,7 @@ def test_split_on_incorrect_parts(monkeypatch):
 
     monkeypatch.setattr(split_integer, "split_integer", split_on_incorrect_parts)
 
-    test_result = pytest.main(["app/test_split_integer.py"])
+    test_result = pytest.main([get_test_file_path()])
     assert (
         test_result.value == 1
     ), "Function 'split_on_incorrect_parts' shouldn't pass all tests"
@@ -69,7 +77,7 @@ def test_split_on_different_parts(monkeypatch):
 
     monkeypatch.setattr(split_integer, "split_integer", split_on_different_parts)
 
-    test_result = pytest.main(["app/test_split_integer.py"])
+    test_result = pytest.main([get_test_file_path()])
     assert (
         test_result.value == 1
     ), "Function 'split_on_different_parts' shouldn't pass all tests"
