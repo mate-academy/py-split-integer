@@ -1,21 +1,35 @@
+import pytest
+
 from app.split_integer import split_integer
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+@pytest.mark.parametrize(
+    ("value", "number_of_parts", "expected"),
+    [
+        (8, 1, [8]),
+        (6, 2, [3, 3]),
+        (17, 4, [4, 4, 4, 5]),
+        (32, 6, [5, 5, 5, 5, 6, 6]),
+    ],
+)
+def test_split_integer_returns_expected_parts_for_known_examples(
+    value: int, number_of_parts: int, expected: list[int]
+) -> None:
+    assert split_integer(value, number_of_parts) == expected
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+def test_result_should_contain_the_requested_number_of_parts() -> None:
+    result = split_integer(17, 4)
+
+    assert len(result) == 4
 
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+def test_parts_should_be_sorted_and_have_difference_at_most_one() -> None:
+    result = split_integer(32, 6)
 
-
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
+    assert result == sorted(result)
+    assert max(result) - min(result) <= 1
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+    assert split_integer(2, 5) == [0, 0, 0, 1, 1]
