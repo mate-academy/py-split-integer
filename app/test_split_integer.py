@@ -22,7 +22,7 @@ def test_should_return_original_value_when_split_into_one_part() -> None:
     assert split_integer(9, 1) == [9]
 
 
-def test_should_split_evenly_when_value_is_divisible_by_number_of_parts() -> None:
+def test_should_split_evenly_when_divisible() -> None:
     assert split_integer(12, 3) == [4, 4, 4]
 
 
@@ -35,5 +35,5 @@ def test_should_keep_parts_sorted_and_close_to_each_other() -> None:
     assert sum(result) == 25
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
+def test_should_add_zeros_when_value_is_lower_than_parts() -> None:
     assert split_integer(3, 5) == [0, 0, 1, 1, 1]
