@@ -19,3 +19,12 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert split_integer.split_integer(2, 5) == [0, 0, 0, 1, 1]
+
+
+def test_number_of_parts_should_be_equal_to_expected() -> None:
+    assert len(split_integer.split_integer(17, 4)) == 4
+
+
+def test_parts_should_differ_by_no_more_than_one() -> None:
+    parts = split_integer.split_integer(17, 4)
+    assert max(parts) - min(parts) <= 1
