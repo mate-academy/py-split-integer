@@ -26,5 +26,6 @@ def test_number_of_parts_should_be_equal_to_expected() -> None:
 
 
 def test_parts_should_differ_by_no_more_than_one() -> None:
-    parts = split_integer.split_integer(17, 4)
-    assert max(parts) - min(parts) <= 1
+    assert max(split_integer.split_integer(17, 4)) - min(
+        split_integer.split_integer(17, 4)
+    ) <= 1
