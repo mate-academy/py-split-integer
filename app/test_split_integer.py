@@ -56,8 +56,8 @@ def test_equality_of_elements_in_list(
 @pytest.mark.parametrize(
     "initial_value,initial_parts,expected_result",
     [
-        (17, 4, sorted(split_integer(17, 4))),
-        (32, 6, sorted(split_integer(32, 6))),
+        (17, 4, [4, 4, 4, 5]),
+        (32, 6, [5, 5, 5, 5, 6, 6]),
     ]
 )
 def test_elements_are_sorted_ascending(
@@ -81,7 +81,7 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts(
         initial_parts: int,
         expected_result_list: int,
 ) -> None:
-    result = split_integer(initial_value, initial_parts)
-    assert len(result) == initial_parts
-    assert result == expected_result_list, \
+    assert (split_integer(initial_value, initial_parts) == expected_result_list
+            and len(split_integer(initial_value, initial_parts))
+        == initial_parts), \
         "test should add zeros when value is less han number of parts"
