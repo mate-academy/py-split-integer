@@ -83,5 +83,5 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts(
 ) -> None:
     assert (split_integer(initial_value, initial_parts) == expected_result_list
             and len(split_integer(initial_value, initial_parts))
-        == initial_parts), \
+            == initial_parts), \
         "test should add zeros when value is less han number of parts"
