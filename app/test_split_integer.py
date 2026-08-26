@@ -9,7 +9,7 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 
 def test_17_with_4_number_of_parts() -> None:
     assert sum(split_integer(17, 4)) == [4, 4, 4, 5], (
-        ""
+        "Should return correct list"
     )
 
 
