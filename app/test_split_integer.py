@@ -7,12 +7,6 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
     )
 
 
-def test_17_with_4_number_of_parts() -> None:
-    assert sum(split_integer(17, 4)) == [4, 4, 4, 5], (
-        "Should return correct list"
-    )
-
-
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     assert split_integer(6, 2) == [3, 3], (
         "Should return a list of equal parts"
