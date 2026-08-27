@@ -4,4 +4,6 @@ def split_integer(value: int, number_of_parts: int) -> list:
         next_number = value // parts_left
         parts.append(value // parts_left)
         value -= next_number
+    if len(parts) == 1:
+        return parts[0]
     return parts
