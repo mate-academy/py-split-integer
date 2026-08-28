@@ -8,6 +8,7 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     assert split_integer(6, 2) == [3, 3]
 
+
 def test_should_return_exact_number_of_parts() -> None:
     assert len(split_integer(10, 3)) == 3
 
