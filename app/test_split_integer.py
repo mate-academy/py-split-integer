@@ -11,7 +11,7 @@ def test_sum_of_the_parts_should_be_equal_to_value() -> None:
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
     value = 12
     number_of_parts = 4
-    result= split_integer(value=value, number_of_parts=number_of_parts)
+    result = split_integer(value=value, number_of_parts=number_of_parts)
     assert result == [3, 3, 3, 3]
 
 
