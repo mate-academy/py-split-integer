@@ -1,3 +1,5 @@
+import pytest
+
 from app.split_integer import split_integer
 
 
@@ -14,9 +16,35 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    list_val = split_integer(10, 3)
-    assert list_val == sorted(list_val)
+    assert split_integer(10, 3) == sorted(split_integer(10, 3))
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    assert split_integer(3, 4) == [0, 1, 1, 1]
+    assert split_integer(10, 11) == [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+
+
+def test_returned_array_length_must_be_equal_to_number_of_parts() -> None:
+    assert len(split_integer(10, 11)) == 11
+
+
+@pytest.mark.parametrize(
+    "value, number_of_parts",
+    [
+        (10, 11),
+        (8, 1),
+        (6, 2),
+        (17, 4),
+        (32, 6)
+    ]
+)
+def test_diff_of_max_and_min_number_array_le_one(
+        value: int, number_of_parts: int) -> None:
+    assert (max(split_integer(value, number_of_parts))
+            - min(split_integer(value, number_of_parts)) <= 1)
+
+
+def test_check_list() -> None:
+    assert split_integer(8, 1) == [8]
+    assert split_integer(6, 2) == [3, 3]
+    assert split_integer(17, 4) == [4, 4, 4, 5]
+    assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
