@@ -1,7 +1,5 @@
 import os
-
 import pytest
-
 from app import split_integer
 
 
@@ -19,9 +17,7 @@ def test_could_split_on_different_parts(monkeypatch):
     monkeypatch.setattr(split_integer, "split_integer", split_on_equal_part)
 
     test_result = pytest.main(["app/test_split_integer.py"])
-    assert (
-        test_result.value == 1
-    ), "Function 'split_on_equal_part' shouldn't pass all tests"
+    assert test_result.value == 1, "Function 'split_on_equal_part' shouldn't pass all tests"
 
 
 def test_only_last_number_is_incremented(monkeypatch):
@@ -36,9 +32,7 @@ def test_only_last_number_is_incremented(monkeypatch):
     )
 
     test_result = pytest.main(["app/test_split_integer.py"])
-    assert (
-        test_result.value == 1
-    ), "Function 'split_and_increment_the_last_number' shouldn't pass all tests"
+    assert test_result.value == 1, "Function 'split_and_increment_the_last_number' shouldn't pass all tests"
 
 
 def test_split_on_incorrect_parts(monkeypatch):
@@ -52,9 +46,7 @@ def test_split_on_incorrect_parts(monkeypatch):
     monkeypatch.setattr(split_integer, "split_integer", split_on_incorrect_parts)
 
     test_result = pytest.main(["app/test_split_integer.py"])
-    assert (
-        test_result.value == 1
-    ), "Function 'split_on_incorrect_parts' shouldn't pass all tests"
+    assert test_result.value == 1, "Function 'split_on_incorrect_parts' shouldn't pass all tests"
 
 
 def test_split_on_different_parts(monkeypatch):
@@ -70,15 +62,10 @@ def test_split_on_different_parts(monkeypatch):
     monkeypatch.setattr(split_integer, "split_integer", split_on_different_parts)
 
     test_result = pytest.main(["app/test_split_integer.py"])
-    assert (
-        test_result.value == 1
-    ), "Function 'split_on_different_parts' shouldn't pass all tests"
+    assert test_result.value == 1, "Function 'split_on_different_parts' shouldn't pass all tests"
 
 
 def test_no_pass_in_code():
     with open(path_to_main(), "r") as file:
         tests_content = file.read()
-
-        assert (
-            "pass" not in tests_content
-        ), "You have to remove the 'pass' statement from your code if function is not empty"
+        assert "pass" not in tests_content, "You have to remove the 'pass' statement from your code if function is not empty"
