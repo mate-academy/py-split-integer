@@ -26,6 +26,7 @@ def test_returned_list_should_have_exact_number_of_parts() -> None:
     assert len(split_integer(10, 3)) == 3
 
 
-def test_difference_between_max_and_min_should_be_less_than_or_equal_to_one() -> None:
+def test_difference_between_max_and_min_should_be_less_than_or_equal_to_one(
+) -> None:
     result = split_integer(17, 4)
     assert max(result) - min(result) <= 1
