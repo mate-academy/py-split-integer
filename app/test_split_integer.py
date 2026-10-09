@@ -1,21 +1,37 @@
-from app.split_integer import split_integer
+import app.split_integer
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+def test_sum_of_the_parts_is_equal_to_value() -> None:
+    assert sum(app.split_integer.split_integer(17, 4)) == 17
+    assert sum(app.split_integer.split_integer(32, 6)) == 32
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+def test_should_split_into_equal_parts() -> None:
+    assert app.split_integer.split_integer(6, 2) == [3, 3]
+    assert app.split_integer.split_integer(8, 1) == [8]
 
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+def test_should_split_with_remainder() -> None:
+    assert app.split_integer.split_integer(17, 4) == [4, 4, 4, 5]
+    assert app.split_integer.split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
 
 
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
+def test_should_return_ascending_sorted_list() -> None:
+    result1 = app.split_integer.split_integer(17, 4)
+    assert result1 == sorted(result1)
+
+    result2 = app.split_integer.split_integer(32, 6)
+    assert result2 == sorted(result2)
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+def test_difference_between_max_and_min_is_less_or_equal_to_1() -> None:
+    result1 = app.split_integer.split_integer(17, 4)
+    assert max(result1) - min(result1) <= 1
+
+    result2 = app.split_integer.split_integer(32, 6)
+    assert max(result2) - min(result2) <= 1
+
+
+def test_split_integer_should_return_list_of_given_length() -> None:
+    assert len(app.split_integer.split_integer(17, 4)) == 4
+    assert len(app.split_integer.split_integer(32, 6)) == 6
