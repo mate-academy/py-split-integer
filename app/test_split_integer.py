@@ -1,21 +1,40 @@
 from app.split_integer import split_integer
 
 
-def test_sum_of_the_parts_should_be_equal_to_value() -> None:
-    pass
+def test_split_into_one_part() -> None:
+    """Test when parts is 1, returns the value in a list."""
+    assert split_integer(8, 1) == [8]
 
 
-def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
-    pass
+def test_split_evenly() -> None:
+    """Test when value is evenly divisible by parts."""
+    assert split_integer(6, 2) == [3, 3]
 
 
-def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
-    pass
+def test_split_with_remainder() -> None:
+    """Test when value leaves a remainder and distributes."""
+    assert split_integer(17, 4) == [4, 4, 4, 5]
 
 
-def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    pass
+def test_split_with_larger_remainder() -> None:
+    """Test with a larger number of parts and remainder."""
+    assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
 
 
-def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    pass
+def test_result_length_matches_number_of_parts() -> None:
+    """Test that the length matches number of parts."""
+    number_of_parts = 5
+    result = split_integer(20, number_of_parts)
+    assert len(result) == number_of_parts
+
+
+def test_elements_are_sorted_ascending() -> None:
+    """Test that the resulting array is sorted ascending."""
+    result = split_integer(17, 4)
+    assert result == sorted(result)
+
+
+def test_difference_between_max_and_min_is_at_most_one() -> None:
+    """Test that max and min difference is at most 1."""
+    result = split_integer(32, 6)
+    assert max(result) - min(result) <= 1
