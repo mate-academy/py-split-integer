@@ -25,5 +25,6 @@ def test_split_integer_with_thirty_two_and_six() -> None:
     assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
 
 
-def test_difference_between_max_and_min_should_be_less_than_or_equal_to_one() -> None:
+def test_difference_between_max_and_min_should_be_less_than_or_equal_to_one()\
+        -> None:
     assert max(split_integer(32, 6)) - min(split_integer(32, 6)) <= 1
