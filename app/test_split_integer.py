@@ -1,5 +1,4 @@
 from app.split_integer import split_integer
-import pytest
 
 
 def test_sum_of_the_parts_should_be_equal_to_value() -> None:
@@ -15,10 +14,16 @@ def test_should_return_part_equals_to_value_when_split_into_one_part() -> None:
 
 
 def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
-    result = split_integer(17, 4)
-    assert result == [4, 4, 4, 5]
-    assert result == sorted(result)
+    assert split_integer(17, 4) == [4, 4, 4, 5]
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
     assert split_integer(3, 5) == [0, 0, 1, 1, 1]
+
+
+def test_split_integer_with_thirty_two_and_six() -> None:
+    assert split_integer(32, 6) == [5, 5, 5, 5, 6, 6]
+
+
+def test_difference_between_max_and_min_should_be_less_than_or_equal_to_one():
+    assert max(split_integer(32, 6)) - min(split_integer(32, 6)) <= 1
