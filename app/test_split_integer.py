@@ -20,25 +20,35 @@ def test_split_integer_returns_expected_result(
     assert split_integer(value, number_of_parts) == expected
 
 
-def test_split_integer_returns_correct_number_of_parts() -> None:
+def test_result_has_correct_length() -> None:
     result = split_integer(17, 4)
 
     assert len(result) == 4
 
 
-def test_split_integer_returns_sorted_list() -> None:
+def test_result_is_sorted() -> None:
     result = split_integer(17, 4)
 
     assert result == sorted(result)
 
 
-def test_split_integer_difference_between_max_and_min_not_more_than_one() -> None:
+def test_difference_between_max_and_min_is_not_greater_than_one() -> None:
     result = split_integer(17, 4)
 
     assert max(result) - min(result) <= 1
 
 
-def test_split_integer_sum_equals_original_value() -> None:
-    result = split_integer(32, 6)
-
-    assert sum(result) == 32
+@pytest.mark.parametrize(
+    "value, number_of_parts",
+    [
+        (8, 1),
+        (6, 2),
+        (17, 4),
+        (32, 6),
+    ],
+)
+def test_sum_of_parts_equals_original_value(
+    value: int,
+    number_of_parts: int,
+) -> None:
+    assert sum(split_integer(value, number_of_parts)) == value
