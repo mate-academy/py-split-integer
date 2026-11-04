@@ -1,6 +1,6 @@
 import pytest
 
-from split_integer import split_integer
+from app.split_integer import split_integer
 
 
 @pytest.mark.parametrize(
