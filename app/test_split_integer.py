@@ -18,7 +18,7 @@ def test_should_return_part_differ_by_at_most_one() -> None:
     assert max(result) - min(result) <= 1
 
 
-def test_should_returns_a_sort_array() -> None:
+def test_should_return_exact_split_for_seventeen_into_four_parts() -> None:
     assert split_integer(17, 4) == [4, 4, 4, 5]
 
 
