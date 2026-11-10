@@ -84,3 +84,38 @@ def test_should_add_zeros_when_value_is_less_than_number_of_parts(
         expected: list
 ) -> None:
     assert split_integer(value, number_of_parts) == expected
+
+
+@pytest.mark.parametrize(
+    "value, number_of_parts",
+    [
+        (17, 4),
+        (8, 3),
+        (7, 5),
+        (32, 6),
+        (1, 3),
+    ],
+)
+def test_difference_between_min_and_max_parts_should_be_one_or_zero(
+        value: int,
+        number_of_parts: int
+) -> None:
+    result = split_integer(value, number_of_parts)
+    assert max(result) - min(result) <= 1
+
+
+@pytest.mark.parametrize(
+    "value, number_of_parts",
+    [
+        (8, 1),
+        (6, 2),
+        (17, 4),
+        (1, 3),
+        (32, 6),
+    ],
+)
+def test_should_return_exactly_number_of_parts_elements(
+        value: int,
+        number_of_parts: int
+) -> None:
+    assert len(split_integer(value, number_of_parts)) == number_of_parts
