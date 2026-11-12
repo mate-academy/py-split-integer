@@ -66,4 +66,3 @@ def test_split_integer_returns_expected_result(
     expected: list[int],
 ) -> None:
     assert split_integer(value, number_of_parts) == expected
-    
