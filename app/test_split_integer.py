@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from app.main import split_integer
+from app.split_integer import split_integer
 
 
 def test_split_integer_into_one_part() -> None:
@@ -22,15 +22,11 @@ def test_split_integer_into_many_parts() -> None:
 
 
 def test_result_has_exact_number_of_parts() -> None:
-    result = split_integer(17, 4)
-
-    assert len(result) == 4
+    assert len(split_integer(17, 4)) == 4
 
 
 def test_result_is_sorted_ascending() -> None:
-    result = split_integer(32, 6)
-
-    assert result == sorted(result)
+    assert split_integer(32, 6) == sorted(split_integer(32, 6))
 
 
 def test_difference_between_max_and_min_is_not_greater_than_one() -> None:
@@ -40,9 +36,7 @@ def test_difference_between_max_and_min_is_not_greater_than_one() -> None:
 
 
 def test_sum_of_parts_equals_original_value() -> None:
-    result = split_integer(32, 6)
-
-    assert sum(result) == 32
+    assert sum(split_integer(32, 6)) == 32
 
 
 def test_all_parts_are_integers() -> None:
