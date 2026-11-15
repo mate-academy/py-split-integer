@@ -41,19 +41,22 @@ def test_parts_should_be_sorted_when_they_are_not_equal() -> None:
     result_list = split_integer(value_parameter, parts_parameter)
     assert (
         result_list == sorted(result_list)
+        and len(result_list) == parts_parameter
+        and result_list[-1] - result_list[0] <= 1
     ), "Split integer shall return a sorted list!"
 
 
 def test_should_add_zeros_when_value_is_less_than_number_of_parts() -> None:
-    value_parameter = randint(20, 100)
-    value_less = randint(1, 19)
-    result_list = split_integer(value_parameter, value_parameter - value_less)
-    number_of_zeros = 0
+    number_of_parts = randint(20, 100)
+    number_of_zeros = randint(1, 19)
+    result_list = split_integer(number_of_parts - number_of_zeros,
+                                number_of_parts)
+    number_of_zeros_split = 0
     for result_value in result_list:
         if result_value == 0:
-            number_of_zeros += 1
+            number_of_zeros_split += 1
     assert (
-        number_of_zeros == value_parameter
-    ), (f"To split the value {value_parameter} into "
-        f"{value_parameter - value_less} parts , the function must return "
-        f"{value_less} zeros, not {number_of_zeros}!")
+        number_of_zeros == number_of_zeros_split
+    ), (f"To split the value {number_of_parts - number_of_zeros} into "
+        f"{number_of_parts} parts , the function must return "
+        f"{number_of_zeros} zeros, not {number_of_zeros_split}!")
