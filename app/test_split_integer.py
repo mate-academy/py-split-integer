@@ -3,14 +3,18 @@ import pytest
 from app import split_integer
 
 
-@pytest.mark.parametrize("value,number_of_parts", [(32, 6), (100, 7), (17, 4)])
-def test_sum_of_the_parts_should_be_equal_to_value(
-    value: int, number_of_parts: int
+@pytest.mark.parametrize(
+    "value,number_of_parts,expected",
+    [
+        (32, 6, [5, 5, 5, 5, 6, 6]),
+        (100, 7, [14, 14, 14, 14, 14, 15, 15]),
+        (17, 4, [4, 4, 4, 5]),
+    ],
+)
+def test_should_return_expected_parts(
+    value: int, number_of_parts: int, expected: list
 ) -> None:
-    parts = split_integer.split_integer(value, number_of_parts)
-
-    assert sum(parts) == value
-    assert len(parts) == number_of_parts
+    assert split_integer.split_integer(value, number_of_parts) == expected
 
 
 def test_should_split_into_equal_parts_when_value_divisible_by_parts() -> None:
