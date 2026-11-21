@@ -21,8 +21,8 @@ from app.split_integer import split_integer
                              (20, 7, [2, 3, 3, 3, 3, 3, 3]),
                              (9, 4, [2, 2, 2, 3]),
                              (3, 5, [0, 0, 1, 1, 1]),
-                         ]
-)
-
-def test_split_integer(value, number_of_parts, expected):
+                         ])
+def test_split_integer(value: int,
+                       number_of_parts: int,
+                       expected: list) -> None:
     assert split_integer(value, number_of_parts) == expected
