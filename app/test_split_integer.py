@@ -17,7 +17,7 @@ from app import split_integer
         (1, 3, [0, 0, 1]),
     ]
 )
-def test_split_integer(
+def test_should_split_integer_into_expected_parts(
         value: int,
         number_of_parts: int,
         expected: list[int]
@@ -26,6 +26,29 @@ def test_split_integer(
         split_integer.split_integer(value, number_of_parts)
         == expected
     )
+
+
+@pytest.mark.parametrize(
+    "value, number_of_parts",
+    [
+        (8, 1),
+        (6, 2),
+        (17, 4),
+        (32, 6),
+        (10, 3),
+        (2, 4),
+    ]
+)
+def test_should_return_only_integers(
+        value: int,
+        number_of_parts: int
+) -> None:
+    result = split_integer.split_integer(
+        value,
+        number_of_parts
+    )
+
+    assert all(type(part) is int for part in result)
 
 
 @pytest.mark.parametrize(
